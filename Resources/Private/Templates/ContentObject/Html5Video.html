@@ -1,0 +1,17 @@
+<video width="{attributes.width}" height="{attributes.height}"{f:if(condition: attributes.preload, then: ' preload="auto"')}{f:if(condition: attributes.autoplay, then: ' autoplay')}{f:if(condition: attributes.loop, then: ' loop')}{f:if(condition: attributes.controls, then: ' controls')}{f:if(condition: poster, then: ' poster="{poster.publicUrl}"')}>
+    <f:for each="{sources}" as="file" key="mimeType">
+        <source src="{file}" type="{mimeType}">
+    </f:for>
+    <f:if condition="{flash}">
+        <object width="{attributes.width}" height="{attributes.height}" type="application/x-shockwave-flash" data="{flash.publicUrl}">
+            <param name="movie" value="{flash.publicUrl}">
+            <param name="wmode" value="transparent">
+            <param name="allowFullScreen" value="true">
+            <param name="allowScriptAccess" value="sameDomain">
+            <f:if condition="{flashVars}"><f:render partial="ContentObject/FlashVars" arguments="{flashVars: flashVars}" /></f:if>
+            <f:if condition="{poster}">
+                <f:image src="{poster.publicUrl}" width="{attributes.width}c" height="{attributes.height}c" alt="{poster.alternative}" />
+            </f:if>
+        </object>
+    </f:if>
+</video>
