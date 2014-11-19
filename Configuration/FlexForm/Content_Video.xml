@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <sSources>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_divSources</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <poster>
+                        <TCEforms>
+                            <label>LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SrcPoster</label>
+                            <config>
+                                <type>inline</type>
+                                <foreign_table>sys_file_reference</foreign_table>
+                                <foreign_field>uid_foreign</foreign_field>
+                                <foreign_sortby>sorting_foreign</foreign_sortby>
+                                <foreign_table_field>tablenames</foreign_table_field>
+                                <foreign_match_fields type="array">
+                                    <fieldname>poster</fieldname>
+                                </foreign_match_fields>
+                                <foreign_label>uid_local</foreign_label>
+                                <foreign_selector>uid_local</foreign_selector>
+                                <foreign_types type="array">
+                                    <numIndex index="2">
+                                        <showitem>--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,--palette--;;filePalette</showitem>
+                                    </numIndex>
+                                </foreign_types>
+                                <maxitems>1</maxitems>
+                                <foreign_selector_fieldTcaOverride type="array">
+                                    <config>
+                                        <appearance>
+                                            <elementBrowserType>file</elementBrowserType>
+                                            <elementBrowserAllowed>jpg,png</elementBrowserAllowed>
+                                        </appearance>
+                                    </config>
+                                </foreign_selector_fieldTcaOverride>
+                                <appearance type="array">
+                                    <createNewRelationLinkTitle>LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference</createNewRelationLinkTitle>
+                                    <useSortable>1</useSortable>
+                                    <showPossibleLocalizationRecords>1</showPossibleLocalizationRecords>
+                                    <showRemovedLocalizationRecords>1</showRemovedLocalizationRecords>
+                                    <showSynchronizationLink>1</showSynchronizationLink>
+                                    <enableControls type="array">
+                                        <info></info>
+                                        <new>1</new>
+                                        <dragdrop>1</dragdrop>
+                                        <sort>1</sort>
+                                        <hide>1</hide>
+                                        <delete>1</delete>
+                                        <localize>1</localize>
+                                    </enableControls>
+                                    <levelLinksPosition>both</levelLinksPosition>
+                                </appearance>
+                                <behaviour>
+                                    <localizationMode>select</localizationMode>
+                                    <localizeChildrenAtParentLocalization>1</localizeChildrenAtParentLocalization>
+                                </behaviour>
+                            </config>
+                        </TCEforms>
+                    </poster>
+                    <mp4>
+                        <TCEforms>
+                            <label>LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SrcMp4</label>
+                            <config>
+                                <type>inline</type>
+                                <foreign_table>sys_file_reference</foreign_table>
+                                <foreign_field>uid_foreign</foreign_field>
+                                <foreign_sortby>sorting_foreign</foreign_sortby>
+                                <foreign_table_field>tablenames</foreign_table_field>
+                                <foreign_match_fields type="array">
+                                    <fieldname>mp4</fieldname>
+                                </foreign_match_fields>
+                                <foreign_label>uid_local</foreign_label>
+                                <foreign_selector>uid_local</foreign_selector>
+                                <maxitems>1</maxitems>
+                                <foreign_selector_fieldTcaOverride type="array">
+                                    <config>
+                                        <appearance>
+                                            <elementBrowserType>file</elementBrowserType>
+                                            <elementBrowserAllowed>mp4</elementBrowserAllowed>
+                                        </appearance>
+                                    </config>
+                                </foreign_selector_fieldTcaOverride>
+                                <appearance type="array">
+                                    <createNewRelationLinkTitle>LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SrcMp4New</createNewRelationLinkTitle>
+                                    <useSortable>1</useSortable>
+                                    <showPossibleLocalizationRecords>1</showPossibleLocalizationRecords>
+                                    <showRemovedLocalizationRecords>1</showRemovedLocalizationRecords>
+                                    <showSynchronizationLink>1</showSynchronizationLink>
+                                    <enableControls type="array">
+                                        <info></info>
+                                        <new>1</new>
+                                        <dragdrop>1</dragdrop>
+                                        <sort>1</sort>
+                                        <hide>1</hide>
+                                        <delete>1</delete>
+                                        <localize>1</localize>
+                                    </enableControls>
+                                    <levelLinksPosition>both</levelLinksPosition>
+                                </appearance>
+                                <behaviour>
+                                    <localizationMode>select</localizationMode>
+                                    <localizeChildrenAtParentLocalization>1</localizeChildrenAtParentLocalization>
+                                </behaviour>
+                            </config>
+                        </TCEforms>
+                    </mp4>
+                    <webm>
+                        <TCEforms>
+                            <label>LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SrcWebm</label>
+                            <config>
+                                <type>inline</type>
+                                <foreign_table>sys_file_reference</foreign_table>
+                                <foreign_field>uid_foreign</foreign_field>
+                                <foreign_sortby>sorting_foreign</foreign_sortby>
+                                <foreign_table_field>tablenames</foreign_table_field>
+                                <foreign_match_fields type="array">
+                                    <fieldname>webm</fieldname>
+                                </foreign_match_fields>
+                                <foreign_label>uid_local</foreign_label>
+                                <foreign_selector>uid_local</foreign_selector>
+                                <maxitems>1</maxitems>
+                                <foreign_selector_fieldTcaOverride type="array">
+                                    <config>
+                                        <appearance>
+                                            <elementBrowserType>file</elementBrowserType>
+                                            <elementBrowserAllowed>webm</elementBrowserAllowed>
+                                        </appearance>
+                                    </config>
+                                </foreign_selector_fieldTcaOverride>
+                                <appearance type="array">
+                                    <createNewRelationLinkTitle>LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SrcWebmNew</createNewRelationLinkTitle>
+                                    <useSortable>1</useSortable>
+                                    <showPossibleLocalizationRecords>1</showPossibleLocalizationRecords>
+                                    <showRemovedLocalizationRecords>1</showRemovedLocalizationRecords>
+                                    <showSynchronizationLink>1</showSynchronizationLink>
+                                    <enableControls type="array">
+                                        <info></info>
+                                        <new>1</new>
+                                        <dragdrop>1</dragdrop>
+                                        <sort>1</sort>
+                                        <hide>1</hide>
+                                        <delete>1</delete>
+                                        <localize>1</localize>
+                                    </enableControls>
+                                    <levelLinksPosition>both</levelLinksPosition>
+                                </appearance>
+                                <behaviour>
+                                    <localizationMode>select</localizationMode>
+                                    <localizeChildrenAtParentLocalization>1</localizeChildrenAtParentLocalization>
+                                </behaviour>
+                            </config>
+                        </TCEforms>
+                    </webm>
+                    <ogg>
+                        <TCEforms>
+                            <label>LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SrcOgg</label>
+                            <config>
+                               <type>inline</type>
+                                <foreign_table>sys_file_reference</foreign_table>
+                                <foreign_field>uid_foreign</foreign_field>
+                                <foreign_sortby>sorting_foreign</foreign_sortby>
+                                <foreign_table_field>tablenames</foreign_table_field>
+                                <foreign_match_fields type="array">
+                                    <fieldname>ogg</fieldname>
+                                </foreign_match_fields>
+                                <foreign_label>uid_local</foreign_label>
+                                <foreign_selector>uid_local</foreign_selector>
+                                <maxitems>1</maxitems>
+                                <foreign_selector_fieldTcaOverride type="array">
+                                    <config>
+                                        <appearance>
+                                            <elementBrowserType>file</elementBrowserType>
+                                            <elementBrowserAllowed>ogg</elementBrowserAllowed>
+                                        </appearance>
+                                    </config>
+                                </foreign_selector_fieldTcaOverride>
+                                <appearance type="array">
+                                    <createNewRelationLinkTitle>LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SrcOggNew</createNewRelationLinkTitle>
+                                    <useSortable>1</useSortable>
+                                    <showPossibleLocalizationRecords>1</showPossibleLocalizationRecords>
+                                    <showRemovedLocalizationRecords>1</showRemovedLocalizationRecords>
+                                    <showSynchronizationLink>1</showSynchronizationLink>
+                                    <enableControls type="array">
+                                        <info></info>
+                                        <new>1</new>
+                                        <dragdrop>1</dragdrop>
+                                        <sort>1</sort>
+                                        <hide>1</hide>
+                                        <delete>1</delete>
+                                        <localize>1</localize>
+                                    </enableControls>
+                                    <levelLinksPosition>both</levelLinksPosition>
+                                </appearance>
+                                <behaviour>
+                                    <localizationMode>select</localizationMode>
+                                    <localizeChildrenAtParentLocalization>1</localizeChildrenAtParentLocalization>
+                                </behaviour>
+                            </config>
+                        </TCEforms>
+                    </ogg>
+                    <flash>
+                        <TCEforms>
+                            <label>LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SrcFlash</label>
+                            <config>
+                                <type>inline</type>
+                                <foreign_table>sys_file_reference</foreign_table>
+                                <foreign_field>uid_foreign</foreign_field>
+                                <foreign_sortby>sorting_foreign</foreign_sortby>
+                                <foreign_table_field>tablenames</foreign_table_field>
+                                <foreign_match_fields type="array">
+                                    <fieldname>flash</fieldname>
+                                </foreign_match_fields>
+                                <foreign_label>uid_local</foreign_label>
+                                <foreign_selector>uid_local</foreign_selector>
+                                <maxitems>1</maxitems>
+                                <foreign_selector_fieldTcaOverride type="array">
+                                    <config>
+                                        <appearance>
+                                            <elementBrowserType>file</elementBrowserType>
+                                            <elementBrowserAllowed>swf,flv</elementBrowserAllowed>
+                                        </appearance>
+                                    </config>
+                                </foreign_selector_fieldTcaOverride>
+                                <appearance type="array">
+                                    <createNewRelationLinkTitle>LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SrcFlashNew</createNewRelationLinkTitle>
+                                    <useSortable>1</useSortable>
+                                    <showPossibleLocalizationRecords>1</showPossibleLocalizationRecords>
+                                    <showRemovedLocalizationRecords>1</showRemovedLocalizationRecords>
+                                    <showSynchronizationLink>1</showSynchronizationLink>
+                                    <enableControls type="array">
+                                        <info></info>
+                                        <new>1</new>
+                                        <dragdrop>1</dragdrop>
+                                        <sort>1</sort>
+                                        <hide>1</hide>
+                                        <delete>1</delete>
+                                        <localize>1</localize>
+                                    </enableControls>
+                                    <levelLinksPosition>both</levelLinksPosition>
+                                </appearance>
+                                <behaviour>
+                                    <localizationMode>select</localizationMode>
+                                    <localizeChildrenAtParentLocalization>1</localizeChildrenAtParentLocalization>
+                                </behaviour>
+                            </config>
+                        </TCEforms>
+                    </flash>
+                </el>
+            </ROOT>
+        </sSources>
+        <sSettings>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_divSettings</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <width>
+                        <TCEforms>
+                            <label>LLL:EXT:cms/locallang_ttc.xml:imagewidth</label>
+                            <config>
+                                <type>input</type>
+                                <size>4</size>
+                                <max>4</max>
+                                <eval>int</eval>
+                                <range type="array">
+                                    <upper>9999</upper>
+                                    <lower>25</lower>
+                                </range>
+                                <default>0</default>
+                            </config>
+                        </TCEforms>
+                    </width>
+                    <height>
+                        <TCEforms>
+                            <label>LLL:EXT:cms/locallang_ttc.xml:imageheight</label>
+                            <config>
+                                <type>input</type>
+                                <size>4</size>
+                                <max>4</max>
+                                <eval>int</eval>
+                                <range type="array">
+                                    <upper>9999</upper>
+                                    <lower>25</lower>
+                                </range>
+                                <default>0</default>
+                            </config>
+                        </TCEforms>
+                    </height>
+                    <preload>
+                        <TCEforms>
+                            <label>LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SetPreload</label>
+                            <config>
+                                <type>check</type>
+                                <items type="array">
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SetPreloadCheck</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </preload>
+                    <autoplay>
+                        <TCEforms>
+                            <label>LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SetAutoplay</label>
+                            <config>
+                                <type>check</type>
+                                <items type="array">
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SetAutoplayCheck</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </autoplay>
+                    <loop>
+                        <TCEforms>
+                            <label>LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SetLoop</label>
+                            <config>
+                                <type>check</type>
+                                <items type="array">
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SetLoopCheck</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </loop>
+                    <controls>
+                        <TCEforms>
+                            <label>LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SetControls</label>
+                            <config>
+                                <type>check</type>
+                                <items type="array">
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:flexform.video_SetControlsCheck</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </controls>
+                </el>
+            </ROOT>
+        </sSettings>
+    </sheets>
+</T3DataStructure>
