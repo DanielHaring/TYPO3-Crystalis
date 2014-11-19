@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2014-09-17T08:18:16Z" product-name="crystalis">
+        <header/>
+	<body>
+            
+            
+            <trans-unit id="div.video">
+                <source>Video</source>
+            </trans-unit>
+            
+            
+            <trans-unit id="flexform.video_divSettings">
+                <source>Settings</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_divSources">
+                <source>Resources</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetAutoplay">
+                <source>Autoplay video</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetAutoplayCheck">
+                <source>activate</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetControls">
+                <source>Controls</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetControlsCheck">
+                <source>show</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetLoop">
+                <source>Loop video</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetLoopCheck">
+                <source>activate</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetPreload">
+                <source>Preload video</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetPreloadCheck">
+                <source>activate</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcFlash">
+                <source>Adobe® Flash® source</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcFlashNew">
+                <source>Add Adobe® Flash® source</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcMp4">
+                <source>MP4 source</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcMp4New">
+                <source>Add MP4 Source</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcOgg">
+                <source>Ogg source</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcOggNew">
+                <source>Add Ogg source</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcPoster">
+                <source>Poster image</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcWebm">
+                <source>WebM source</source>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcWebmNew">
+                <source>Add WebM source</source>
+            </trans-unit>
+            
+            
+            <trans-unit id="pages.palette_references" xml:space="preserve">
+                <source>References</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_crystalis_canonical" xml:space="preserve">
+                <source>Canonical link</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_crystalis_canonical_formlabel" xml:space="preserve">
+                <source>Canonical link</source>
+            </trans-unit>
+            
+            
+            <trans-unit id="sys_domain.palette_language" xml:space="preserve">
+                <source>Language Handling</source>
+            </trans-unit>
+            <trans-unit id="sys_domain.tx_crystalis_language" xml:space="preserve">
+                <source>Language</source>
+            </trans-unit>
+            <trans-unit id="sys_domain.tx_crystalis_language_formlabel" xml:space="preserve">
+                <source>Allocated language</source>
+            </trans-unit>
+            
+            
+            <trans-unit id="tt_content.CType_Video">
+                <source>HTML5 Video</source>
+            </trans-unit>
+            <trans-unit id="tt_content.CType_Video_Desc">
+                <source>Adds a HTML5 video element with multiple soruces including flash and image fallback.</source>
+            </trans-unit>
+            
+            
+	</body>
+    </file>
+</xliff>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-09-17T08:18:16Z" product-name="crystalis">
+        <header/>
+	<body>
+            
+            
+            <trans-unit id="tx_crystalis_canonical.description" xml:space="preserve">
+                <source>Define the original resource of this page to avoid duplicate content issues.</source>
+                <target>Geben Sie die Originalressource dieser Seite an, um Probleme mit Duplicate Content zu vermeiden.</target>
+            </trans-unit>
+            <trans-unit id="tx_crystalis_canonical.details" xml:space="preserve">
+                <source>Specify an uri, which should be set as canonical link. This option is part of search engine optimization (SEO) and helps search engines to correctly rank content which occures more often than once (so called "Dupicate Content").</source>
+                <target>Definieren Sie eine URI, welche als kanonischer Link gesetzt werden soll. Diese Einstellung ist Teil der Suchmaschinenoptimierung (SEO) und hilft Suchmaschinen jene Inhalte korrekt zu listen, welche mehrmals aufscheinen (so genannter "Duplicate Content").</target>
+            </trans-unit>
+            <trans-unit id="tx_crystalis_canonical.seeAlso" xml:space="preserve">
+                <source>Canonical link element at Wikipedia | http://en.wikipedia.org/wiki/Canonical_link_element,Duplicate Content at Wikipedia | http://en.wikipedia.org/wiki/Duplicate_content</source>
+                <target>Canonical Link auf Wikipedia | http://de.wikipedia.org/wiki/Canonical_Link,Duplicate Content auf Wikipedia | http://de.wikipedia.org/wiki/Duplicate_Content</target>
+            </trans-unit>
+            
+            
+	</body>
+    </file>
+</xliff>

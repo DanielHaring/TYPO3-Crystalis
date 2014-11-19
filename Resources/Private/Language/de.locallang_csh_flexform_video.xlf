@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-09-17T08:18:16Z" product-name="crystalis">
+        <header/>
+	<body>
+            
+            
+            <trans-unit id="autoplay.description" xml:space="preserve">
+                <source>If activated, the video will start playing automatically as soon as page is loaded.</source>
+                <target>Wenn aktiviert, wird das Video automatisch abgespielt, sobald die Seite geladen wurde.</target>
+            </trans-unit>
+            <trans-unit id="controls.description" xml:space="preserve">
+                <source>Shows default control buttons (play, mute, seek, etc.) of the specific video player.</source>
+                <target>Zeigt die Standard-Kontrollelemente (Abspielen, Stumm-Schaltung, Zeitleiste, usw.) des geladenen Video-Players.</target>
+            </trans-unit>
+            <trans-unit id="flash.description" xml:space="preserve">
+                <source>The Adobe Flash fallback version of the video. This format is supported in nearly all desktop (not mobile!) browsers, but is outdated as well. It is recommended to omit this format unless you really need to maximise browser compatibility.</source>
+                <target>Die Adobe Flash Ersatz-Version des Videos. Dieses Format wird von nahezu sämtlichen Desktop Browsern (nicht Mobil!) unterstützt, ist jedoch ein bereits überholtes Format. Es wird empfohlen dieses Format auszulassen, sofern nicht maximale Kompatibilität gewünscht ist.</target>
+            </trans-unit>
+            <trans-unit id="flash.details" xml:space="preserve">
+                <source><![CDATA[The Adobe Flash source can be of type Small Web Format (.swf) or Flash Video (.flv). The latter one will be embedded using the default player for Adobe Flash Videos. <strong>Browsers which support this format:</strong> Nearly all desktop browsers]]></source>
+                <target><![CDATA[Die Adobe Flash Quelle kann entweder vom Typ Small Web Format (.swf) oder Flash Video (.flv) sein. Letzteres Format wird mithilfe des Standard Players für Adobe Flash Videos eingebunden. <strong>Browser welche dieses Format unterstützen:</strong> Nahezu alle Desktop Browser]]></target>
+            </trans-unit>
+            <trans-unit id="flash.seeAlso" xml:space="preserve">
+                <source>Flash Video (FLV) at Wikipedia | http://en.wikipedia.org/wiki/Flash_Video, Small Web Format (SWF) at Wikipedia | http://en.wikipedia.org/wiki/SWF</source>
+                <target>Flash Video (FLV) auf Wikipedia | http://de.wikipedia.org/wiki/Flash_Video, Small Web Format (SWF) auf Wikipedia | http://de.wikipedia.org/wiki/Adobe_Flash#SWF-Dateiformat</target>
+            </trans-unit>
+            <trans-unit id="height.description" xml:space="preserve">
+                <source>The height of the video in pixels. If omitted, it will be tried to detect dimensions automatically.</source>
+                <target>Die Höhe des Videos in Pixel. Wird das Feld ausgelassen, wird versucht die Abmessungen automatisiert auszulesen.</target>
+            </trans-unit>
+            <trans-unit id="loop.description" xml:space="preserve">
+                <source>If the video finishes, it will be startet from beginning again.</source>
+                <target>Endet das Video, so wird dieses automatisch erneut vom Beginn gestartet.</target>
+            </trans-unit>
+            <trans-unit id="mp4.description" xml:space="preserve">
+                <source>The MP4 version of the video. This codec is supported in most major browsers and therefore its highly recommended to provide this format.</source>
+                <target>Die MP4-Version des Videos. Dieser Codec wird von den meisten großen Webbrowsern unterstützt womit die Verwendung empfohlen wird.</target>
+            </trans-unit>
+            <trans-unit id="mp4.details" xml:space="preserve">
+                <source><![CDATA[MP4 video should be saved using H.265, audio with AAC or MP3. <strong>Browsers which support this format:</strong> Android Browser 3.0+, Apple Safari 3.1+, Google Chrome 3.0+, Microsoft Internet Explorer 9.0+, Mozilla Firefox 21.0+, Mozilla Firefox (Android) 17.0+]]></source>
+                <target><![CDATA[Das MP4 Video sollte in H.264 kodiert werden, die Audiospur in AAC oder MP3. <strong>Browser welche dieses Format unterstützen:</strong> Android Browser 3.0+, Apple Safari 3.1+, Google Chrome 3.0+, Microsoft Internet Explorer 9.0+, Mozilla Firefox 21.0+, Mozilla Firefox (Android) 17.0+]]></target>
+            </trans-unit>
+            <trans-unit id="mp4.seeAlso" xml:space="preserve">
+                <source>MP4 at Wikipedia | http://en.wikipedia.org/wiki/MPEG-4_Part_14</source>
+                <target>MP4 auf Wikipedia | http://de.wikipedia.org/wiki/MP4</target>
+            </trans-unit>
+            <trans-unit id="ogg.description" xml:space="preserve">
+                <source>The OGG version of the video. This codec is another alternative video format for browsers which don't support MP4. It's recommended to use WebM instead.</source>
+                <target>Die OGG-Version des Videos. Dieser Codec ist eine andere Alternative für Browser, welche MP4 nicht unterstützen. Es wird empfohlen, WebM stattdessen zu verwenden.</target>
+            </trans-unit>
+            <trans-unit id="ogg.details" xml:space="preserve">
+                <source><![CDATA[OGG video should be saved using Ogg Theora, audio with Vorbis. <strong>Browsers which support this format:</strong> Android Browser 2.3+, Google Chrome 3.0+, Mozilla Firefox 3.5+, Opera 10.50+]]></source>
+                <target><![CDATA[Das OGG Video sollte in Ogg Theora kodiert werden, die Audiospur in Vorbis. <strong>Browser welche dieses Format unterstützen:</strong> Android Browser 2.3+, Google Chrome 3.0+, Mozilla Firefox 3.5+, Opera 10.50+]]></target>
+            </trans-unit>
+            <trans-unit id="ogg.seeAlso" xml:space="preserve">
+                <source>Ogg at Wikipedia | http://en.wikipedia.org/wiki/Ogg</source>
+                <target>Ogg auf Wikipedia | http://de.wikipedia.org/wiki/Ogg</target>
+            </trans-unit>
+            <trans-unit id="poster.description" xml:space="preserve">
+                <source>Defines an image to be shown during video is downloaded or until user presses the play button.</source>
+                <target>Ein Bild, welches während des Ladevorgangs angezeigt wird bzw. so lange bis der Benutzer das Video startet.</target>
+            </trans-unit>
+            <trans-unit id="poster.details" xml:space="preserve">
+                <source>An image which will be shown while the video is not playing. If no resource is specified, the first frame of the video will be shown instead. Has to be a valid image resource.</source>
+                <target>Ein Bild welches angezeigt wird, solange das Video nicht abgespielt wird. Wird keine Datei angegeben, wird stattdessen das erste Standbild des Videos angezeigt. Setzt eine gültige Bilddatei voraus.</target>
+            </trans-unit>
+            <trans-unit id="poster.seeAlso" xml:space="preserve">
+                <source>Poster-Attribute at W3Schools | http://www.w3schools.com/tags/att_video_poster.asp</source>
+                <target>Poster-Attribut bei W3Schools (Englisch) | http://www.w3schools.com/tags/att_video_poster.asp</target>
+            </trans-unit>
+            <trans-unit id="preload.description" xml:space="preserve">
+                <source>If activated, the video will be loaded even if it is not playing. Thus pressing the play button results in faster loading but wastes performance if the video never is played.</source>
+                <target>Wenn aktiviert, wird das Video geladen, auch wenn dieses nicht abgespielt wird. Als Resultat wird das Video schneller geladen, sobald der Abspiel-Knopf betätigt wird, benötigt jedoch ebenso Ressourcen, wenn das Video nicht abgespielt wird.</target>
+            </trans-unit>
+            <trans-unit id="webm.description" xml:space="preserve">
+                <source>The WebM version of the video. This codec is the recommended alternative video format for browsers which don't support MP4.</source>
+                <target>Die WebM-Version des Videos. Dieser Codec ist die Empfohlene Alternative für Browser, welche MP4 nicht unterstützen.</target>
+            </trans-unit>
+            <trans-unit id="webm.details" xml:space="preserve">
+                <source><![CDATA[WebM video should be saved using VP8, audio with Vorbis. <strong>Browsers which support this format:</strong> Android Browser 2.3+, Google Chrome 6.0+, Mozilla Firefox 4.0+, Opera 10.60+]]></source>
+                <target><![CDATA[Das WebM Video sollte in VP8 kodiert werden, die Audiospur in Vorbis. <strong>Browser welche dieses Format unterstützen:</strong> Android Browser 2.3+, Google Chrome 6.0+, Mozilla Firefox 4.0+, Opera 10.60+]]></target>
+            </trans-unit>
+            <trans-unit id="webm.seeAlso" xml:space="preserve">
+                <source>WebM at Wikipedia | http://en.wikipedia.org/wiki/WebM</source>
+                <target>WebM auf Wikipedia | http://de.wikipedia.org/wiki/WebM</target>
+            </trans-unit>
+            <trans-unit id="width.description" xml:space="preserve">
+                <source>The width of the video in pixels. If omitted, it will be tried to detect dimensions automatically.</source>
+                <target>Die Breite des Videos in Pixel. Wird das Feld ausgelassen, wird versucht die Abmessungen automatisiert auszulesen.</target>
+            </trans-unit>
+            
+            
+	</body>
+    </file>
+</xliff>

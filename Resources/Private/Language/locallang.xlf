@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2014-09-11T13:03:24Z" product-name="crystalis">
+        <header/>
+	<body>
+            
+            
+            <trans-unit id="anchors.bypassNavigation" xml:space="preserve">
+                <source>Skip navigation block</source>
+            </trans-unit>
+            <trans-unit id="anchors.toTop" xml:space="preserve">
+                <source>to top</source>
+            </trans-unit>
+            
+            
+            <trans-unit id="eIcon.bodytext" xml:space="preserve">
+                <source>Edit bodytext</source>
+            </trans-unit>
+            <trans-unit id="eIcon.bullets" xml:space="preserve">
+                <source>Edit bullet list</source>
+            </trans-unit>
+            <trans-unit id="eIcon.filelist" xml:space="preserve">
+                <source>Edit file list</source>
+            </trans-unit>
+            <trans-unit id="eIcon.form" xml:space="preserve">
+                <source>Edit email form</source>
+            </trans-unit>
+            <trans-unit id="eIcon.header" xml:space="preserve">
+                <source>Edit header</source>
+            </trans-unit>
+            <trans-unit id="eIcon.html" xml:space="preserve">
+                <source>Edit HTML content</source>
+            </trans-unit>
+            <trans-unit id="eIcon.images" xml:space="preserve">
+                <source>Edit Images</source>
+            </trans-unit>
+            <trans-unit id="eIcon.menuSitemap" xml:space="preserve">
+                <source>Edit menu / sitemap</source>
+            </trans-unit>
+            <trans-unit id="eIcon.multimedia" xml:space="preserve">
+                <source>Edit multimedia element</source>
+            </trans-unit>
+            <trans-unit id="eIcon.page" xml:space="preserve">
+                <source>Page:</source>
+            </trans-unit>
+            <trans-unit id="eIcon.plugin" xml:space="preserve">
+                <source>Change/configure plugin</source>
+            </trans-unit>
+            <trans-unit id="eIcon.recordList" xml:space="preserve">
+                <source>Edit recordlist</source>
+            </trans-unit>
+            <trans-unit id="eIcon.search" xml:space="preserve">
+                <source>Edit search element</source>
+            </trans-unit>
+            <trans-unit id="eIcon.subheader" xml:space="preserve">
+                <source>Edit subheader</source>
+            </trans-unit>
+            <trans-unit id="eIcon.table" xml:space="preserve">
+                <source>Edit table</source>
+            </trans-unit>
+            <trans-unit id="eIcon.video" xml:space="preserve">
+                <source>Edit video element</source>
+            </trans-unit>
+            
+            
+            <trans-unit id="form.search_emptySearch" xml:space="preserve">
+                <source>Sorry, your search was empty!</source>
+            </trans-unit>
+            <trans-unit id="form.search_legend" xml:space="preserve">
+                <source>Search</source>
+            </trans-unit>
+            <trans-unit id="form.search_resultNext" xml:space="preserve">
+                <source>Next</source>
+            </trans-unit>
+            <trans-unit id="form.search_resultPrev" xml:space="preserve">
+                <source>Prev</source>
+            </trans-unit>
+            <trans-unit id="form.search_resultRange" xml:space="preserve">
+                <source>Searchresult: ###RANGELOW###–###RANGEHIGH### of ###TOTAL###</source>
+            </trans-unit>
+            <trans-unit id="form.search_searchWord" xml:space="preserve">
+                <source>Searchword:</source>
+            </trans-unit>
+            <trans-unit id="form.search_submit" xml:space="preserve">
+                <source>Start search!</source>
+            </trans-unit>
+            
+            
+	</body>
+    </file>
+</xliff>

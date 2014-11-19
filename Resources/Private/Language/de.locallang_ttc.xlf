@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-09-17T08:18:16Z" product-name="crystalis">
+        <header/>
+	<body>
+            
+            
+            <trans-unit id="div.video">
+                <source>Video</source>
+                <target>Video</target>
+            </trans-unit>
+            
+            
+            <trans-unit id="flexform.video_divSettings">
+                <source>Settings</source>
+                <target>Einstellungen</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_divSources">
+                <source>Resources</source>
+                <target>Quellen</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetAutoplay">
+                <source>Autoplay video</source>
+                <target>Video automatisch starten</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetAutoplayCheck">
+                <source>activate</source>
+                <target>aktivieren</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetControls">
+                <source>Controls</source>
+                <target>Steuerungselemente</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetControlsCheck">
+                <source>show</source>
+                <target>anzeigen</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetLoop">
+                <source>Loop video</source>
+                <target>Video in Schleife abspielen</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetLoopCheck">
+                <source>activate</source>
+                <target>aktivieren</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetPreload">
+                <source>Preload video</source>
+                <target>Video vorladen</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SetPreloadCheck">
+                <source>activate</source>
+                <target>aktivieren</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcFlash">
+                <source>Adobe® Flash® source</source>
+                <target>Adobe® Flash® Quelle</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcFlashNew">
+                <source>Add Adobe® Flash® source</source>
+                <target>Adobe® Flash® Quelle hinzufügen</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcMp4">
+                <source>MP4 source</source>
+                <target>MP4 Quelle</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcMp4New">
+                <source>Add MP4 Source</source>
+                <target>MP4 Quelle hinzufügen</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcOgg">
+                <source>Ogg source</source>
+                <target>Ogg Quelle</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcOggNew">
+                <source>Add Ogg source</source>
+                <target>Ogg Quelle hinzufügen</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcPoster">
+                <source>Poster image</source>
+                <target>Vorschaubild</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcWebm">
+                <source>WebM source</source>
+                <target>WebM Quelle</target>
+            </trans-unit>
+            <trans-unit id="flexform.video_SrcWebmNew">
+                <source>Add WebM source</source>
+                <target>WebM Quelle hinzufügen</target>
+            </trans-unit>
+            
+            
+            <trans-unit id="pages.palette_references" xml:space="preserve">
+                <source>References</source>
+                <target>Referenzen</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_crystalis_canonical" xml:space="preserve">
+                <source>Canonical link</source>
+                <target>Kanonischer Link</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_crystalis_canonical_formlabel" xml:space="preserve">
+                <source>Canonical link</source>
+                <target>Kanonischer Link</target>
+            </trans-unit>
+            
+            
+            <trans-unit id="sys_domain.palette_language" xml:space="preserve">
+                <source>Language Handling</source>
+                <target>Sprachenverwaltung</target>
+            </trans-unit>
+            <trans-unit id="sys_domain.tx_crystalis_language" xml:space="preserve">
+                <source>Language</source>
+                <target>Sprache</target>
+            </trans-unit>
+            <trans-unit id="sys_domain.tx_crystalis_language_formlabel" xml:space="preserve">
+                <source>Allocated language</source>
+                <target>Zugewiesene Sprache</target>
+            </trans-unit>
+            
+            
+            <trans-unit id="tt_content.CType_Video">
+                <source>HTML5 Video</source>
+                <target>HTML5 Video</target>
+            </trans-unit>
+            <trans-unit id="tt_content.CType_Video_Desc">
+                <source>Adds a HTML5 video element with multiple soruces including flash and image fallback.</source>
+                <target>Fügt ein HTML5 Video-Element mit mehreren Quellen (inklusive Flash und Bild) ein.</target>
+            </trans-unit>
+            
+            
+	</body>
+    </file>
+</xliff>

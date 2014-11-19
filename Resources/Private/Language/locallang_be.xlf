@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2014-09-11T11:10:46Z" product-name="crystalis">
+        <header/>
+	<body>
+            
+            
+            <trans-unit id="constants.category_Content" xml:space="preserve">
+                <source>Content</source>
+            </trans-unit>
+            <trans-unit id="constants.category_Server" xml:space="preserve">
+                <source>Server</source>
+            </trans-unit>
+            <trans-unit id="constants.label_AudioPlayer" xml:space="preserve">
+                <source>Audio player: Relative path to the default audio player.</source>
+            </trans-unit>
+            <trans-unit id="constants.label_Host" xml:space="preserve">
+                <source>Host: The host name of the current page (domain name or IP address).</source>
+            </trans-unit>
+            <trans-unit id="constants.label_FlowPlayer" xml:space="preserve">
+                <source>FlowPlayer: Relative path to the default FlowPlayer.</source>
+            </trans-unit>
+            <trans-unit id="constants.label_MaxImageWidth" xml:space="preserve">
+                <source>Maximum width: The width in pixels any automatically rendered image must not exceed. Please note that input fields may have their own maximums.</source>
+            </trans-unit>
+            <trans-unit id="constants.label_Path" xml:space="preserve">
+                <source>Filepath: The relative path where this TYPO3 installation is located in, beginning from web root. Preceding slash is mandatory! Submit single slash if TYPO3 root equaos document root.</source>
+            </trans-unit>
+            <trans-unit id="constants.label_Port" xml:space="preserve">
+                <source>Port: The server port where the page can be reached. Have to be prepended by colon if set. Leave empty for default ports ("80" or "443").</source>
+            </trans-unit>
+            <trans-unit id="constants.label_VideoPlayer" xml:space="preserve">
+                <source>Video player: Relative path to the default video player.</source>
+            </trans-unit>
+            <trans-unit id="constants.subcategory_Images" xml:space="preserve">
+                <source>Images</source>
+            </trans-unit>
+            <trans-unit id="constants.subcategory_Media" xml:space="preserve">
+                <source>Media</source>
+            </trans-unit>
+            <trans-unit id="constants.subcategory_Uri" xml:space="preserve">
+                <source>Uniform Resource Identifier (URI)</source>
+            </trans-unit>
+            
+            
+            <trans-unit id="extconf.category_FrontendRendering" xml:space="preserve">
+                <source>Frontend Rendering</source>
+            </trans-unit>
+            <trans-unit id="extconf.category_General" xml:space="preserve">
+                <source>General</source>
+            </trans-unit>
+            <trans-unit id="extconf.category_LanguageHandling" xml:space="preserve">
+                <source>Language handling</source>
+            </trans-unit>
+            <trans-unit id="extconf.label_DefaultLanguage" xml:space="preserve">
+                <source>Default Language: Select the global default frontend language of your platform.</source>
+            </trans-unit>
+            <trans-unit id="extconf.label_DefaultLanguage_NoSit" xml:space="preserve">
+                <source>The Crystalis Language Service requires extension Static Info Tables (static_info_tables) to be present.</source>
+            </trans-unit>
+            <trans-unit id="extconf.label_DisableHtml5Video" xml:space="preserve">
+                <source>Disable HTML5 video: If set the HTML5 video element won't be available, even if HTML5 doctype was selected.</source>
+            </trans-unit>
+            <trans-unit id="extconf.label_Doctype" xml:space="preserve">
+                <source>HTML Doctype: The doctype which should be applied. This option affects render setups and available content elements.</source>
+            </trans-unit>
+            <trans-unit id="extconf.label_EnableLanguageHandling" xml:space="preserve">
+                <source>Activate: If checked, automatic language handling will be enforced. This feature requires extension static_info_tables to work properly. In addition it is recommended to use extension realurl as well.</source>
+            </trans-unit>
+            <trans-unit id="extconf.label_SetPageTS" xml:space="preserve">
+                <source>Page TypoScript: Implements predefined backend page setup. This option increases backend usability.</source>
+            </trans-unit>
+            <trans-unit id="extconf.label_SetUserTS" xml:space="preserve">
+                <source>User TypoScript: Implements predefined backend user setup, which basically handles user rights to increase usability.</source>
+            </trans-unit>
+            <trans-unit id="extconf.subcategory_BasicSettings" xml:space="preserve">
+                <source>Basic Settings</source>
+            </trans-unit>
+            <trans-unit id="extconf.subcategory_Page" xml:space="preserve">
+                <source>Page</source>
+            </trans-unit>
+            <trans-unit id="extconf.subcategory_PresetConfigurations" xml:space="preserve">
+                <source>Preset configurations</source>
+            </trans-unit>
+            
+            
+            <trans-unit id="rte.charClassTel" xml:space="preserve">
+                <source>Phone Number</source>
+            </trans-unit>
+            
+            
+            <trans-unit id="tt_content.headerLabel0" xml:space="preserve">
+                <source>Masthead (h2)</source>
+            </trans-unit>
+            <trans-unit id="tt_content.headerLabel1" xml:space="preserve">
+                <source>Heading (h3)</source>
+            </trans-unit>
+            <trans-unit id="tt_content.headerLabel2" xml:space="preserve">
+                <source>Subheading (h4)</source>
+            </trans-unit>
+            <trans-unit id="tt_content.headerLabel3" xml:space="preserve">
+                <source>Cross Heading (h5)</source>
+            </trans-unit>
+            <trans-unit id="tt_content.headerLabel4" xml:space="preserve">
+                <source>Element Heading (h6)</source>
+            </trans-unit>
+            <trans-unit id="tt_content.sectionFrame0" xml:space="preserve">
+                <source>No Frame</source>
+            </trans-unit>
+            
+            
+	</body>
+    </file>
+</xliff>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-10-07T14:41:57Z" product-name="crystalis">
+        <header/>
+	<body>
+            
+            
+            <trans-unit id="tx_crystalis_language.description" xml:space="preserve">
+                <source>Connects the domain with the specified language if any.</source>
+                <target>Verbindet – sofern ausgewählt – Domain und Sprache.</target>
+            </trans-unit>
+            <trans-unit id="tx_crystalis_language.details" xml:space="preserve">
+                <source>If a language was selected, calling this domain immediatley will load the specified language, regardless which language parameter was set. In addition if another language links to the selected one, the domain will be prepended automatically.</source>
+                <target>Wurde eine Sprache ausgewählt, führt das Aufrufen der Domain zur sofortigen Auswahl der gewünschten Sprache – unabhängig davon, welcher Sprachen-Parameter gesetzt ist. Zusätzlich werden Links von anderen Sprachen auf die Ausgewählte automatisch auf die entsprechende Domain umgeschrieben.</target>
+            </trans-unit>
+            
+            
+	</body>
+    </file>
+</xliff>

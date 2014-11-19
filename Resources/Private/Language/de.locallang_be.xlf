@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-09-11T11:10:46Z" product-name="crystalis">
+        <header/>
+	<body>
+            
+            
+            <trans-unit id="constants.category_Content" xml:space="preserve">
+                <source>Content</source>
+                <target>Inhalte</target>
+            </trans-unit>
+            <trans-unit id="constants.category_Server" xml:space="preserve">
+                <source>Server</source>
+                <target>Server</target>
+            </trans-unit>
+            <trans-unit id="constants.label_AudioPlayer" xml:space="preserve">
+                <source>Audio player: Relative path to the default audio player.</source>
+                <target>Audio-Player: Relativer Pfad zum Standard Audio-Player.</target>
+            </trans-unit>
+            <trans-unit id="constants.label_Host" xml:space="preserve">
+                <source>Host: The host name of the current page (domain name or IP address).</source>
+                <target>Host: Der Host-Name der aktuellen Seite (Domainname oder IP-Adresse).</target>
+            </trans-unit>
+            <trans-unit id="constants.label_FlowPlayer" xml:space="preserve">
+                <source>FlowPlayer: Relative path to the default FlowPlayer.</source>
+                <target>FlowPlayer: Relativer Pfad zum Standard FlowPlayer.</target>
+            </trans-unit>
+            <trans-unit id="constants.label_MaxImageWidth" xml:space="preserve">
+                <source>Maximum width: The width in pixels any automatically rendered image must not exceed. Please note that input fields may have their own maximums.</source>
+                <target>Maximale Breite: Die Breite in Pixel, welche automatisch generierte Bilder nicht überschreiten dürfen. Bitte beachten Sie, dass Eingabefelder eventuell eigene Maximalwerte besitzen.</target>
+            </trans-unit>
+            <trans-unit id="constants.label_Path" xml:space="preserve">
+                <source>Filepath: The relative path where this TYPO3 installation is located in, beginning from web root. Preceding slash is mandatory! Submit single slash if TYPO3 root equaos document root.</source>
+                <target>Dateipfad: Der relative Pfad unter welchem die TYPO3 Installation zu finden ist, beginnend vom Stammverzeichnis der Webseite. Ein vorangehender Slash ist verpflichtend! Wurde TYPO3 im Stammverzeichnis installiert, genügt die Angabe eines einzelnen Slashs.</target>
+            </trans-unit>
+            <trans-unit id="constants.label_Port" xml:space="preserve">
+                <source>Port: The server port where the page can be reached. Have to be prepended by colon if set. Leave empty for default ports ("80" or "443").</source>
+                <target>Port: Der Server-Port unter welchem die Seite erreicht werden kann. Wenn gesetzt, ist ein vorangehender Doppelpunkt verpflichtend. Wird das Feld leer gelassen, werden die entsprechenden Standard-Ports ("80" bzw. "443") gesetzt.</target>
+            </trans-unit>
+            <trans-unit id="constants.label_VideoPlayer" xml:space="preserve">
+                <source>Video player: Relative path to the default video player.</source>
+                <target>Video-Player: Relativer Pfad zum Standard Video-Player.</target>
+            </trans-unit>
+            <trans-unit id="constants.subcategory_Images" xml:space="preserve">
+                <source>Images</source>
+                <target>Bilder</target>
+            </trans-unit>
+            <trans-unit id="constants.subcategory_Media" xml:space="preserve">
+                <source>Media</source>
+                <target>Media</target>
+            </trans-unit>
+            <trans-unit id="constants.subcategory_Uri" xml:space="preserve">
+                <source>Uniform Resource Identifier (URI)</source>
+                <target>Uniform Resource Identifier (URI)</target>
+            </trans-unit>
+            
+            
+            <trans-unit id="extconf.category_FrontendRendering" xml:space="preserve">
+                <source>Frontend Rendering</source>
+                <target>Frontend Rendering</target>
+            </trans-unit>
+            <trans-unit id="extconf.category_General" xml:space="preserve">
+                <source>General</source>
+                <target>Allgemein</target>
+            </trans-unit>
+            <trans-unit id="extconf.category_LanguageHandling" xml:space="preserve">
+                <source>Language handling</source>
+                <target>Sprachenverwaltung</target>
+            </trans-unit>
+            <trans-unit id="extconf.label_DefaultLanguage" xml:space="preserve">
+                <source>Default Language: Select the global default frontend language of your platform.</source>
+                <target>Standardsprache: Die globale Standardsprache der kompletten Webplattform im Frontend.</target>
+            </trans-unit>
+            <trans-unit id="extconf.label_DefaultLanguage_NoSit" xml:space="preserve">
+                <source>The Crystalis Language Service requires extension Static Info Tables (static_info_tables) to be present.</source>
+                <target>Der Sprachen-Dienst von Crystalis benötigt die Erweiterung "Static Info Tables" (static_info_tables).</target>
+            </trans-unit>
+            <trans-unit id="extconf.label_DisableHtml5Video" xml:space="preserve">
+                <source>Disable HTML5 video: If set the HTML5 video element won't be available, even if HTML5 doctype was selected.</source>
+                <target>HTML5 Video deaktivieren: Wenn gesetzt, steht das HTML5 Video Element nicht zur Verfügung, selbst wenn als Dokumenttyp HTML5 ausgewählt wurde.</target>
+            </trans-unit>
+            <trans-unit id="extconf.label_Doctype" xml:space="preserve">
+                <source>HTML Doctype: The doctype which should be applied. This option affects render setups and available content elements.</source>
+                <target>HTML Doctype: Der Dokumenttyp welcher verwendet werden soll. Diese Einstellung beeinflusst diverse Render-Einstellungen und die zur Verfügung stehenden Inhaltselemente.</target>
+            </trans-unit>
+            <trans-unit id="extconf.label_EnableLanguageHandling" xml:space="preserve">
+                <source>Activate: If checked, automatic language handling will be enforced. This feature requires extension static_info_tables to work properly. In addition it is recommended to use extension realurl as well.</source>
+                <target>Aktivieren: Wenn ausgewählt, wird die automatische Sprachenverwaltung durchgeführt. Für eine korrekte Funktionsweise wird die Erweiterung static_info_tables vorausgesetzt. Zusätzlich wird empfohlen die Erweiterung realurl zu nutzen.</target>
+            </trans-unit>
+            <trans-unit id="extconf.label_SetPageTS" xml:space="preserve">
+                <source>Page TypoScript: Implements predefined backend page setup. This option increases backend usability.</source>
+                <target>Seiten TypoScript Konfiguration: Bindet das vorbereitete Backend Seiten-TypoScript ein. Diese Option erhöht die Benutzerfreundlichkeit im Backend.</target>
+            </trans-unit>
+            <trans-unit id="extconf.label_SetUserTS" xml:space="preserve">
+                <source>User TypoScript: Implements predefined backend user setup, which basically handles user rights to increase usability.</source>
+                <target>Benutzer TypoScript Konfiguration: Bindet das vorbereitete Backend-Benutzer-TypoScript ein, welches Benutzerrechte optimiert um die Benutzerfreundlichkeit zu erhöhen.</target>
+            </trans-unit>
+            <trans-unit id="extconf.subcategory_BasicSettings" xml:space="preserve">
+                <source>Basic Settings</source>
+                <target>Grundeinstellungen</target>
+            </trans-unit>
+            <trans-unit id="extconf.subcategory_Page" xml:space="preserve">
+                <source>Page</source>
+                <target>Seite</target>
+            </trans-unit>
+            <trans-unit id="extconf.subcategory_PresetConfigurations" xml:space="preserve">
+                <source>Preset configurations</source>
+                <target>Vordefinierte Konfigurationen</target>
+            </trans-unit>
+            
+            
+            <trans-unit id="rte.charClassTel" xml:space="preserve">
+                <source>Phone Number</source>
+                <target>Telefonnummer</target>
+            </trans-unit>
+            
+            
+            <trans-unit id="tt_content.headerLabel0" xml:space="preserve">
+                <source>Masthead (h2)</source>
+                <target>Titelkopf (h2)</target>
+            </trans-unit>
+            <trans-unit id="tt_content.headerLabel1" xml:space="preserve">
+                <source>Heading (h3)</source>
+                <target>Überschrift (h3)</target>
+            </trans-unit>
+            <trans-unit id="tt_content.headerLabel2" xml:space="preserve">
+                <source>Subheading (h4)</source>
+                <target>Unterüberschrift (h4)</target>
+            </trans-unit>
+            <trans-unit id="tt_content.headerLabel3" xml:space="preserve">
+                <source>Cross Heading (h5)</source>
+                <target>Zwischenüberschrift (h5)</target>
+            </trans-unit>
+            <trans-unit id="tt_content.headerLabel4" xml:space="preserve">
+                <source>Element Heading (h6)</source>
+                <target>Elementüberschrift (h6)</target>
+            </trans-unit>
+            <trans-unit id="tt_content.sectionFrame0" xml:space="preserve">
+                <source>No Frame</source>
+                <target>Kein Rahmen</target>
+            </trans-unit>
+            
+            
+	</body>
+    </file>
+</xliff>
