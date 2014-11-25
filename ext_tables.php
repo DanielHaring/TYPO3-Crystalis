@@ -156,44 +156,49 @@ $GLOBALS['TCA']['pages_language_overlay']['palettes']['references'] = $GLOBALS['
 
 
     // Extend sys_domain table
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_domain', [
-    'tx_crystalis_language' => [
-        'exclude' => 1,
-        'label' => 'LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:sys_domain.tx_crystalis_language',
-        'displayCond' => [
-            'AND' => [
-                'EXT:static_info_tables:LOADED:true',
-                'EXT:realurl:LOADED:true'
-            ]
-        ],
-        'config' => [
-            'type' => 'select',
-            'items' => [
-                ['', '']
+if(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('static_info_tables') 
+        && (!!$_EXTCONF['enableLanguageHandling'] || !$_EXTCONF)) {
+    
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_domain', [
+        'tx_crystalis_language' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:sys_domain.tx_crystalis_language',
+            'displayCond' => [
+                'AND' => [
+                    'EXT:static_info_tables:LOADED:true',
+                    'EXT:realurl:LOADED:true'
+                ]
             ],
-            'default' => '',
-            'special' => 'languages',
-            'size' => 1,
-            'minitems' => 0,
-            'maxitems' => 1
+            'config' => [
+                'type' => 'select',
+                'items' => [
+                    ['', '']
+                ],
+                'default' => '',
+                'special' => 'languages',
+                'size' => 1,
+                'minitems' => 0,
+                'maxitems' => 1
+            ]
         ]
-    ]
-]);
-
-$GLOBALS['TCA']['sys_domain']['palettes']['languages'] = [
-    'showitem' => 'tx_crystalis_language;LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:sys_domain.tx_crystalis_language_formlabel',
-    'canNotCollapse' => 1
-];
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+    ]);
+    
+    $GLOBALS['TCA']['sys_domain']['palettes']['languages'] = [
+        'showitem' => 'tx_crystalis_language;LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:sys_domain.tx_crystalis_language_formlabel',
+        'canNotCollapse' => 1
+    ];
+    
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
         'sys_domain', 
         '--palette--;LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:sys_domain.palette_language;languages', 
         '', 
         'before:prepend_params');
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
+    
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
         'sys_domain', 
         'EXT:crystalis/Resources/Private/Language/locallang_csh_sys_domain.xlf');
+
+}
 
 
 
