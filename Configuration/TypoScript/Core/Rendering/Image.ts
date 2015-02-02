@@ -161,7 +161,9 @@ tt_content.image{
 
                 typolink{
 
-                    parameter = FILE:current:link
+                    parameter{
+                        data = FILE:current:link
+                    }
 
                 }
 
