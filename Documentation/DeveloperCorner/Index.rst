@@ -6,10 +6,31 @@
 .. include:: ../Includes.txt
 
 
-.. _credits:
+.. _dev:
 
-Credits
-=======
+Developer Corner
+================
 
+
+.. _dev-notes:
+
+Notes
+-----
+
+Coming soon
+
+
+.. _dev-issues:
+
+Known Issues
+------------
+
+Coming soon
+
+
+.. _dev-contact:
+
+Get in touch
+------------
 
 Coming soon

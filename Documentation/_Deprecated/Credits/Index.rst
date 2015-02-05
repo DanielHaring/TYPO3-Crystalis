@@ -11,5 +11,4 @@
 Credits
 =======
 
-
-Coming soon
+The whole extension was planned, written and documented by Daniel Haring.

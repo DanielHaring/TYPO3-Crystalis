@@ -6,10 +6,15 @@
 .. include:: ../Includes.txt
 
 
-.. _credits:
+.. _content-objects:
 
-Credits
-=======
+Content Objects
+===============
 
+
+.. _cobj-video:
+
+VIDEO
+-----
 
 Coming soon
