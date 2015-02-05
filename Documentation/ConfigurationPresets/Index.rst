@@ -6,39 +6,31 @@
 .. include:: ../Includes.txt
 
 
-.. _dev:
+.. _configuration-presets:
 
-Developer Corner
-================
-
-
-.. _dev-hooks:
-
-Hooks
------
-
-Coming soon
+Configuration Presets
+=====================
 
 
-.. _dev-database-service:
+.. _preset-page-ts:
 
-Using Database Service
-----------------------
-
-Coming soon
-
-
-.. _dev-notes:
-
-Developer notes
+Page TypoScript
 ---------------
 
 Coming soon
 
 
-.. _dev-contact:
+.. _preset-user-ts:
 
-Get in touch
-------------
+User TypoScript
+---------------
+
+Coming soon
+
+
+.. _preset-rendering:
+
+Content Rendering
+-----------------
 
 Coming soon

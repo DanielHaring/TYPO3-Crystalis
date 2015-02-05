@@ -6,31 +6,39 @@
 .. include:: ../Includes.txt
 
 
-.. _features:
+.. _language-service:
 
-Features
-========
+Language Service
+================
 
 
-.. _feature-ce-html5-video:
+.. _lang-preparation:
 
-HTML5 Video Content Element
----------------------------
+Preparation
+-----------
 
 Coming soon
 
 
-.. _feature-service-language:
+.. _lang-domains:
 
-Language Service
+Handling domains
 ----------------
 
 Coming soon
 
 
-.. _feature-be-layout-file:
+.. _lang-custom-realurl:
 
-Backend Layout File Data Provider
+Customizing RealUrl configuration
 ---------------------------------
+
+Coming soon
+
+
+.. _lang-page.structure:
+
+Recommended page structure
+--------------------------
 
 Coming soon

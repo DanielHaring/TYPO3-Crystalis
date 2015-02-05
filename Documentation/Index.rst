@@ -58,8 +58,11 @@ Crystalis
 
         Introduction/Index
         ConfigurationPresets/Index
-        Features/Index
+        Html5Video/Index
+        LanguageService/Index
+        ExternalBackendLayouts/Index
         ContentObjects/Index
+        KnownProblems/Index
         DeveloperCorner/Index
         ToDo/Index
         Credits/Index
