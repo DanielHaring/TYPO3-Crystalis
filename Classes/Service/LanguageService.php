@@ -87,33 +87,33 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
      */
     public function getTypoScriptSetup() {
         
-        if(\is_array($this->typoScriptSetup)) {
+        if(!\strcmp((string)$this->typoScriptSetup, '')) {
             
-            return $this->typoScriptSetup;
-            
-        }
+            $setup = [];
         
-        $setup = [];
-        
-        foreach($this->getDatabaseService()->getSystemLanguages() as $language) {
-            
-            $ts = 'page.config.htmlTag_langKey = ' . \strtolower($language['isoCode']) . \chr(10)
-                    . 'page.config.sys_language_uid = ' . $language['uid'] . \chr(10) 
-                    . 'page.config.language = ' . \strtolower($language['isoCode']) . \chr(10) 
-                    . 'page.config.lang = ' . \strtolower($language['isoCode']) . \chr(10) 
-                    . 'page.config.locale_all = ' . $language['locale'];
-            
-            if((int)$language['uid'] > 0) {
-                
-                $ts = \sprintf('[globalVar = GP:L=' . $language['uid'] . "]\n%s\n[global]", $ts);
-                
+            foreach($this->getDatabaseService()->getSystemLanguages() as $language) {
+
+                $ts = 'page.config.htmlTag_langKey = ' . \strtolower($language['isoCode']) . \chr(10)
+                        . 'page.config.sys_language_uid = ' . $language['uid'] . \chr(10) 
+                        . 'page.config.language = ' . \strtolower($language['isoCode']) . \chr(10) 
+                        . 'page.config.lang = ' . \strtolower($language['isoCode']) . \chr(10) 
+                        . 'page.config.locale_all = ' . $language['locale'];
+
+                if((int)$language['uid'] > 0) {
+
+                    $ts = \sprintf('[globalVar = GP:L=' . $language['uid'] . "]\n%s\n[global]", $ts);
+
+                }
+
+                $setup[] = $ts;
+
             }
-            
-            $setup[] = $ts;
+
+            $this->typoScriptSetup = \implode(\chr(10), $setup);
             
         }
         
-        return \implode(\chr(10), $setup);
+        return $this->typoScriptSetup;
         
     }
     
@@ -131,30 +131,30 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
      */
     public function getPageTSConfig() {
         
-        if(\is_array($this->pageTSConfig)) {
+        if(!\strcmp((string)$this->pageTSConfig, '')) {
             
-            return $this->pageTSConfig;
+            $pageTs = '';
+        
+            $defaultLanguage = \reset(\array_filter($this->getDatabaseService()->getSystemLanguages(), function($language) {
+
+                return (int)$language['uid'] === 0;
+
+            }));
+
+            if(\is_array($defaultLanguage)) {
+
+                $pageTs .= 'mod.SHARED.defaultLanguageFlag = ' . (isset($defaultLanguage['locale']) 
+                        ? \strtolower(\end(\explode('_', $defaultLanguage['locale']))) 
+                        : \strtolower($defaultLanguage['isoCode'])) 
+                    . chr(10) . 'mod.SHARED.defaultLanguageLabel = ' . $defaultLanguage['localName'];
+
+            }
+            
+            $this->pageTSConfig = $pageTs;
             
         }
         
-        $pageTs = '';
-        
-        $defaultLanguage = \reset(\array_filter($this->getDatabaseService()->getSystemLanguages(), function($language) {
-            
-            return (int)$language['uid'] === 0;
-            
-        }));
-        
-        if(\is_array($defaultLanguage)) {
-            
-            $pageTs .= 'mod.SHARED.defaultLanguageFlag = ' . (isset($defaultLanguage['locale']) 
-                    ? \strtolower(\end(\explode('_', $defaultLanguage['locale']))) 
-                    : \strtolower($defaultLanguage['isoCode'])) 
-                . chr(10) . 'mod.SHARED.defaultLanguageLabel = ' . $defaultLanguage['localName'];
-            
-        }
-        
-        return $pageTs;
+        return $this->pageTSConfig;
         
     }
     
