@@ -103,13 +103,13 @@ the chosen page does not contain any kind of template already, firstly create a 
 .. figure:: ../Images/ContentRendering/EditSiteTemplate.jpg
    :alt: Edit the template of your site
 
-Next ensure function "Info/Modify" (1) is selected and follow "Edit the whole template record" (2) at the bottom.
+Next ensure function "Info/Modify" **(1)** is selected and follow "Edit the whole template record" **(2)** at the bottom.
 
 .. figure:: ../Images/ContentRendering/IncludeStatic.jpg
    :alt: Include render template
 
-Switch to "Includes" tab (3) and add item "Frontend Rendering (crystalis)" to "Selected Items" within "Include 
-Static (from extensions)" (4) section. After saving your changes, the render setup will take up employment.
+Switch to "Includes" tab **(3)** and add item "Frontend Rendering (crystalis)" to "Selected Items" within "Include 
+Static (from extensions)" **(4)** section. After saving your changes, the render setup will take up employment.
 
 As soon as this had happened, Crystalis needs to know about the head domain of the respective page. See 
 :ref:`preset-rendering-domains`.
@@ -162,7 +162,7 @@ located in.
 .. figure:: ../Images/ContentRendering/DomainSettings.jpg
    :alt: Configuring domains
 
-Next ensure function "Constant Editor" (1) is selected and choose category "SERVER" (2). Fill out the fields below as 
+Next ensure function "Constant Editor" **(1)** is selected and choose category "SERVER" **(2)**. Fill out the fields below as 
 described there and save your changes.
 
 **Note:** If working with multiple sites you have to specify a domain for each of them.
