@@ -145,7 +145,7 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
 
                 $pageTs .= 'mod.SHARED.defaultLanguageFlag = ' . (isset($defaultLanguage['locale']) 
                         ? \strtolower(\end(\explode('_', $defaultLanguage['locale']))) 
-                        : \strtolower($defaultLanguage['isoCode'])) 
+                        : \strtolower($defaultLanguage['isoCode'])) . '.gif' 
                     . chr(10) . 'mod.SHARED.defaultLanguageLabel = ' . $defaultLanguage['localName'];
 
             }
