@@ -9,13 +9,13 @@
 .. _known-problems:
 
 Known Problems
-==============
+--------------
 
 
 .. _problems-domain-ports:
 
 Proper interaction between ports and domains
---------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When using non-standard ports (e.g. '8888') you may experience the issue, that the Language Service won't act 
 as expected. Actually this doesn't have anything to do with the Language Service itself but the difference 

@@ -9,13 +9,13 @@
 .. _introduction:
 
 Introduction
-============
+------------
 
 
 .. _what-it-does:
 
 What does it do?
-----------------
+^^^^^^^^^^^^^^^^
 
 This extension was made to lower the effort when building websites, keep the output code maximum clean and still 
 remain as flexible as possible.
@@ -36,7 +36,7 @@ loaded with code you are not interested in.
 .. _requirements:
 
 System requirements
--------------------
+^^^^^^^^^^^^^^^^^^^
 
 At present Crystalis requires **TYPO3 CMS 6.2** and **PHP 5.4**. Although not completely debarred, a compatibility 
 layer is not being planned at the moment.
@@ -49,7 +49,7 @@ extensions are installed as well.
 .. _about-doc:
 
 About this documentation
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 This documentation may differ from what you're used to. Each component got its own chapter to allow jumping to those 
 particular sections you are interested in.

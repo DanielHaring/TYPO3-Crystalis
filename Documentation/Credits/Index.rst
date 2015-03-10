@@ -9,13 +9,13 @@
 .. _credits:
 
 Credits
-=======
+-------
 
 
 .. _credits-author:
 
 Behind the project
-------------------
+^^^^^^^^^^^^^^^^^^
 
 The whole extension was planned, developed, documented and is maintained by Daniel Haring, a web developer from 
 Austria.
@@ -27,7 +27,7 @@ published by the Free Software Foundation; either version 3 of the License, or (
 .. _credits-github:
 
 Crystalis at GitHub
--------------------
+^^^^^^^^^^^^^^^^^^^
 
 The current development master and all existing branches can be inspected and forked on GitHub:
 https://github.com/HARING/TYPO3-Crystalis
@@ -36,7 +36,7 @@ https://github.com/HARING/TYPO3-Crystalis
 .. _credits-web:
 
 Official website
-----------------
+^^^^^^^^^^^^^^^^
 
 The official project page reads as follows:
 http://haring.co.at/projekte/crystalis/
@@ -47,7 +47,7 @@ Please note that this website is available in german only.
 .. _credits-contact:
 
 Get in touch
-------------
+^^^^^^^^^^^^
 
 Found a bug? Want to ask for a feature? Or just want to give me some feedback?
 Feel free to open a new issue on GitHub or write me at:

@@ -9,7 +9,7 @@
 .. _todo:
 
 To-Do List
-==========
+----------
 
 
 *(Target version in square brackets)*
@@ -17,8 +17,6 @@ To-Do List
  - [2.0.0] Testing
      - Ensure functionality of LanguageService in hybrid systems (single- and multi-tree-concepts)
      - Ensure queries within Database Service work with non MySQL systems as well (DBAL)
- - [2.0.0] Finish Documentation
-     - Transform sub-sections into directories
  - [2.0.0] Make use of TYPO3 translation server
      - Remove local german localization
      - Send request at TYPO3 forge (new TASK)
