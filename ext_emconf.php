@@ -17,7 +17,7 @@ $EM_CONF[$_EXTKEY] = array (
                             . 'IMPORTANT NOTICE: ALTHOUGH ALL FEATURES SHOULD WORK AS ARRANGED, TESTING PHASE IS NOT COMPLETED YET ' 
                             . 'AND THEREFORE YOU MIGHT EXPERIENCE UNEXPECTED ISSUES.',
 	'category' => 'fe',
-	'version' => '2.0.0-dev',
+	'version' => '6.2.0-dev',
 	'state' => 'beta',
 	'uploadfolder' => 0,
 	'createDirs' => '',
