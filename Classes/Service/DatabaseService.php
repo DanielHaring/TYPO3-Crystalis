@@ -29,6 +29,7 @@ namespace HARING\Crystalis\Service;
  */
 
 use \HARING\Crystalis\Utility\GeneralUtility;
+use \HARING\Crystalis\Utility\ArrayUtility;
 
 
 
@@ -103,20 +104,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
                     
                     return $site;
                     
-                }, $this->getDatabaseConnection()->exec_SELECTgetRows(
-                        'domain.domainName AS host, page.uid AS rootPage, ' 
-                                . '(SELECT GROUP_CONCAT(overlay.sys_language_uid) FROM pages_language_overlay overlay ' 
-                                . 'WHERE pid=page.uid AND overlay.deleted=0 AND overlay.hidden=0) AS languages, ' 
-                                . 'IF(page.l18n_cfg=1||page.l18n_cfg=3,0,1) AS useDefaultLanguage, domain.sorting AS priority, ' 
-                                . 'domain.tx_crystalis_language AS initialLanguage, ' 
-                                . 'CASE page.url_scheme WHEN \'2\' THEN \'https\' ELSE \'http\' END protocol', 
-                        'sys_domain domain INNER JOIN pages page ON (domain.pid = page.uid)', 
-                        'domain.redirectTo=\'\' AND domain.hidden=0 ' 
-                                . 'AND page.is_siteroot=1 AND page.deleted=0 AND page.hidden=0', 
-                        '', 
-                        'domain.sorting ASC', 
-                        '', 
-                        'host'));
+                }, $this->retrieveDomainInformations());
         
         if(!$noBuffer) {
             
@@ -156,19 +144,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
                     ['defaultLanguage' => 30],
                     (array)@\unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['crystalis']));
         
-        $result = $this->getDatabaseConnection()->exec_SELECTgetRows(
-                '0 AS uid, static.lg_iso_2 AS isoCode, static.lg_collate_locale AS locale, ' 
-                        . 'static.lg_name_local AS localName', 
-                'static_languages AS static', 
-                'uid=' . (int)$extConf['defaultLanguage'] 
-                        . ' UNION SELECT sys.uid, static.lg_iso_2 AS isoCode, ' 
-                        . 'static.lg_collate_locale AS locale, static.lg_name_local AS localName ' 
-                        . 'FROM static_languages static INNER JOIN sys_language sys ON ' 
-                        . '(sys.static_lang_isocode = static.uid) WHERE sys.pid=0 AND sys.hidden=0', 
-                'static.lg_iso_2', 
-                '', 
-                '', 
-                'uid');
+        $result = $this->retrieveSystemLanguageInformations($extConf['defaultLanguage']);
         
         if(!$noBuffer) {
             
@@ -193,9 +169,10 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
      * 
      * @since 2.0.0
      * @return \TYPO3\CMS\Core\Database\DatabaseConnection The current database connection
+     * @static
      * @access public
      */
-    public function getDatabaseConnection() {
+    static public function getDatabaseConnection() {
         
         if(!\is_a($GLOBALS['TYPO3_DB'], 'TYPO3\\CMS\\Core\\Database\\DatabaseConnection')) {
             
@@ -204,6 +181,162 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
         }
         
         return $GLOBALS['TYPO3_DB'];
+        
+    }
+    
+    
+    
+    
+    
+    /**
+     * Gatheres all informations for building domain assignments. Supports DBAL.
+     * Internal helper function.
+     * 
+     * @since 2.0.0
+     * @return array All informations required for reading out domain assignments
+     * @access protected
+     */
+    protected function retrieveDomainInformations() {
+        
+        if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('dbal')) {
+            
+                // The fast, preferred way (MySQL only)
+            return self::getDatabaseConnection()->exec_SELECTgetRows(
+                    'domain.domainName AS host, page.uid AS rootPage, ' 
+                            . '(SELECT GROUP_CONCAT(overlay.sys_language_uid) FROM pages_language_overlay overlay ' 
+                            . 'WHERE pid=page.uid AND overlay.deleted=0 AND overlay.hidden=0) AS languages, ' 
+                            . 'IF(page.l18n_cfg=1||page.l18n_cfg=3,0,1) AS useDefaultLanguage, domain.sorting AS priority, ' 
+                            . 'domain.tx_crystalis_language AS initialLanguage, ' 
+                            . 'CASE page.url_scheme WHEN \'2\' THEN \'https\' ELSE \'http\' END protocol', 
+                    'sys_domain domain INNER JOIN pages page ON (domain.pid = page.uid)', 
+                    'domain.redirectTo=\'\' AND domain.hidden=0 ' 
+                            . 'AND page.is_siteroot=1 AND page.deleted=0 AND page.hidden=0', 
+                    '', 
+                    'domain.sorting ASC', 
+                    '', 
+                    'host');
+            
+        } else {
+            
+                // The slow but more compilant way (DBAL)
+            $domains = self::getDatabaseConnection()->exec_SELECTgetRows(
+                    'domain.domainName AS host, domain.pid AS rootPage, domain.sorting AS priority, ' 
+                            . 'domain.tx_crystalis_language AS initialLanguage', 
+                    'sys_domain domain', 
+                    'domain.redirectTo=\'\' AND domain.hidden=0', 
+                    '', 
+                    'domain.sorting ASC', 
+                    '', 
+                    'host');
+            
+            $pages = \array_map(function($page) {
+                
+                return [
+                    'useDefaultLanguage' => $page['useDefaultLanguage'] === '1' || $page['useDefaultLanguage'] === '3' ? '0' : '1',
+                    'protocol' => $page['protocol'] === '2' ? 'https' : 'http'
+                ];
+                
+            }, self::getDatabaseConnection()->exec_SELECTgetRows(
+                    'page.uid, page.l18n_cfg AS useDefaultLanguage, page.url_scheme as protocol', 
+                    'pages page', 
+                    'page.deleted=0 AND page.hidden=0 ' 
+                            . 'AND page.uid IN (' . \implode(',', \array_unique(ArrayUtility::column($domains, 'rootPage'))) . ')', 
+                    '', 
+                    'page.sorting ASC', 
+                    '', 
+                    'uid'));
+            
+            $languages = self::getDatabaseConnection()->exec_SELECTgetRows(
+                    'overlay.pid, overlay.sys_language_uid', 
+                    'pages_language_overlay overlay', 
+                    'overlay.deleted=0 AND overlay.hidden=0 ' 
+                            . 'AND overlay.pid IN (' . \implode(',', \array_unique(ArrayUtility::column($domains, 'rootPage'))) . ')');
+            
+            return \array_map(function($domain) use ($pages, $languages) {
+                
+                $domain['languages'] = \implode(',', ArrayUtility::column(\array_filter($languages, function($language) use ($domain) {
+                    
+                    return $language['pid'] === $domain['rootPage'];
+                    
+                }), 'sys_language_uid'));
+                
+                return \array_merge($domain, $pages[$domain['rootPage']]);
+                
+            }, $domains);
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
+    /**
+     * Gatheres all necessary informations about system languages. Supports DBAL.
+     * Internal helper function.
+     * 
+     * @since 2.0.0
+     * @param string $defaultLanguage static_language ID of the configured default language
+     * @return array All necessary informations about current system languages
+     * @access protected
+     */
+    protected function retrieveSystemLanguageInformations($defaultLanguage = \FALSE) {
+        
+        if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('dbal')){
+            
+                // The fast, preferred way (MySQL only)
+            return self::getDatabaseConnection()->exec_SELECTgetRows(
+                    '0 AS uid, static.lg_iso_2 AS isoCode, static.lg_collate_locale AS locale, ' 
+                            . 'static.lg_name_local AS localName', 
+                    'static_languages AS static', 
+                    'uid=' . (int)$defaultLanguage 
+                            . ' UNION SELECT sys.uid, static.lg_iso_2 AS isoCode, ' 
+                            . 'static.lg_collate_locale AS locale, static.lg_name_local AS localName ' 
+                            . 'FROM static_languages static INNER JOIN sys_language sys ON ' 
+                            . '(sys.static_lang_isocode = static.uid) WHERE sys.pid=0 AND sys.hidden=0', 
+                    'static.lg_iso_2', 
+                    '', 
+                    '', 
+                    'uid');
+            
+        } else {
+            
+                // The slow but more compilant way (DBAL)
+            $languages = \array_merge([0 => ['uid' => 0, 'static_lang_isocode' => (int)$defaultLanguage]], 
+                    self::getDatabaseConnection()->exec_SELECTgetRows(
+                            
+                    'sys.uid, sys.static_lang_isocode', 
+                    'sys_language sys', 
+                    'hidden=0', 
+                    '', 
+                    '', 
+                    '', 
+                    'uid'));
+            
+            $isoCodes = self::getDatabaseConnection()->exec_SELECTgetRows(
+                    'static.uid, static.lg_iso_2 AS isoCode, static.lg_collate_locale AS locale, ' 
+                            . 'static.lg_name_local AS localName', 
+                    'static_languages static', 
+                    'static.deleted=0 AND static.uid IN (' 
+                            . \implode(',', \array_unique(ArrayUtility::column(
+                                    $languages, 
+                                    'static_lang_isocode'))) . ')',
+                    '', 
+                    '', 
+                    '', 
+                    'uid');
+            
+            return \array_map(function($language) use ($isoCodes) {
+                
+                $isoCode = $language['static_lang_isocode'];
+                unset($language['static_lang_isocode']);
+                
+                return \array_merge($isoCodes[$isoCode], $language);
+                
+            }, $languages);
+            
+        }
         
     }
     
