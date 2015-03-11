@@ -45,13 +45,14 @@ query was sent and the TYPO3_DB class is not present. You can get this connectio
 
 .. code-block:: php
 
-    $DatabaseService->getDatabaseConnection();
+    \HARING\Crystalis\Service\DatabaseService::getDatabaseConnection();
 
-The returning object behaves exactly the same way as TYPO3_DB does, thus allowing you to to make familiar queries:
+The returning object behaves exactly the same way as TYPO3_DB does, thus allowing you to make familiar queries:
 
 .. code-block:: php
 
-    $Result = $DatabaseService->getDatabaseConnection()->exec_SELECTquery('field', 'table', 'where');
+    $result = \HARING\Crystalis\Service\DatabaseService::getDatabaseConnection()
+        ->exec_SELECTquery('field', 'table', 'where');
 
 A new database connection will be established using the Crystalis General Utility class. If you do not need all the 
 specific functions of the Database Service, you can obtain a database connection by directly calling the respective 
@@ -62,7 +63,7 @@ method:
     $DB = \HARING\Crystalis\Utility\GeneralUtility::obtainDatabaseConnection();
     $DB->exec_SELECTquery('field', 'table', 'where');
 
-No matter which way you chosse of accessing the database, a new connection only will be established if it is really 
+No matter which way you choose of accessing the database, a new connection only will be established if it is really 
 necessary. Meaning if TYPO3_DB already was initiaded or a new connection was established previously, the existing one 
 will be used instead of creating a new one.
 
@@ -77,10 +78,10 @@ Public member functions
 .. container:: table-row
 
    Method
-         getDatabaseConnection
+         static getDatabaseConnection
 
    Returns
-         \TYPO3\CMS\Dbal\Database\DatabaseConnection
+         \\TYPO3\\CMS\\Dbal\\Database\\DatabaseConnection
 
    Description
          Returns an existing database connection (e.g. $GLOBALS['TYPO3_DB']) or establishes a new one.

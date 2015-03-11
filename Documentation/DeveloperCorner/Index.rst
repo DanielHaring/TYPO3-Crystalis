@@ -19,4 +19,3 @@ Developer Corner
 
    Hooks/Index
    DatabaseService/Index
-   DevNotes/Index
