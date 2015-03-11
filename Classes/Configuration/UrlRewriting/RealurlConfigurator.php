@@ -6,7 +6,7 @@ namespace HARING\Crystalis\Configuration\UrlRewriting;
  * **************************************************************
  * Copyright notice
  *
- * (c) 2014 Daniel Haring <development@haring.co.at>
+ * (c) 2015 Daniel Haring <development@haring.co.at>
  *
  * All rights reserved
  *
@@ -37,7 +37,7 @@ use \HARING\Crystalis\Utility\ArrayUtility;
 /**
  * Auto configuration for extension RealUrl.
  *
- * @since 2.0.0
+ * @since 6.2.0
  * @author Daniel Haring <development@haring.co.at>
  * @package Crystalis
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
@@ -51,14 +51,14 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * TYPO3 Cache identifier.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      */
     const CACHE_IDENTIFIER = 'crystalis';
     
     /**
      * Key within TYPO3 Cache.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      */
     const CACHE_KEY = 'realurl';
     
@@ -69,7 +69,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * TYPO3 Cache Manager.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @var \TYPO3\CMS\Core\Cache\CacheManager
      * @inject
      * @access protected
@@ -79,7 +79,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * Computed configuration.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @var array
      * @access protected
      */
@@ -88,7 +88,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * DatabaseService Instance.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @var \HARING\Crystalis\Service\DatabaseService
      * @inject
      * @access protected
@@ -98,7 +98,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * TYPO3 Object Manager
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @var \TYPO3\CMS\Extbase\Object\ObjectManager
      * @inject
      * @access protected
@@ -108,7 +108,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * Head domain buffer
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @var array
      * @access private
      */
@@ -122,7 +122,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
      * Configures RealUrl to properly handle languages and domains.
      * API method.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @access public
      */
     public function configure() {
@@ -170,7 +170,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * Returns local cache manager or creates a new one if none is present.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @return \TYPO3\CMS\Core\Cache\Frontend\FrontendInterface|\TYPO3\CMS\Core\Cache\Backend\BackendInterface Local cache manager
      * @access protected
      */
@@ -197,7 +197,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * Extracts existing RealUrl configuration and pads required basic settings.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @return array Prepared RealUrl configuration array
      * @access protected
      */
@@ -252,7 +252,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * Completes preVars of a specific domain configuration.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param string $host The domain the configuration relates to
      * @access protected
      */
@@ -290,7 +290,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * Registers encoding end decoding for '_DOMAINS' configuration.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param array $domainConf Configuration of the specific domain to register
      * @access protected
      */
@@ -330,7 +330,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * Reads and returns RealUrl configuration. Takes auto configuration into account if enabled.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @return array RealUrl configuration
      * @access protected
      */
@@ -366,7 +366,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * Returns buffered head domains or computes them if no respective buffer was found.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @return array Head domain array
      * @access protected
      */
@@ -408,7 +408,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * Builds domain encoding entries for a specific domain.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param array $domainConf Configuration of the specific domain
      * @return array The built encoding entries as multidimensional array
      * @access protected
@@ -445,7 +445,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * Determines the index which to use for language preVars within RealUrl configuration array.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param array $config The RealUrl configuration array of which to determine index for
      * @access protected
      */

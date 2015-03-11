@@ -4,7 +4,7 @@
  * **************************************************************
  * Copyright notice
  *
- * (c) 2014 Daniel Haring <development@haring.co.at>
+ * (c) 2015 Daniel Haring <development@haring.co.at>
  *
  * All rights reserved
  *

@@ -6,7 +6,7 @@ namespace HARING\Crystalis\Service;
  * **************************************************************
  * Copyright notice
  *
- * (c) 2014 Daniel Haring <development@haring.co.at>
+ * (c) 2015 Daniel Haring <development@haring.co.at>
  *
  * All rights reserved
  *
@@ -35,7 +35,7 @@ namespace HARING\Crystalis\Service;
 /**
  * Service for automated language handling.
  *
- * @since 2.0.0
+ * @since 6.2.0
  * @author Daniel Haring <development@haring.co.at>
  * @package Crystalis
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
@@ -49,7 +49,7 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
     /**
      * DatabaseService Instance.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @var \HARING\Crystalis\Service\DatabaseService
      * @access private
      */
@@ -58,7 +58,7 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
     /**
      * Buffer for language PageTS configuration.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @var string
      * @access private
      */
@@ -67,7 +67,7 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
     /**
      * Buffer for language TypoScript setup.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @var string
      * @access private
      */
@@ -81,7 +81,7 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
      * Returns language TypoScript setup and constructs it if neccessary.
      * API method.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @return string The constructed or stored TypoScript setup
      * @access public
      */
@@ -125,7 +125,7 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
      * Returns language PageTS configuration and constructs it if neccessary.
      * API method.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @return string The constructed or stored PageTS configuration
      * @access public
      */
@@ -166,7 +166,7 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
      * Prepares URL rewriting extensions. Extension realurl is the only one supported by default.
      * API method.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @access public
      */
     public function prepareUrlRewriting() {
@@ -218,7 +218,7 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
      * Extracts available languages and renders a select box.
      * For use in ext_conf_template.txt
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param array $params Parameters of the respective Extconf field
      * @return string The rendered select box as HTML
      * @access public
@@ -269,7 +269,7 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
     /**
      * Returns active DatabaseService instance or creates a new one.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @return \HARING\Crystalis\Service\DatabaseService Active DatabaseService
      * @access protected
      */

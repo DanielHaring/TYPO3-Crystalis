@@ -6,7 +6,7 @@ namespace HARING\Crystalis\ContentObject;
  * **************************************************************
  * Copyright notice
  *
- * (c) 2014 Daniel Haring <development@haring.co.at>
+ * (c) 2015 Daniel Haring <development@haring.co.at>
  *
  * All rights reserved
  *
@@ -49,21 +49,21 @@ class Html5VideoContentObject extends \HARING\Crystalis\ContentObject\AbstractCo
     /**
      * MIME-type of mp4 files.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      */
     const MIME_TYPE_MP4 = 'video/mp4';
     
     /**
      * MIME-type of WebM files.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      */
     const MIME_TYPE_WEBM = 'video/webm';
     
     /**
      * MIME-type of ogg files.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      */
     const MIME_TYPE_OGG = 'video/ogg';
     
@@ -156,7 +156,7 @@ class Html5VideoContentObject extends \HARING\Crystalis\ContentObject\AbstractCo
      * as array. The array holds the MIME-type as key and the respective file path as value.
      * Expects properties to be named after their respective file format.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param array $conf The TypoScript configuration of which to extract file resources from
      * @param array $formats An array which holds keys of TypoScript properties to identify as file resource
      * @return array An array containing the extracted file resources
@@ -189,7 +189,7 @@ class Html5VideoContentObject extends \HARING\Crystalis\ContentObject\AbstractCo
     /**
      * Builds object and variable array for flash content.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param array $conf The TypoScript configuration array holding flash setup
      * @param string $flexForm (Optional) The name of the flexform sub array
      * @param string $propertyName (Optional) Alternative name of flash property

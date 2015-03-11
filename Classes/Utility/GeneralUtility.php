@@ -6,7 +6,7 @@ namespace HARING\Crystalis\Utility;
  * **************************************************************
  * Copyright notice
  *
- * (c) 2014 Daniel Haring <development@haring.co.at>
+ * (c) 2015 Daniel Haring <development@haring.co.at>
  *
  * All rights reserved
  *
@@ -35,7 +35,7 @@ namespace HARING\Crystalis\Utility;
 /**
  * Various helper functions.
  *
- * @since 2.0.0
+ * @since 6.2.0
  * @author Daniel Haring <development@haring.co.at>
  * @package Crystalis
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
@@ -50,7 +50,7 @@ class GeneralUtility {
      * Returns the TYPO3 database connection or establishes a new one if it doesn't exist.
      * Basically a static version of \TYPO3\CMS\Core\Core->InitializeTypo3DbGlobal.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @return \TYPO3\CMS\Core\Database\DatabaseConnection The TYPO3 database object
      * @access public
      * @static

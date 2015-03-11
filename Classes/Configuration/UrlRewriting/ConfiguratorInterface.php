@@ -6,7 +6,7 @@ namespace HARING\Crystalis\Configuration\UrlRewriting;
  * **************************************************************
  * Copyright notice
  *
- * (c) 2014 Daniel Haring <development@haring.co.at>
+ * (c) 2015 Daniel Haring <development@haring.co.at>
  *
  * All rights reserved
  *
@@ -35,7 +35,7 @@ namespace HARING\Crystalis\Configuration\UrlRewriting;
 /**
  * Interface for classes preparing URL rewriting extensions.
  *
- * @since 2.0.0
+ * @since 6.2.0
  * @author Daniel Haring <development@haring.co.at>
  * @package Crystalis
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later

@@ -6,7 +6,7 @@ namespace HARING\Crystalis\Service;
  * **************************************************************
  * Copyright notice
  *
- * (c) 2014 Daniel Haring <development@haring.co.at>
+ * (c) 2015 Daniel Haring <development@haring.co.at>
  *
  * All rights reserved
  *
@@ -38,7 +38,7 @@ use \HARING\Crystalis\Utility\ArrayUtility;
 /**
  * Service for accessing database from any point.
  *
- * @since 2.0.0
+ * @since 6.2.0
  * @author Daniel Haring <development@haring.co.at>
  * @package Crystalis
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
@@ -52,7 +52,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
     /**
      * Buffer for already processed queries.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @var array
      * @access private
      */
@@ -66,7 +66,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
      * Fetches "domain => language" assignments from database or returns buffered result if a respecitve entry was found.
      * API method.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param boolean $noBuffer (Optional) If set to TRUE the result won't be buffered. This may be useful if you 
      *                          are certain that this specific call won't be done additional times.
      * @return array Retrieved assignements
@@ -124,7 +124,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
      * Fetches defined system languages from database or returns buffered result if a respective entry was found.
      * API method.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param boolean $noBuffer (Optional) If set to TRUE the result won't be buffered. This may be useful if you
      *                          are certain that this specific call won't be done additional times.
      * @return array Retrieved system languages
@@ -167,7 +167,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
      * askes for TYPO3_DB to be set, the established connection can be reused and therefore there won't be 
      * an additional one.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @return \TYPO3\CMS\Core\Database\DatabaseConnection The current database connection
      * @static
      * @access public
@@ -192,7 +192,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
      * Gatheres all informations for building domain assignments. Supports DBAL.
      * Internal helper function.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @return array All informations required for reading out domain assignments
      * @access protected
      */
@@ -276,7 +276,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
      * Gatheres all necessary informations about system languages. Supports DBAL.
      * Internal helper function.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param string $defaultLanguage static_language ID of the configured default language
      * @return array All necessary informations about current system languages
      * @access protected
@@ -347,7 +347,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
     /**
      * Bufferes a specific query result.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param mixed $result The query result to buffer
      * @param string $identifier Internal identifier for this specific entry
      * @param string $hash (Optional) Hash to differ arguments from multiple calls
@@ -366,7 +366,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
     /**
      * Returns a buffered result.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param string $identifier Internal buffer identifier of the result to return.
      * @param string $hash (Optional) The arguments hash of which to return the result for.
      * @return mixed The buffered entry
@@ -385,7 +385,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
     /**
      * Checks wheter a specific result was buffered.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param string $identifier Internal buffer identifier of the result to check.
      * @param string $hash (Optional) The arguments hash which to take into account.
      * @return boolean TRUE if the result was buffered, FALSE otherwise

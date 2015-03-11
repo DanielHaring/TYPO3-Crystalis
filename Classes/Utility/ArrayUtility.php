@@ -6,7 +6,7 @@ namespace HARING\Crystalis\Utility;
  * **************************************************************
  * Copyright notice
  *
- * (c) 2014 Daniel Haring <development@haring.co.at>
+ * (c) 2015 Daniel Haring <development@haring.co.at>
  *
  * All rights reserved
  *
@@ -35,7 +35,7 @@ namespace HARING\Crystalis\Utility;
 /**
  * Helper functions concerning array handling.
  *
- * @since 2.0.0
+ * @since 6.2.0
  * @author Daniel Haring <development@haring.co.at>
  * @package Crystalis
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
@@ -50,7 +50,7 @@ class ArrayUtility {
      * Return the values from a single column in the input array.
      * Polyfill of \array_column for PHP prior v5.5.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param array $array A multi-dimensional array (record set) from which to pull a column of values.
      * @param mixed $columnKey The column of values to return. This value may be the integer key of the column 
      *                         you wish to retrieve, or it may be the string key name for an associative array. 

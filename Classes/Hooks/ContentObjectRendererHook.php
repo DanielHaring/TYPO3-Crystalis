@@ -6,7 +6,7 @@ namespace HARING\Crystalis\Hooks;
  * **************************************************************
  * Copyright notice
  *
- * (c) 2014 Daniel Haring <development@haring.co.at>
+ * (c) 2015 Daniel Haring <development@haring.co.at>
  *
  * All rights reserved
  *
@@ -49,7 +49,7 @@ class ContentObjectRendererHook implements \TYPO3\CMS\Frontend\ContentObject\Con
     /**
      * The content object requesting the renderer.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
      * @access protected
      */
@@ -58,7 +58,7 @@ class ContentObjectRendererHook implements \TYPO3\CMS\Frontend\ContentObject\Con
     /**
      * Translates TypoScript key to class name.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @var array
      * @access protected
      */
@@ -100,7 +100,7 @@ class ContentObjectRendererHook implements \TYPO3\CMS\Frontend\ContentObject\Con
     /**
      * Returns the appropriate content object renderer of a specific type.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param string $name TypoScript key of the object to render
      * @return \TYPO3\CMS\Frontend\ContentObject\AbstractContentObject The appropriate content object renderer
      * @access public
@@ -128,7 +128,7 @@ class ContentObjectRendererHook implements \TYPO3\CMS\Frontend\ContentObject\Con
     /**
      * Renders content object of type "VIDEO".
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param array $conf TypoScript configuration of this specific content object
      * @return mixed The rendered HTML output if any
      * @access public

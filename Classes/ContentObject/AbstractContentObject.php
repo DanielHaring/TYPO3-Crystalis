@@ -6,7 +6,7 @@ namespace HARING\Crystalis\ContentObject;
  * **************************************************************
  * Copyright notice
  *
- * (c) 2014 Daniel Haring <development@haring.co.at>
+ * (c) 2015 Daniel Haring <development@haring.co.at>
  *
  * All rights reserved
  *
@@ -35,7 +35,7 @@ namespace HARING\Crystalis\ContentObject;
 /**
  * Abstract for content object rendered by Crystalis.
  *
- * @since 2.0.0
+ * @since 6.2.0
  * @author Daniel Haring <development@haring.co.at>
  * @package Crystalis
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
@@ -49,7 +49,7 @@ abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\A
     /**
      * The TYPO3 File Repository
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @var \TYPO3\Core\CMS\Resource\FileRepository
      * @access private
      */
@@ -62,7 +62,7 @@ abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\A
     /**
      * Renders content object and returns its HTML output.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param array $conf The TypoScript configuration of this specific object
      * @return string The rendered HTML output
      * @access public
@@ -77,7 +77,7 @@ abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\A
     /**
      * Builds TypoScript array out of FlexForm and stores it within the given configuration array.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param array $conf The configuration where to read out and store FlexForm
      * @param string $property The name of the property which holds FlexForm
      * @param string $storage (Optional) The name of the property where the created array should be stored.
@@ -122,7 +122,7 @@ abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\A
      * 
      * Regular string: Normal strings will be interpreted as Resource data type (e.g. "EXT:crystalis/path/to/file.jpg", or "path/to/file.jpg")
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param string $field The name of the field which stores the identifier
      * @param array $conf The TypoScript configuration where identifier is stored
      * @return array The path to the file or FALSE if an error occured
@@ -170,7 +170,7 @@ abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\A
     /**
      * Retrieves FAL file references.
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @param string $field The field name of which to retrieve the file for
      * @return array The retrieved file references
      * @access protected
@@ -191,7 +191,7 @@ abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\A
     /**
      * Returns the TYPO3 File Repository
      * 
-     * @since 2.0.0
+     * @since 6.2.0
      * @return \TYPO3\CMS\Core\Resource\FileRepository The File Repository
      * @access protected
      * @final
