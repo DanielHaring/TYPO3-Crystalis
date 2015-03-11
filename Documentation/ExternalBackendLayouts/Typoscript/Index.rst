@@ -13,7 +13,7 @@ Accessing via TypoScript
 
 When building templates for different backend layouts you may come to that point where you want to differ between 
 specific backend layouts on TypoScript side. When TYPO3 handles external backend layouts, it will set the respective 
-array key within PateTS as layout ID and prefixes it with "file__" (please mind the double underscore).
+array key within PageTS as layout ID and prefixes it with "\file__" (please mind the double underscore).
 
 For example, if you have the following configuration inside your PageTS ::
 

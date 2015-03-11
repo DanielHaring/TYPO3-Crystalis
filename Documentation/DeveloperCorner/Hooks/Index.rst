@@ -68,7 +68,7 @@ When the hook is called, two parameters will be passed:
          LanguageService
 
    Data type
-         HARING\Crystalis\Service\LanguageService
+         \\HARING\\Crystalis\\Service\\LanguageService
 
    Description
          The singleton instance of the Language Service.
@@ -107,4 +107,4 @@ Of course, you are allowed to pass multiple allocations (key => value) at once.
     return ['cooluri' => 'VENDOR\\ExtKey\\Configuration\\UrlRewriting\\CoolUriConfigurator'];
 
 **Important Notice:** The classes responsible for configuring URL rewriting must implement the Interface 
-\HARING\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface. Otherwise your configurator will be ignored.
+\\HARING\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface. Otherwise your configurator will be ignored.

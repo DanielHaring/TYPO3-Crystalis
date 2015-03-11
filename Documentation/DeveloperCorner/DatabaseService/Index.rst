@@ -78,7 +78,7 @@ Public member functions
 .. container:: table-row
 
    Method
-         static getDatabaseConnection
+         *static* getDatabaseConnection
 
    Returns
          \\TYPO3\\CMS\\Dbal\\Database\\DatabaseConnection

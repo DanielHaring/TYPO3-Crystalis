@@ -13,7 +13,7 @@ External Backend Layouts
 
 Crystalis' Backend Layout File Data Provider allows you to outsource backend layouts as files, which increases 
 flexibility and portability of your backend layouts. Every single layout is stored as a separate TypoScript file 
-(*.ts) and will be registered via PageTS.
+(\*.ts) and will be registered via PageTS.
 
 
 .. toctree::

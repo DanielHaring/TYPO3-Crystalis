@@ -19,7 +19,7 @@ Creating domain records works as follows:
 .. figure:: ../../Images/LanguageService/PageRecord.jpg
    :alt: Create a new record
 
-Switch to List module **(1)** and select the supposed root page for your domain **(2)**. Press the "Create new 
+Switch to List module **(1)** and select the supposed root page of your domain **(2)**. Press the "Create new 
 record" **(3)** button at the top and choose "Domain" **(4)**. The domain record itself consits of two important 
 fields: 
 

@@ -14,7 +14,7 @@ Availability
 As mentioned before, the HTML5 Video content element automatically will substitute the Media element if HTML5 
 :ref:`doctype <preset-rendering-doctype>` was chosen. However, if you don't want to make use of this element 
 (maybe because you're already using another third-party extension for this purpose), head to Extension Manager 
-module, select Crystalis and check "Disable HTML5 video" in "Frontend Rendering" tab. After this the Media 
+module, select *Crystalis* and check "Disable HTML5 video" in "Frontend Rendering" tab. After this the Media 
 element will be back again.
 
 But what to do if you absolutely want to make use of the HTML5 content element, but still need the Media element 

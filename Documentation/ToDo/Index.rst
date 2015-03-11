@@ -12,14 +12,5 @@ To-Do List
 ----------
 
 
-*(Target version in square brackets)*
-
- - [2.0.0] Testing
-     - Ensure functionality of LanguageService in hybrid systems (single- and multi-tree-concepts)
-     - Ensure queries within Database Service work with non MySQL systems as well (DBAL)
- - [2.0.0] Make use of TYPO3 translation server
-     - Remove local german localization
-     - Send request at TYPO3 forge (new TASK)
-     - Supply german localization
- - [2.1.0] Implement the gallery system
- - [2.2.0] Implement the news system
+ - Merge feature_documentation with master branch
+ - Update @since comments according to new version specifications
