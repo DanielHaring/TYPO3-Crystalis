@@ -30,7 +30,7 @@ Crystalis
 		typo3,documentation,extension,crystalis,base,flexible,html5
 
 	:Copyright:
-		2014
+		2015
 
 	:Author:
 		Daniel Haring
@@ -57,9 +57,12 @@ Crystalis
 	:glob:
 
         Introduction/Index
-        BackendConfig/Index
-        ContentRendering/Index
-        Html5VideoContentElement/Index
-	ToDoList/Index
-        DevNotes/Index
+        ConfigurationPresets/Index
+        Html5Video/Index
+        LanguageService/Index
+        ExternalBackendLayouts/Index
+        ContentObjects/Index
+        KnownProblems/Index
+        DeveloperCorner/Index
+        ToDo/Index
         Credits/Index

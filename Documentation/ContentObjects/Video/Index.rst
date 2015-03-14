@@ -3,85 +3,17 @@
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. include:: ../Includes.txt
-
-
-.. _html5video:
-
-HTML5 Video Content Element
-===========================
-
-If :ref:`HTML5 doctype <contentrendering-htmldoctype>` is selected (which is by default) Crystalis automatically 
-substitutes the Media content element with the new HTML5 Video content element.
-
-This new element lets you define various sources easily and apply settings without having to know about the 
-exact commands.
-
-
-.. _html5video-disable:
-
-Disable HTML5 Video Content Element
------------------------------------
-
-If you do not want Crystalis to substitute the Media element for whatever reason, you can deactivate it in 
-extension configuration.
-
-To achieve this, head to "Extension Manager" module and select "Crystalis". Switch to "Frontend Rendering" tab 
-and check "Disable HTML5 video". The HTML5 Video Content Element won't be available any longer.
-
-.. figure:: ../../Images/Html5VideoCE/Disable.jpg
-   :alt: Disable HTML5 Video Content Element
-
-If you, however, absolutely want to make use of the new element but do not want the Media element to disappear, 
-you have to configure this by yourself. Technically the Media element is not substitued but deactivated – the 
-HTML5 Video element is a separate element. Therefore you have to edit pageTS (e.g. of your root page) and 
-activate the Media element again. To achieve this, you have to add the following line of code:
-
-:typoscript:`mod.wizards.newContentElement.wizardItems.special.show := addToList(media)`
-
-That's it. Now you can make use of both – the HTMl5 Video and the Media content elements.
-
-
-.. _html5video-add:
-
-Add a new element
------------------
-
-You're curious about how the new element works? Nothing easier than that! Just create a new content element as 
-usual. When asked about the content type, switch to "Special elements" tab and select "HTML5 Video".
-
-.. figure:: ../../Images/Html5VideoCE/CEWiz.jpg
-   :alt: Add a new HTML5 Video Content Element
-
-The new form you will be confronted with won't differ much from what you're used to. Just the "Video" tab will 
-be some kind of new – but self-explanatory. To make the element displaying anything in Frontend, you have to add 
-one video file at least (mp4, WebM, Ogg).
-
-In addition it is hingly recommended to set "width" and "height" in "Settings" sub-tab. If dimensions are omitted 
-and couldn't been detected automatically, width will be set to 720 and height to 576.
-
-**Please note:** Poster images and Flash videos do not count as source. For example specifiying Flash video only, 
-will coax the element to actually display nothing.
-
-
-.. _html5video-typoscript:
-
-The TypoScript way
-------------------
-
-Crystalis introduces a whole new content object, simply called "VIDEO". This renderer is used when a HTML5 Video 
-content element should be displayed in Frontend. However, if you want to, you can make use of this content object 
-with pure TypoScript only – with no need to refer to any existing content element. This is useful if you want to 
-display static HTML5 videos which never should be maintained by backend users.
-
-Like the content element, inserting HTML5 video via TypoScript requires at least one video source (mp4, WebM, Ogg) 
-to be set. If none was specified, nothing will be generated.
+.. include:: ../../Includes.txt
 
 
 .. _cobj-video:
 
 VIDEO
 ^^^^^
+
+Returns a video tag with the sources defined in the property "parameter".
+
+Defined as PHP class Html5VideoContentObject in typo3conf/ext/crystalis/Classes/ContentObject/Html5VideoContentObject.php.
 
 
 .. ### BEGIN~OF~TABLE ###
@@ -380,3 +312,77 @@ parameter
 
 
 .. ###### END~OF~TABLE ######
+
+
+.. _cobj-video-examples:
+
+Examples:
+"""""""""
+
+
+.. _cobj-video-examples-standard:
+
+Standard rendering
+~~~~~~~~~~~~~~~~~~
+
+::
+
+    1: 10 = VIDEO
+    2: 10{
+    3:      flexParams{
+    4:           field = pi_flexform
+    5:      }
+    6:      mineConf{
+    7:           flash{
+    8:                player = typo3/contrib/flashmedia/flvplayer.swf
+    9:           }
+   10:      }
+   11: }
+
+This returns a video tag depending on the contents of the field pi_flexform.
+
+
+.. _cobj-video-examples-autonomous:
+
+Autonomous rendering
+~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    1: 10 = VIDEO
+    2: 10{
+    3:      mimeConf{
+    4:           flash{
+    5:                player = typo3/contrib/flashmedia/flvplayer.swf
+    6:           }
+    7:      }
+    8:      parameter{
+    9:           mp4 = fileadmin/name-of-mp4-source.mp4
+   10:           webm = fileadmin/name-of-webm-source.webm
+   11:           ogg = fileadmin/name-of-ogg-source.ogg
+   12:           flash = fileadmin/name-of-flash-source.flv
+   13:           poster = fileadmin/name-of-preview-image.jpg
+   14:           width = 1920
+   15:           height = 1080
+   16:           preload = 1
+   17:           autoplay = 1
+   18:      }
+   19: }
+
+This returns:
+
+.. code-block:: html
+
+    <video width="1920" height="1080"  preload="auto" autoplay poster="fileadmin/name-of-preview-image.jpg">
+        <source src="fileadmin/name-of-mp4-source.mp4" type="video/mp4">
+        <source src="fileadmin/name-of-webm-source.webm" type="video/webm">
+        <source src="fileadmin/name-of-ogg-source.ogg" type="video/ogg">
+        <object width="1920" height="1080" type="application/x-shockwave-flash" data="typo3/contrib/flashmedia/flvplayer.swf">
+            <param name="movie" value="typo3/contrib/flashmedia/flvplayer.swf">
+            <param name="wmode" value="transparent">
+            <param name="allowFullScreen" value="true">
+            <param name="allowScriptAccess" value="sameDomain">
+            <param name="flashvars" value="file=fileadmin/name-of-flash-source.flv&autoPlay=true">
+            <img src="fileadmin/name-of-preview-image.jpg" width="1920" height="1080" alt="">
+        </object>
+    </video>
