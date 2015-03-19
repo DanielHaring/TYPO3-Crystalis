@@ -60,21 +60,6 @@ abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\A
     
     
     /**
-     * Renders content object and returns its HTML output.
-     * 
-     * @since 6.2.0
-     * @param array $conf The TypoScript configuration of this specific object
-     * @return string The rendered HTML output
-     * @access public
-     * @abstract
-     */
-    abstract public function render($conf = []);
-    
-    
-    
-    
-    
-    /**
      * Builds TypoScript array out of FlexForm and stores it within the given configuration array.
      * 
      * @since 6.2.0
