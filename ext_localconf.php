@@ -54,7 +54,7 @@ switch($_EXTCONF['doctype']) {
     case 'xhtml_strict':
         
         $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'][] 
-                = 'crystalis/Configuration/TypoScript/XHtmlStrict';
+                = 'crystalis/Configuration/TypoScript/XHtmlStrict/';
         
         break;
     
@@ -62,7 +62,7 @@ switch($_EXTCONF['doctype']) {
     default:
         
         $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'][] 
-                = 'crystalis/Configuration/TypoScript/Html5';
+                = 'crystalis/Configuration/TypoScript/Html5/';
         
         break;
     
