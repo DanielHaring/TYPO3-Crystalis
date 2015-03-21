@@ -15,7 +15,7 @@ Crystalis
 .. only:: html
 
 	:Classification:
-		Crystalis
+		crystalis
 
 	:Version:
 		|release|
@@ -66,3 +66,4 @@ Crystalis
         DeveloperCorner/Index
         ToDo/Index
         Credits/Index
+        Targets

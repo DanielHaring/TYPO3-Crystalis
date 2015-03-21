@@ -11,13 +11,13 @@
 Registering layouts to be loaded
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To tell TYPO3 CMS to load an external backend layout, it has to be registered within PageTS configuration. Edit the 
-page with the lowest level where you want to include the layout – in most cases this would be the home page:
+To tell TYPO3 CMS to load an external backend layout, the layout has to be registered within PageTS configuration. 
+Edit the page with the lowest level where you want to include your layout – in most cases this would be the home page:
 
 .. figure:: ../../Images/BackendLayouts/RegisterPageConfig.jpg
    :alt: Register a backend layout
 
-Switch to Resources tab **(1)** and edit Page TSConfig **(2)** as follows:
+Switch to *Resources* tab **(1)** and edit *Page TSConfig* **(2)** as follows:
 
 
 .. _be-lay-register-setup:

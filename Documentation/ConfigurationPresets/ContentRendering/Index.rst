@@ -35,13 +35,13 @@ the chosen page does not contain any kind of template already, firstly create a 
 .. figure:: ../../Images/ContentRendering/EditSiteTemplate.jpg
    :alt: Edit the template of your site
 
-Next ensure function "Info/Modify" **(1)** is selected and follow "Edit the whole template record" **(2)** at the bottom.
+Next ensure function *"Info/Modify"* **(1)** is selected and follow *"Edit the whole template record"* **(2)** at the bottom.
 
 .. figure:: ../../Images/ContentRendering/IncludeStatic.jpg
    :alt: Include render template
 
-Switch to "Includes" tab **(3)** and add item "Frontend Rendering (crystalis)" to "Selected Items" within "Include 
-Static (from extensions)" **(4)** section. After saving your changes, the render setup will take up employment.
+Switch to *"Includes"* tab **(3)** and add item *"Frontend Rendering (crystalis)"* to *"Selected Items"* within *"Include 
+Static (from extensions)"* **(4)** section. After saving your changes, the render setup will take up employment.
 
 As soon as this had happened, Crystalis needs to know about the head domain of the respective page. See 
 :ref:`preset-rendering-domains`.
@@ -70,12 +70,12 @@ update the TYPO3 core later on.
 Set up HTML doctype
 """""""""""""""""""
 
-In some cases Crystalis has to react to the doctype of your website. For example it does not make sense to allow the 
-HTML5 Video element when XHTML 1.0 is used. As you may presume, the doctype also affects content rendering, as HTML5 
+In some cases Crystalis needs to react to the doctype of your website. For example it does not make sense to allow the 
+HTML5 Video element when XHTML 1.0 is used. As you may presume, the doctype also affects content rendering – as HTML5 
 provides some great ways to improve semantics of your site.
 
-If not specified, Crystalis expects the doctype to be "HTML5". To switch to another doctype, head to Extension Manager 
-module, select Crystalis and change "HTML Doctype" inside "Frontend Rendering" tab. As of now, Crystalis does support 
+If not specified, Crystalis expects the doctype to be *"HTML5"*. To switch to another doctype, head to Extension Manager 
+module, select *Crystalis* and change *"HTML Doctype"* inside *"Frontend Rendering"* tab. As of now, Crystalis does support 
 HTML5 and XHTML 1.0 Strict. This list may be expanded in future releases.
 
 
@@ -88,13 +88,13 @@ When a page is rendered, TYPO3 should know about the domain of the page. This be
 service and/or RealURL is used. These settings are stored as constants inside your website template and therefore can 
 easily been edited using the Constant Editor.
 
-For this purpose switch to "Template" main module. Inside the page tree navigate to the page where the template is 
+For this purpose switch to *"Template"* main module. Inside the page tree navigate to the page where the template is 
 located in.
 
 .. figure:: ../../Images/ContentRendering/DomainSettings.jpg
    :alt: Configuring domains
 
-Next ensure function "Constant Editor" **(1)** is selected and choose category "SERVER" **(2)**. Fill out the fields below as 
-described there and save your changes.
+Next ensure function *"Constant Editor"* **(1)** is selected and choose category *"SERVER"* **(2)**. Fill out the fields 
+below as described there and save your changes.
 
 **Note:** If working with multiple sites you have to specify a domain for each of them.

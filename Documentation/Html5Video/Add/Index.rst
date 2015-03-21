@@ -11,20 +11,20 @@
 Adding a new element
 ^^^^^^^^^^^^^^^^^^^^
 
-Embedding HTMl5 videos doesn't differ much from adding common elements and only requires a few clicks. Firstly 
+Embedding HTML5 videos doesn't differ much from adding common elements and only requires a few clicks. Firstly 
 select the page of your choice and create a new content element the way you are used to.
 
 .. figure:: ../../Images/Html5Video/CreateElement.jpg
    :alt: Add a HTML5 Video content element
 
-The HTML5 Video element is located in "Special elements" tab **(1)** and is named "HTML5 Video" **(2)**.
+The HTML5 Video element is located in *"Special elements"* tab **(1)** and is named *"HTML5 Video"* **(2)**.
 
 .. figure:: ../../Images/Html5Video/VideoTab.jpg
    :alt: The Video tab inside HTML5 Video content element
 
 The form that is loaded after your selection is similar to any other element, but provides an additional tab 
-called "Video" **(3)**. The Options herein are self-explanatory and allow you to add various sources and change 
-the appearance of the element. Altough all settings are optional, it is highly recommended to define width and 
+called *"Video"* **(3)**. The Options herein are self-explanatory and allow you to add various sources and change 
+the appearance of the element. Altough all *Settings* are optional, it is highly recommended to define width and 
 height of the video. If omitted an auto-detection algorithm tries to extract the dimensions of your sources but 
 this does not work very well in current release.
 

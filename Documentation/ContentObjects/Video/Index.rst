@@ -13,7 +13,7 @@ VIDEO
 
 Returns a video tag with the sources defined in the property "parameter".
 
-Defined as PHP class Html5VideoContentObject in typo3conf/ext/crystalis/Classes/ContentObject/Html5VideoContentObject.php.
+Defined as PHP class *Html5VideoContentObject* in *typo3conf/ext/crystalis/Classes/ContentObject/Html5VideoContentObject.php*.
 
 
 .. ### BEGIN~OF~TABLE ###

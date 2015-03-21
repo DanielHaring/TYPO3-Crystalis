@@ -50,6 +50,8 @@ Get in touch
 ^^^^^^^^^^^^
 
 Found a bug? Want to ask for a feature? Or just want to give me some feedback?
-Feel free to open a new issue on GitHub or write me at:
+Feel free to open a new `issue on GitHub`_ or write me at:
 
 development at haring dot co dot at.
+
+.. _issue on GitHub: https://github.com/HARING/TYPO3-Crystalis/issues
