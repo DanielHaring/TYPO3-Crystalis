@@ -20,7 +20,7 @@ be exucuted at all.
 
 In addition it is highly recommended to install RealUrl (extension key: "realurl") as well. Crystalis will take 
 care of configuring RealUrl depeding on available languages and domains. If you already are familiar with 
-RealUrl and want to inject you own configurations you can simply write your own base configuration and the 
+RealUrl and want to inject your own configurations you can simply write your own base configuration and the 
 Language Service will complete it with domain and language settings. If you're interested in how this exactly 
 works, please see chapter :ref:`lang-custom-realurl`.
 

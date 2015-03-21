@@ -24,5 +24,5 @@ therefore needs a domain-only record, RealUrl needs to know about the port for p
 satisfy both of them, you have to create two domain records – one containing the port 
 (e.g. 'www.example.org:8888') and the other containing the pure domain only (e.g. 'www.example.org').
 
-If those two domain records are set, please ensure the option "Always prepend this domain in links" is 
+If those two domain records are set, please ensure the option *"Always prepend this domain in links"* is 
 unchecked for both of them. Otherwise there may occur conflicts when links are generated.

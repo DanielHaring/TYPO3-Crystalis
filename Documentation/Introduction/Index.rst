@@ -54,4 +54,4 @@ About this documentation
 This documentation may differ from what you're used to. Each component got its own chapter allowing yo to jump to 
 those particular sections you are interested in.
 
-You would have written things differently? Feel free to :ref:`contact me <dev-contact>` and just let me know.
+You would have written things differently? Feel free to :ref:`contact me <credits-contact>` and just let me know.

@@ -26,12 +26,12 @@ Registering a hook
 ~~~~~~~~~~~~~~~~~~
 
 To register a Rewrite Configurator the class name inside TYPO3_CONF_VARS should be *LanguageService* and the 
-function name is *registerRewriteConfigurator*. The implementation doesn't expect a specific funtion name so 
+function name is *registerRewriteConfigurator*. The implementation doesn't expect a specific function name so 
 you have to specify it by yourself.
 
 **Example:** ::
 
-    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['crystalis']['LanguageService']['registerRewriteConfigurator'] = 
+    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['crystalis']['LanguageService']['registerRewriteConfigurator'][] = 
         'VENDOR\\ExtKey\\Hooks\\ClassName->functionName';
 
 
@@ -82,7 +82,7 @@ Therefore your implementation should look like the following: ::
 
     namespace VENDOR\ExtKey\Hooks;
 
-    class ClassName {
+    class ClassName implements \HARING\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface {
 
         public function functionName($Registry, $LanguageService) {
             // do something
@@ -100,7 +100,7 @@ The value returned by your function must be of type array and basically should l
 This means you should provide the extension key to which the configurator belongs as array key and the fully 
 qualified class name which is responsible for configuration as value.
 
-Of course, you are allowed to pass multiple allocations (key => value) at once.
+Of course, you are allowed to pass multiple pairs (key => value) at once.
 
 **Example:** ::
 
