@@ -82,6 +82,9 @@
             <trans-unit id="extconf.subcategory_PresetConfigurations" xml:space="preserve">
                 <source>Preset configurations</source>
             </trans-unit>
+            <trans-unit id="extconf.title_Warning" xml:space="preserve">
+                <source>Configuration warning</source>
+            </trans-unit>
             
             
             <trans-unit id="rte.charClassTel" xml:space="preserve">

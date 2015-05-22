@@ -215,58 +215,6 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
     
     
     /**
-     * Extracts available languages and renders a select box.
-     * For use in ext_conf_template.txt
-     * 
-     * @since 6.2.0
-     * @param array $params Parameters of the respective Extconf field
-     * @return string The rendered select box as HTML
-     * @access public
-     * @static
-     */
-    public static function getFormFieldForExtconf(array $params) {
-        
-        if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('static_info_tables')) {
-            
-            return '<p class="typo3-message message-warning" style="margin-top: 0;">' 
-                    . $GLOBALS['LANG']->sL(
-                            'LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.label_DefaultLanguage_NoSit') 
-                    . '</p>';
-            
-        }
-        
-        $ObjectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
-        $LanguageRepository = $ObjectManager->get('SJBR\\StaticInfoTables\\Domain\\Repository\\LanguageRepository');
-        
-        $languages = [];
-        
-        $query = $LanguageRepository->createQuery();
-        $query->setOrderings(['lg_iso_2' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING]);
-        
-        foreach($query->execute() as $language) {
-            
-            $languages[] = [
-                'value' => \strtolower($language->getUid()),
-                'name' => \strtolower($language->getIsoCodeA2()) . ' – ' . $language->getNameEn()
-            ];
-            
-        }
-        
-        $selected = [$params['fieldValue']];
-        
-        return \SJBR\StaticInfoTables\Utility\HtmlElementUtility::selectConstructor(
-                $languages, 
-                $selected, 
-                $selected, 
-                $params['fieldName']);
-        
-    }
-    
-    
-    
-    
-    
-    /**
      * Returns active DatabaseService instance or creates a new one.
      * 
      * @since 6.2.0

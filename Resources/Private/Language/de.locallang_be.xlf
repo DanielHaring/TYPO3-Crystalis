@@ -107,6 +107,10 @@
                 <source>Preset configurations</source>
                 <target>Vordefinierte Konfigurationen</target>
             </trans-unit>
+            <trans-unit id="extconf.title_Warning" xml:space="preserve">
+                <source>Configuration warning</source>
+                <target>Konfigurations-Warnung</target>
+            </trans-unit>
             
             
             <trans-unit id="rte.charClassTel" xml:space="preserve">
