@@ -38,10 +38,13 @@ loaded with code you are not interested in.
 System requirements
 ^^^^^^^^^^^^^^^^^^^
 
-At present Crystalis requires **TYPO3 CMS 6.2** and **PHP 5.4**. Although not completely debarred, a compatibility 
-layer is not being planned at the moment.
+At present, the most recent version of crystalis available at *TER* requires **TYPO3 CMS 7.2**. If working with an 
+older version of TYPO3 CMS, you can find appropriate versions of Crystalis for all currently maintained versions 
+at :ref:`GitHub <credits-github>` in the form of separate branches.
 
-The language service requires the third party extension *Static Info Tables (static_info_tables)* to be present and 
+Those versions will receive bugfixes until maintenance of the respective TYPO3 CMS version drops.
+
+The Language Service requires the third party extension *Static Info Tables (static_info_tables)* to be present and 
 in addition it pre configures *RealURL (realurl)*. If you're planning to make use of it, please make sure those 
 extensions are installed as well.
 

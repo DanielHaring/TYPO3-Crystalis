@@ -30,6 +30,6 @@ can disable injection of Page TypoScript inside the TYPO3 Extension Manager – 
 administrator rights.
 
 To deactivate Page TypoScript, head to Extension Manager and select Crystalis. In General tab uncheck 
-"Page TypoScript" in "Preset configurations" section and save your changes.
+*"Page TypoScript"* in *"Preset configurations"* section and save your changes.
 
 From now on, Crystalis will desist from loading Page TypoScript automatically.

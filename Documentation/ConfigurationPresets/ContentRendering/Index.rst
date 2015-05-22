@@ -11,8 +11,8 @@
 Content rendering
 ^^^^^^^^^^^^^^^^^
 
-Crystalis provides its own content rendering logic and is intended to replace system extension CSS Styled Content 
-("css_styled_content"). To not mess up with third party extension and stay as compatible as possible, the main 
+Crystalis provides its own content rendering logic and is intended to replace system extension *CSS Styled Content 
+("css_styled_content")*. To not mess up with third party extension and stay as compatible as possible, the main 
 structure of CSS Styled Content was adopted, thus implementing plugins the old fashioned way works the same way.
 
 Unlike most of the other features, content rendering is *not* loaded by default. You have to allocate this setup to 
@@ -29,8 +29,8 @@ choice.
 
 To achieve this, firstly head to the Template main module. Inside the page tree, select the page where you want the 
 setup to feel responsible for rendering your content. In most cases this will be the home page of your website. If 
-the chosen page does not contain any kind of template already, firstly create a "Template for a new site" or an 
-"Extension Template".
+the chosen page does not contain any kind of template already, firstly create a *"Template for a new site"* or an 
+*"Extension Template"*.
 
 .. figure:: ../../Images/ContentRendering/EditSiteTemplate.jpg
    :alt: Edit the template of your site
@@ -43,7 +43,7 @@ Next ensure function *"Info/Modify"* **(1)** is selected and follow *"Edit the w
 Switch to *"Includes"* tab **(3)** and add item *"Frontend Rendering (crystalis)"* to *"Selected Items"* within *"Include 
 Static (from extensions)"* **(4)** section. After saving your changes, the render setup will take up employment.
 
-As soon as this had happened, Crystalis needs to know about the head domain of the respective page. See 
+As soon as this had happened, Crystalis needs to know about the head domain of the respective page. Please see 
 :ref:`preset-rendering-domains`.
 
 
@@ -52,15 +52,15 @@ As soon as this had happened, Crystalis needs to know about the head domain of t
 Synergy with CSS Styled Content
 """""""""""""""""""""""""""""""
 
-As mentioned above, the whole content rendering logic is intended to completely replace CSS Styled Content. If you 
+As mentioned above, the whole content rendering logic is intended to completely replace *CSS Styled Content*. If you 
 do not make use of this system extension any more (as recommended) you can savely uninstall it to not waste valuable 
 resources.
 
-Anyways, if you still are contingent to this system extension, Crystalis runs fine beside CSS Styled Content. But keep 
+Anyways, if you still are contingent to this system extension, Crystalis runs fine beside *CSS Styled Content*. But keep 
 in mind that both content rendering setups are clearing previous ones at the beginning – meaning you can't effectively 
 run both content rendering setups simultaneously.
 
-To deactivate CSS Styled Content simply head to Extension Manager module, search for CSS Styled Content and click the 
+To deactivate *CSS Styled Content* simply head to Extension Manager module, search for *CSS Styled Content* and click the 
 minus-button next to it. Please do *not* phisically remove this extension as this may lead to issues when trying to 
 update the TYPO3 core later on.
 

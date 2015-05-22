@@ -82,10 +82,12 @@ Therefore your implementation should look like the following: ::
 
     namespace VENDOR\ExtKey\Hooks;
 
-    class ClassName implements \HARING\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface {
+    class ClassName {
 
         public function functionName($Registry, $LanguageService) {
+
             // do something
+
         }
 
     }
@@ -97,14 +99,59 @@ Expected return value
 ~~~~~~~~~~~~~~~~~~~~~
 
 The value returned by your function must be of type array and basically should look like the Registry parameter.
-This means you should provide the extension key to which the configurator belongs as array key and the fully 
+This means you should provide the extension key to which the configurator belongs to as array key and the fully 
 qualified class name which is responsible for configuration as value.
 
 Of course, you are allowed to pass multiple pairs (key => value) at once.
 
 **Example:** ::
 
-    return ['cooluri' => 'VENDOR\\ExtKey\\Configuration\\UrlRewriting\\CoolUriConfigurator'];
+    return array('cooluri' => 'VENDOR\\ExtKey\\Configuration\\UrlRewriting\\CoolUriConfigurator');
 
 **Important Notice:** The classes responsible for configuring URL rewriting must implement the Interface 
 \\HARING\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface. Otherwise your configurator will be ignored.
+
+
+.. _dev-hooks-language-register-example:
+
+Complete example
+~~~~~~~~~~~~~~~~
+
+A complete impelementation of an additional URL handler may look like this:
+
+*~/ext_localconf.php* ::
+
+    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['crystalis']['LanguageService']['registerRewriteConfigurator'][] = 
+        'VENDOR\\ExtKey\\Hooks\\LanguageServiceHooks->registerRewriteService';
+
+*~/Classes/Hooks/LanguageServiceHooks.php* ::
+
+    <?php
+
+    namespace VENDOR\ExtKey\Hooks;
+
+    class LanguageServiceHooks {
+
+        public function registerRewriteService(array $Registry, $LanguageService) {
+
+            return ['cooluri' => 'VENDOR\\ExtKey\\Configuration\\UrlRewriting\\CoolUriConfigurator'];
+
+        }
+
+    }
+
+*~/Classes/Configuration/UrlRewriting/CoolUriConfigurator.php* ::
+
+    <?php
+
+    namespace VENDOR\ExtKey\Configuration\UrlRewriting;
+
+    class CoolUriConfigurator implements \HARING\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface {
+
+        public function configure() {
+
+            // put your code here
+
+        }
+
+    }

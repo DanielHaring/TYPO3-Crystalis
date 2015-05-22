@@ -17,8 +17,7 @@ Credits
 Behind the project
 ^^^^^^^^^^^^^^^^^^
 
-The whole extension was planned, developed, documented and is maintained by Daniel Haring, a web developer from 
-Austria.
+The whole extension was planned, developed, documented and is maintained by Daniel Haring, an Austrian web developer.
 
 It is a non-profit leisure project and is freely available under the terms of the GNU General Public License as 
 published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
@@ -29,7 +28,7 @@ published by the Free Software Foundation; either version 3 of the License, or (
 Crystalis at GitHub
 ^^^^^^^^^^^^^^^^^^^
 
-The current development master and all existing branches can be inspected and forked on GitHub:
+The current development master and all existing branches can be checked out and forked on GitHub:
 https://github.com/HARING/TYPO3-Crystalis
 
 

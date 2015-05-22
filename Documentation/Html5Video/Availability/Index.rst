@@ -11,21 +11,18 @@
 Availability
 ^^^^^^^^^^^^
 
-As mentioned before, the HTML5 Video content element automatically will substitute the Media element if HTML5 
+As mentioned before, the HTML5 Video Content Element automatically will be available if HTML5 
 :ref:`doctype <preset-rendering-doctype>` was chosen. However, if you don't want to make use of this element 
 (maybe because you're already using another third-party extension for this purpose), head to Extension Manager 
-module, select *Crystalis* and check *"Disable HTML5 video"* in *"Frontend Rendering"* tab. After this the Media 
-element will be back again.
+module, select *Crystalis* and check *"Disable HTML5 Video"* in *"Frontend Rendering"* tab.
 
-But what to do if you absolutely want to make use of the HTML5 content element, but still need the Media element 
-to be available (to embed flash-only videos for example)? Well, of course that's possible too, but you have 
-to write a little TypoScript to achieve this. Technically the Media element won't be overwritten in any way, 
-but it will be hidden instead. To reactivate the Media content element just add this line of TypoScript to 
-your PageTS configuration:
+If the system extension *"Media Content Element (mediace)"* is activated, Crystalis basically substitutes the 
+Media Content Element. However, if you still need the Media element to be available (to embed flash-only 
+content for example) you have to reactivate the Media Content Element inside your PageTS configuration:
 
 :typoscript:`mod.wizards.newContentElement.wizardItems.special.show := addToList(media)`
 
-That's it. Now you are able to make use of the HTML5 video element and the Media element as well.
+After this, you are able to make use of both – the HTML5 Video Content Element as well as the Media Element.
 
 **Note:** If you're adding your configuration using a custom extension, please ensure it will be loaded after 
 Crystalis by making it dependend on Crystalis in *ext_emconf.php*. Otherwise your settings won't have any effect 
