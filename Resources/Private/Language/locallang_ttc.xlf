@@ -95,7 +95,7 @@
                 <source>HTML5 Video</source>
             </trans-unit>
             <trans-unit id="tt_content.CType_Video_Desc">
-                <source>Adds a HTML5 video element with multiple soruces including flash and image fallback.</source>
+                <source>Adds a HTML5 video element with multiple sources including flash and image fallback.</source>
             </trans-unit>
             
             
