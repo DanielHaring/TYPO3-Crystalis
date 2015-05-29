@@ -36,7 +36,6 @@ $EM_CONF[$_EXTKEY] = array (
 		),
 		'suggests' => 
 		array (
-                        'static_info_tables' => '6.2.1-0.0.0',
                         'realurl' => '1.13.3-0.0.0',
 		),
 	),

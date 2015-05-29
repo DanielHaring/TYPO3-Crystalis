@@ -28,6 +28,8 @@ namespace HARING\Crystalis\Utility;
  * **************************************************************
  */
 
+use \HARING\Crystalis\Utility\ArrayUtility;
+
 
 
 
@@ -52,52 +54,60 @@ class ExtensionManagerConfigurationUtility {
      * 
      * @since 7.2.0
      * @param array $params Parameteres of the respective extension configuration field
-     * @return string HTML output of the rendered select box or an error message if something went wrong
+     * @return string HTML output of the rendered select box
      * @access public
-     * @static
      */
-    public static function buildLanguageSelector(array $params) {
+    public function buildLanguageSelector(array $params) {
         
-        if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('static_info_tables')) {
+        $options = \array_map(
+                [$GLOBALS['LANG'], 'sL'], 
+                ArrayUtility::column(
+                        $GLOBALS['TCA']['sys_language']['columns']['language_isocode']['config']['items'], 
+                        0, 
+                        1));
+        
+        \asort($options);
+        
+        return $this->renderSelect(
+                $params['fieldName'], 
+                $options, 
+                $params['fieldValue']);
+        
+    }
+    
+    
+    
+    
+    
+    /**
+     * Renders a generic select box.
+     * 
+     * @since 7.2.0
+     * @param string $name The name attribute to set
+     * @param array $options An array holding available values. If an assoziative array will be passed, 
+     *                       the keys will be used as value and the values will be displayed as label.
+     * @param mixed $selected (Optional) The key of the item which should marked as 'selected'
+     * @param integer $maxItems (Optional) Number of selectable items
+     * @return string HTML output of the rendered select box
+     * @access protected
+     */
+    protected function renderSelect($name, array $options, $selected = \NULL, $maxItems = 1) {
+        
+        $useValue = ArrayUtility::isAssociative($options);
+        
+        \array_walk($options, function(&$label, $value) use($useValue, $selected) {
             
-            return '<div class="panel panel-warning"><div class="panel-heading">' 
-                    . $GLOBALS['LANG']->sL(
-                            'LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.title_Warning') 
-                    . '</div><div class="panel-body">' . $GLOBALS['LANG']->sL(
-                            'LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.label_DefaultLanguage_NoSit') 
-                    . '</div></div>';
+            $value = $useValue ? $value : $label;
             
-        }
-        
-        /* @var $ObjectManager \TYPO3\CMS\Extbase\Object\ObjectManager */
-        $ObjectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                'TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
-        
-        /* @var $LanguageRepository \SJBR\StaticInfoTables\Domain\Repository\LanguageRepository */
-        $LanguageRepository = $ObjectManager->get(
-                'SJBR\\StaticInfoTables\\Domain\\Repository\\LanguageRepository');
-        
-        $languages = [];
-        
-        $query = $LanguageRepository->createQuery();
-        $query->setOrderings(['lg_iso_2' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING]);
-        
-        foreach($query->execute() as $language) {
+            $label = '<option value="' . $value . '"' 
+                    . ($selected === $value ? ' selected="selected"' : '') 
+                    . '>' . $label . '</option>';
             
-            $languages[] = [
-                'value' => \strtolower($language->getUid()),
-                'name' => \strtolower($language->getIsoCodeA2()) . ' – ' . $language->getNameEn()
-            ];
-            
-        }
+        });
         
-        $selected = [$params['fieldValue']];
-        
-        return \SJBR\StaticInfoTables\Utility\HtmlElementUtility::selectConstructor(
-                $languages,
-                $selected,
-                $selected,
-                $params['fieldName']);
+        return '<select name="' . (string)$name . '" size="' 
+                . (string)\max([1, $maxItems]) . '">' 
+                . \implode('', $options) . '</select>';
         
     }
     

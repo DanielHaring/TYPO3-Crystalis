@@ -30,11 +30,11 @@ are here, make sure the Language Service is activated (which it is by default).
 Make use of official language codes
 """""""""""""""""""""""""""""""""""
 
-Static Info Tables extends language records to contain informations about the official language code (ISO 3166).
-The Language Service depends on this information so please make sure this is properly set for all languages. To 
-specify the language code, please switch to *List* module, select the very root page of your site (grey TYPO3 logo) 
-and edit the language of your choice. Select the respective language beneath *"Select Official Language (ISO code)"* 
-section and save your changes.
+TYPO3 CMS allows you to specify the official language code (ISO 639-1) for every single language available on 
+your site. The Language Service depends on this information so please make sure this is properly set for all 
+languages. To specify the official language code, please switch to *List* module, select the very root page of 
+your site (grey TYPO3 logo) and edit the language of your choice. Select the respective language within 
+*"Select language"* section and save your changes.
 
 
 Specify your head domains

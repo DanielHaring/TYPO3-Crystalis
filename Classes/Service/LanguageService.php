@@ -28,6 +28,8 @@ namespace HARING\Crystalis\Service;
  * **************************************************************
  */
 
+use \HARING\Crystalis\Utility\ArrayUtility;
+
 
 
 
@@ -53,7 +55,16 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
      * @var \HARING\Crystalis\Service\DatabaseService
      * @access private
      */
-    private $DatabaseService;
+    private $databaseService;
+    
+    /**
+     * Holds available languages.
+     * 
+     * @since 7.2.0
+     * @var array
+     * @access protected
+     */
+    protected $languages;
     
     /**
      * Buffer for language PageTS configuration.
@@ -78,6 +89,228 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
     
     
     /**
+     * Constructor.
+     * 
+     * @since 7.2.0
+     * @access public
+     */
+    public function __construct() {
+        
+        $this->databaseService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+                'HARING\\Crystalis\\Service\\DatabaseService');
+        
+        $localeMapping = [
+            'ab' => '',
+            'aa' => '',
+            'af' => '',
+            'ak' => '',
+            'sq' => 'sq',
+            'am' => '',
+            'ar' => 'ar_SA',
+            'an' => '',
+            'hy' => '',
+            'as' => '',
+            'av' => '',
+            'ae' => '',
+            'ay' => '',
+            'az' => '',
+            'bm' => '',
+            'ba' => '',
+            'eu' => 'eu_ES',
+            'be' => '',
+            'bn' => '',
+            'bh' => '',
+            'bi' => '',
+            'bs' => 'bs_BA',
+            'br' => '',
+            'bg' => 'bg_BG',
+            'my' => 'my_MM',
+            'ca' => 'ca_ES',
+            'ch' => '',
+            'ce' => '',
+            'ny' => '',
+            'zh' => 'zh_CN',
+            'cv' => '',
+            'kw' => '',
+            'co' => '',
+            'cr' => '',
+            'hr' => 'hr_HR',
+            'cs' => 'cs_CZ',
+            'da' => 'da_DK',
+            'dv' => '',
+            'nl' => 'nl_NL',
+            'dz' => '',
+            'en' => 'en_GB',
+            'eo' => '',
+            'et' => 'et_EE',
+            'ee' => '',
+            'fo' => 'fo_FO',
+            'fj' => '',
+            'fi' => 'fi_FI',
+            'fr' => 'fr_FR',
+            'ff' => '',
+            'gl' => 'gl_ES',
+            'ka' => 'ka',
+            'de' => 'de_DE',
+            'el' => 'el_GR',
+            'gn' => '',
+            'gu' => '',
+            'ht' => '',
+            'ha' => '',
+            'he' => 'he_IL',
+            'hz' => '',
+            'hi' => 'hi_IN',
+            'ho' => '',
+            'hu' => 'hu_HU',
+            'ia' => '',
+            'id' => '',
+            'ie' => '',
+            'ga' => '',
+            'ig' => '',
+            'ik' => '',
+            'io' => '',
+            'is' => 'is_IS',
+            'it' => 'it_IT',
+            'iu' => '',
+            'ja' => 'ja_JP',
+            'jv' => '',
+            'kl' => 'kl_DK',
+            'kn' => '',
+            'kr' => '',
+            'ks' => '',
+            'kk' => '',
+            'km' => 'km',
+            'ki' => '',
+            'rw' => '',
+            'ky' => '',
+            'kv' => '',
+            'kg' => '',
+            'ko' => 'ko_KR',
+            'ku' => '',
+            'kj' => '',
+            'la' => '',
+            'lb' => '',
+            'lg' => '',
+            'li' => '',
+            'ln' => '',
+            'lo' => '',
+            'lt' => 'lt_LT',
+            'lu' => '',
+            'lv' => 'lv_LV',
+            'gv' => '',
+            'mk' => '',
+            'mg' => '',
+            'ms' => '',
+            'ml' => '',
+            'mt' => 'mt_MT',
+            'mi' => '',
+            'mr' => '',
+            'mh' => '',
+            'mn' => '',
+            'na' => '',
+            'nv' => '',
+            'nd' => '',
+            'ne' => '',
+            'ng' => '',
+            'nb' => '',
+            'nn' => '',
+            'no' => 'no_NO',
+            'ii' => '',
+            'nr' => '',
+            'oc' => '',
+            'oj' => '',
+            'cu' => '',
+            'om' => '',
+            'or' => '',
+            'os' => '',
+            'pa' => '',
+            'pi' => '',
+            'fa' => 'fa_IR',
+            'pl' => 'pl_PL',
+            'ps' => '',
+            'pt' => 'pt_PT',
+            'qu' => '',
+            'rm' => '',
+            'rn' => '',
+            'ro' => 'ro_RO',
+            'ru' => 'ru_RU',
+            'sa' => '',
+            'sc' => '',
+            'sd' => '',
+            'se' => '',
+            'sm' => '',
+            'sg' => '',
+            'sr' => 'sr_YU',
+            'gd' => '',
+            'sn' => '',
+            'si' => '',
+            'sk' => 'sk_SK',
+            'sl' => 'sl_SL',
+            'so' => '',
+            'st' => '',
+            'es' => 'es_ES',
+            'su' => '',
+            'sw' => '',
+            'ss' => '',
+            'sv' => 'sv_SE',
+            'ta' => '',
+            'te' => '',
+            'tg' => '',
+            'th' => 'th_TH',
+            'ti' => '',
+            'bo' => '',
+            'tk' => '',
+            'tl' => 'fil',
+            'tn' => '',
+            'to' => '',
+            'tr' => 'tr_TR',
+            'ts' => '',
+            'tt' => '',
+            'tw' => '',
+            'ty' => '',
+            'ug' => '',
+            'uk' => 'uk_UA',
+            'ur' => '',
+            'uz' => '',
+            've' => '',
+            'vi' => 'vi_VN',
+            'vo' => '',
+            'wa' => '',
+            'cy' => '',
+            'wo' => '',
+            'fy' => '',
+            'xh' => '',
+            'yi' => '',
+            'yo' => '',
+            'za' => '',
+            'zu' => ''
+        ];
+        
+        $TCA = include \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName(
+                'EXT:core/Configuration/TCA/sys_language.php');
+        
+        $this->languages = ArrayUtility::column(
+                $TCA['columns']['language_isocode']['config']['items'], 
+                0, 
+                1);
+        
+        \array_walk($this->languages, function(&$label, $isoCode) use($localeMapping) {
+            
+            $label = [
+                'isoCode' => $isoCode,
+                'locale' => $localeMapping[$isoCode],
+                'name' => $label
+            ];
+            
+        });
+
+    }
+    
+    
+    
+    
+    
+    /**
      * Returns language TypoScript setup and constructs it if neccessary.
      * API method.
      * 
@@ -91,10 +324,13 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
             
             $setup = [];
         
-            foreach($this->getDatabaseService()->getSystemLanguages() as $language) {
+            foreach($this->databaseService->getSystemLanguages() as $language) {
 
-                $ts = 'page.config.htmlTag_langKey = ' . \strtolower($language['isoCode']) . \chr(10)
+                $ts = 'page.config.htmlTag_langKey = ' . \strtolower($language['isoCode']) . \chr(10) 
                         . 'page.config.sys_language_uid = ' . $language['uid'] . \chr(10) 
+                        . 'page.config.sys_language_isocode' . ((int)$language['uid'] < 1 
+                                ? '_default' 
+                                : '') . ' = ' . \strtolower($language['isoCode']) . \chr(10) 
                         . 'page.config.language = ' . \strtolower($language['isoCode']) . \chr(10) 
                         . 'page.config.lang = ' . \strtolower($language['isoCode']) . \chr(10) 
                         . 'page.config.locale_all = ' . $language['locale'];
@@ -134,20 +370,26 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
         if(!\strcmp((string)$this->pageTSConfig, '')) {
             
             $pageTs = '';
-        
-            $defaultLanguage = \reset(\array_filter($this->getDatabaseService()->getSystemLanguages(), function($language) {
-
+            
+            $defaultLanguage = \reset(\array_filter($this->databaseService->getSystemLanguages(), function($language) {
+                
                 return (int)$language['uid'] === 0;
-
+                
             }));
-
+            
             if(\is_array($defaultLanguage)) {
-
+                
+                /* @var $LanguageService \TYPO3\CMS\Lang\LanguageService */
+                $LanguageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+                        'TYPO3\\CMS\\Lang\\LanguageService');
+                
+                $LanguageService->init($defaultLanguage['isoCode']);
+                
                 $pageTs .= 'mod.SHARED.defaultLanguageFlag = ' . (isset($defaultLanguage['locale']) 
                         ? \strtolower(\end(\explode('_', $defaultLanguage['locale']))) 
                         : \strtolower($defaultLanguage['isoCode'])) . '.gif' 
-                    . chr(10) . 'mod.SHARED.defaultLanguageLabel = ' . $defaultLanguage['localName'];
-
+                    . chr(10) . 'mod.SHARED.defaultLanguageLabel = ' . $LanguageService->sL($defaultLanguage['name']);
+                
             }
             
             $this->pageTSConfig = $pageTs;
@@ -172,7 +414,10 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
     public function prepareUrlRewriting() {
         
         $Registry = ['realurl' => 'HARING\\Crystalis\\Configuration\\UrlRewriting\\RealurlConfigurator'];
-        $ObjectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+        
+        /* @var $ObjectManager \TYPO3\CMS\Extbase\Object\ObjectManager */
+        $ObjectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+                'TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
         
             // Hook for registering addtitional extensions to be prepared.
         if(\is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['crystalis']['LanguageService']['registerRewriteConfigurator'])) {
@@ -215,23 +460,15 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
     
     
     /**
-     * Returns active DatabaseService instance or creates a new one.
+     * Returns available languages.
      * 
-     * @since 6.2.0
-     * @return \HARING\Crystalis\Service\DatabaseService Active DatabaseService
-     * @access protected
+     * @since 7.2.0
+     * @return array Available languages
+     * @access public
      */
-    protected function getDatabaseService() {
+    public function getLanguages() {
         
-        $fqcn = 'HARING\Crystalis\Service\DatabaseService';
-        
-        if(!\is_a($this->DatabaseService, $fqcn)) {
-            
-            $this->DatabaseService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance($fqcn);
-            
-        }
-        
-        return $this->DatabaseService;
+        return $this->languages;
         
     }
     

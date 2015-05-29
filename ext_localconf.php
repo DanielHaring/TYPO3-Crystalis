@@ -89,10 +89,11 @@ if(\TYPO3_MODE === 'BE') {
 
 
     // Automatic language handling
-if(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('static_info_tables') 
-        && (!!$_EXTCONF['enableLanguageHandling'] || !$_EXTCONF)) {
+if(!!$_EXTCONF['enableLanguageHandling'] || !$_EXTCONF) {
     
-    $LanguageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('HARING\\Crystalis\\Service\\LanguageService');
+    /* @var $LanguageService \HARING\Crystalis\Service\LanguageService */
+    $LanguageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+            'HARING\\Crystalis\\Service\\LanguageService');
     
     if($typoscript = $LanguageService->getTypoScriptSetup()) {
         
@@ -100,7 +101,7 @@ if(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('static_info_tab
         
     }
     
-    if($pageTS = $LanguageService->getPageTsConfig()) {
+    if($pageTS = $LanguageService->getPageTSConfig()) {
         
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig($pageTS);
         

@@ -44,9 +44,8 @@ at :ref:`GitHub <credits-github>` in the form of separate branches.
 
 Those versions will receive bugfixes until maintenance of the respective TYPO3 CMS version drops.
 
-The Language Service requires the third party extension *Static Info Tables (static_info_tables)* to be present and 
-in addition it pre configures *RealURL (realurl)*. If you're planning to make use of it, please make sure those 
-extensions are installed as well.
+The Language Service is capable of pre-configuring third-party extension *RealURL (realurl)* out of the box. If 
+you're planning to make use of this feature, please make sure *RealURL* is installed as well.
 
 
 .. _about-doc:

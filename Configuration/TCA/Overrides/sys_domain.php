@@ -4,19 +4,13 @@
 
 $_EXTCONF = \unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['crystalis']);
 
-if(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('static_info_tables') 
-        && (!!$_EXTCONF['enableLanguageHandling'] || !$_EXTCONF)) {
+if(!!$_EXTCONF['enableLanguageHandling'] || !$_EXTCONF) {
     
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_domain', [
         'tx_crystalis_language' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:sys_domain.tx_crystalis_language',
-            'displayCond' => [
-                'AND' => [
-                    'EXT:static_info_tables:LOADED:true',
-                    'EXT:realurl:LOADED:true'
-                ]
-            ],
+            'displayCond' => 'EXT:realurl:LOADED:true',
             'config' => [
                 'type' => 'select',
                 'items' => [
@@ -45,5 +39,5 @@ if(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('static_info_tab
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
         'sys_domain', 
         'EXT:crystalis/Resources/Private/Language/locallang_csh_sys_domain.xlf');
-
+    
 }

@@ -83,8 +83,10 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
         }
         
         $result = \array_map(function($site) {
-                    
-                    $site['languages'] = \array_map(function($language) {
+            
+                    $site['languages'] = \is_null($site['languages']) 
+                            ? [] 
+                            : \array_map(function($language) {
                         
                         return [
                             'uid' => $language,
@@ -141,8 +143,8 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
         }
         
         $extConf = \array_merge(
-                    ['defaultLanguage' => 30],
-                    (array)@\unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['crystalis']));
+                ['defaultLanguage' => 'en'],
+                (array)@\unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['crystalis']));
         
         $result = $this->retrieveSystemLanguageInformations($extConf['defaultLanguage']);
         
@@ -283,60 +285,29 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
      */
     protected function retrieveSystemLanguageInformations($defaultLanguage = \FALSE) {
         
-        if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('dbal')){
-            
-                // The fast, preferred way (MySQL only)
-            return self::getDatabaseConnection()->exec_SELECTgetRows(
-                    '0 AS uid, static.lg_iso_2 AS isoCode, static.lg_collate_locale AS locale, ' 
-                            . 'static.lg_name_local AS localName', 
-                    'static_languages AS static', 
-                    'uid=' . (int)$defaultLanguage 
-                            . ' UNION SELECT sys.uid, static.lg_iso_2 AS isoCode, ' 
-                            . 'static.lg_collate_locale AS locale, static.lg_name_local AS localName ' 
-                            . 'FROM static_languages static INNER JOIN sys_language sys ON ' 
-                            . '(sys.static_lang_isocode = static.uid) WHERE sys.pid=0 AND sys.hidden=0', 
-                    'static.lg_iso_2', 
-                    '', 
-                    '', 
-                    'uid');
-            
-        } else {
-            
-                // The slow but more compilant way (DBAL)
-            $languages = \array_merge([0 => ['uid' => 0, 'static_lang_isocode' => (int)$defaultLanguage]], 
-                    self::getDatabaseConnection()->exec_SELECTgetRows(
-                            
-                    'sys.uid, sys.static_lang_isocode', 
-                    'sys_language sys', 
-                    'hidden=0', 
-                    '', 
-                    '', 
-                    '', 
-                    'uid'));
-            
-            $isoCodes = self::getDatabaseConnection()->exec_SELECTgetRows(
-                    'static.uid, static.lg_iso_2 AS isoCode, static.lg_collate_locale AS locale, ' 
-                            . 'static.lg_name_local AS localName', 
-                    'static_languages static', 
-                    'static.deleted=0 AND static.uid IN (' 
-                            . \implode(',', \array_unique(ArrayUtility::column(
-                                    $languages, 
-                                    'static_lang_isocode'))) . ')',
-                    '', 
-                    '', 
-                    '', 
-                    'uid');
-            
-            return \array_map(function($language) use ($isoCodes) {
+        $languages = \array_merge([0 => ['uid' => 0, 'isoCode' => (string)$defaultLanguage]], 
+                self::getDatabaseConnection()->exec_SELECTgetRows(
                 
-                $isoCode = $language['static_lang_isocode'];
-                unset($language['static_lang_isocode']);
-                
-                return \array_merge($isoCodes[$isoCode], $language);
-                
-            }, $languages);
+                'sys.uid, sys.language_isocode AS isoCode', 
+                'sys_language sys', 
+                'hidden=0', 
+                '', 
+                '', 
+                '', 
+                'uid'));
+        
+        $availableLanguages = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+                'HARING\\Crystalis\\Service\\LanguageService')
+                ->getLanguages();
+        
+        return \array_map(function($language) use($availableLanguages) {
             
-        }
+            $language['locale'] = $availableLanguages[$language['isoCode']]['locale'];
+            $language['name'] = $availableLanguages[$language['isoCode']]['name'];
+            
+            return $language;
+            
+        }, $languages);
         
     }
     

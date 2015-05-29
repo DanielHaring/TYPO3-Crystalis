@@ -86,6 +86,25 @@ class ArrayUtility {
     
     
     
+    /**
+     * Checks wheter an array is associative or not.
+     * 
+     * @since 7.2.0
+     * @param array $array The array to check
+     * @return boolean TRUE if an associative array was given, FALSE otherwise
+     * @access public
+     * @static
+     */
+    public static function isAssociative(array $array) {
+        
+        return \count($array) && \array_keys($array) !== range(0, sizeof($array) - 1);
+        
+    }
+    
+    
+    
+    
+    
 }
 
 

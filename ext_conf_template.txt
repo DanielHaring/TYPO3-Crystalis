@@ -21,4 +21,4 @@ disableHtml5Video = 0
 enableLanguageHandling = 1
 
   # cat=lang/basic/1; type=user[HARING\Crystalis\Utility\ExtensionManagerConfigurationUtility->buildLanguageSelector]; label=LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.label_DefaultLanguage
-defaultLanguage = 30
+defaultLanguage = en
