@@ -72,15 +72,23 @@ switch($_EXTCONF['doctype']) {
 
 
 
+    // Register Content Objects
+if(\TYPO3_MODE === 'FE') {
+    
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']['VIDEO'] 
+            = \HARING\Crystalis\ContentObject\Html5VideoContentObject::class;
+    
+}
+
+
+
+
+
     // Implement the backend layout file data provider
 if(\TYPO3_MODE === 'BE') {
     
-    if(\version_compare(\TYPO3_version, '6.2.0', 'ge')) {
-        
-        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['BackendLayoutDataProvider']['file'] 
-                = 'HARING\\Crystalis\\View\\BackendLayout\\FileDataProvider';
-        
-    }
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['BackendLayoutDataProvider']['file'] 
+            = 'HARING\\Crystalis\\View\\BackendLayout\\FileDataProvider';
     
 }
 
@@ -110,11 +118,3 @@ if(!!$_EXTCONF['enableLanguageHandling'] || !$_EXTCONF) {
     $LanguageService->prepareUrlRewriting();
     
 }
-
-
-
-
-
-    // Register Hooks
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_content.php']['cObjTypeAndClassDefault'][] = 
-        'HARING\\Crystalis\\Hooks\\ContentObjectRendererHook';
