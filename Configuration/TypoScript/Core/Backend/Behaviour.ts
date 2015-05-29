@@ -49,10 +49,6 @@ TCEFORM{
             removeItems = 3,4,5,6,7
         }
 
-        imagecaption_position{
-            disabled = 1
-        }
-
         imagecols{
             disabled = 1
         }

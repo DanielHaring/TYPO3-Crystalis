@@ -93,7 +93,7 @@ tt_content.uploads{
 
             }
 
-            editIcons = tt_content:media,layout,imagecaption
+            editIcons = tt_content:media,layout
             editIcons{
 
                 iconTitle{

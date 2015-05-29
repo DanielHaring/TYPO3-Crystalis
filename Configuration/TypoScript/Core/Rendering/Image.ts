@@ -462,7 +462,7 @@ tt_content.image{
 
             }
 
-            editIcons = tt_content:image[imageorient|imagewidth|imageheight], [image_link|image_zoom], [image_compression|image_effects], imagecaption
+            editIcons = tt_content:image[imageorient|imagewidth|imageheight], [image_zoom], [image_compression|image_effects]
             editIcons{
 
                 iconTitle{
