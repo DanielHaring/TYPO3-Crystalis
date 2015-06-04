@@ -24,7 +24,7 @@ To achieve this, Crystalis has its own content rendering written in pure TypoScr
 annoying CSS classes whenever possible.
 
 A slightly optimized backend increases usability and the Language Service takes the main part of configuring 
-alternative languages by collaborating with extensions Static Info Tables and RealURL.
+alternative languages by collaborating with extension RealURL.
 
 Furthermore a HTML5 Video content element will be available when working with HTML5 doctype and various smaller 
 improvements are making TYPO3-life a lot easier.

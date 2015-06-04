@@ -118,3 +118,17 @@ if(!!$_EXTCONF['enableLanguageHandling'] || !$_EXTCONF) {
     $LanguageService->prepareUrlRewriting();
     
 }
+
+
+
+
+
+    // Hooks
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['text'] = 
+        \HARING\Crystalis\Hooks\PageLayoutView\TextPreviewRenderer::class;
+
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['image'] = 
+        \HARING\Crystalis\Hooks\PageLayoutView\ImagePreviewRenderer::class;
+
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['textpic'] = 
+        \HARING\Crystalis\Hooks\PageLayoutView\TextpicPreviewRenderer::class;

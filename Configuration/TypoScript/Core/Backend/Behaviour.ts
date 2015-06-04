@@ -29,22 +29,6 @@ TCEFORM{
 
         }
 
-        header_position{
-            disabled = 1
-        }
-
-        section_frame{
-
-            removeItems = 1,5,6,10,11,12,20,21
-
-            altLabels{
-
-                0 = LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:tt_content.sectionFrame0
-
-            }
-
-        }
-
         menu_type{
             removeItems = 3,4,5,6,7
         }
@@ -57,48 +41,18 @@ TCEFORM{
             disabled = 1
         }
 
-        image_frames{
-            disabled = 1
-        }
+        imageorient{
 
-        image_noRows{
-            disabled = 1
-        }
+            types{
 
-        table_bgColor{
-            disabled = 1
-        }
+                image{
 
-        table_border{
-            disabled = 1
-        }
+                    removeItems := addToList(8,9,10,17,18,25,26)
 
-        table_cellspacing{
-            disabled = 1
-        }
+                }
 
-        table_cellpadding{
-            disabled = 1
-        }
+            }
 
-        text_properties{
-            disabled = 1
-        }
-
-        text_align{
-            disabled = 1
-        }
-
-        text_color{
-            disabled = 1
-        }
-
-        text_face{
-            disabled = 1
-        }
-
-        text_size{
-            disabled = 1
         }
 
     }
@@ -117,12 +71,6 @@ TCEFORM{
 
 # Default values
 TCAdefaults{
-
-    tt_content{
-
-        section_frame = 0
-
-    }
 
     pages{
 
