@@ -1,3 +1,7 @@
+2015-06-10                           [RELEASE] Release of Crystalis 7.2.1 (Daniel Haring)
+2015-06-10  100f2b6                  [FEATURE] Allow overwriting of <title>-tags (Daniel Haring)
+2015-06-10  50fb729                  [TASK] Set Crystalis version to 7.2.1-dev (Daniel Haring)
+
 2015-06-04                           [RELEASE] Release of Crystalis 7.2.0 (Daniel Haring)
 2015-06-04  8b2c741                  [TASK] Set Crystalis state to 'stable' (Daniel Haring)
 2015-06-04  374d837                  [FEATURE] Add content elements (Daniel Haring)
