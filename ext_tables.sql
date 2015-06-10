@@ -4,6 +4,7 @@
 CREATE TABLE pages (
 
     tx_crystalis_canonical varchar(255) DEFAULT '' NOT NULL,
+    tx_crystalis_pagetitle varchar(255) DEFAULT '' NOT NULL,
 
 );
 
@@ -13,6 +14,7 @@ CREATE TABLE pages (
 CREATE TABLE pages_language_overlay (
 
     tx_crystalis_canonical varchar(255) DEFAULT '' NOT NULL,
+    tx_crystalis_pagetitle varchar(255) DEFAULT '' NOT NULL,
 
 );
 
