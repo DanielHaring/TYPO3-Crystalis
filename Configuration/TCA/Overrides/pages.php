@@ -31,17 +31,31 @@
             ],
             'softref' => 'typolink'
         ]
+    ],
+    'tx_crystalis_pagetitle' => [
+        'exclude' => 1,
+        'label' => 'LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:pages.tx_crystalis_pagetitle',
+        'config' => [
+            'type' => 'input',
+            'size' => 40,
+            'max' => 256,
+            'eval' => 'trim'
+        ]
     ]
 ]);
 
-$GLOBALS['TCA']['pages']['palettes']['references'] = [
-    'showitem' => 'tx_crystalis_canonical;LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:pages.tx_crystalis_canonical_formlabel',
+$GLOBALS['TCA']['pages']['palettes']['seo'] = [
+    'showitem' => '
+        tx_crystalis_pagetitle;LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:pages.tx_crystalis_pagetitle_formlabel,
+        --linebreak--,
+        tx_crystalis_canonical;LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:pages.tx_crystalis_canonical_formlabel
+    ',
     'canNotCollapse' => 1
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
         'pages', 
-        '--palette--;LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:pages.palette_references;references', 
+        '--palette--;LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:pages.palette_seo;seo', 
         '1,7', 
         'after:abstract');
 

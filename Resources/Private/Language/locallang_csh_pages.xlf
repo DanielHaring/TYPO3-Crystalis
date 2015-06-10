@@ -14,6 +14,9 @@
             <trans-unit id="tx_crystalis_canonical.seeAlso" xml:space="preserve">
                 <source>Canonical link element at Wikipedia | http://en.wikipedia.org/wiki/Canonical_link_element,Duplicate Content at Wikipedia | http://en.wikipedia.org/wiki/Duplicate_content</source>
             </trans-unit>
+            <trans-unit id="tx_crystalis_pagetitle.description" xml:space="preserve">
+                <source><![CDATA[Define the page title, which should be used for the <title>-tag. If this field is left empty, the title will be generated automatically.]]></source>
+            </trans-unit>
             
             
 	</body>

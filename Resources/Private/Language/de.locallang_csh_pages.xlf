@@ -17,6 +17,10 @@
                 <source>Canonical link element at Wikipedia | http://en.wikipedia.org/wiki/Canonical_link_element,Duplicate Content at Wikipedia | http://en.wikipedia.org/wiki/Duplicate_content</source>
                 <target>Canonical Link auf Wikipedia | http://de.wikipedia.org/wiki/Canonical_Link,Duplicate Content auf Wikipedia | http://de.wikipedia.org/wiki/Duplicate_Content</target>
             </trans-unit>
+            <trans-unit id="tx_crystalis_pagetitle.description" xml:space="preserve">
+                <source><![CDATA[Define the page title, which should be used for the <title>-tag. If this field is left empty, the title will be generated automatically.]]></source>
+                <target><![CDATA[Geben Sie den Seitentitel an, welcher als <title>-Tag verwendet werden soll. Wird keine Eingabe getätigt, wird der Titel automatisch generiert.]]></target>
+            </trans-unit>
             
             
 	</body>

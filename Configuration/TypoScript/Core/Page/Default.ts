@@ -102,87 +102,99 @@ page{
         }
 
         # Page title
-        20 = COA
+        20 = TEXT
         20{
 
-            # Current page
-            10 = TEXT
-            10{
+            field = tx_crystalis_pagetitle
+            trim = 1
+            htmlSpecialChars = 1
 
-                if{
+            ifEmpty{
 
-                    isTrue{
-                        data = LEVEL:1
-                    }
+                cObject = COA
+                cObject{
 
-                }
+                    # Current page
+                    10 = TEXT
+                    10{
 
-                field = title
-                trim = 1
-                stripHtml = 1
-                htmlSpecialChars = 1
-                wrap = |:
+                        if{
 
-                override{
-                    field = subtitle
-                }
+                            isTrue{
+                                data = LEVEL:1
+                            }
 
-                append = TEXT
-                append{
-                    char = 32
-                }
+                        }
 
-            }
+                        field = title
+                        trim = 1
+                        htmlSpecialChars = 1
+                        wrap = |:
 
-            # Website title
-            20 = TEXT
-            20{
+                        override{
+                            field = subtitle
+                        }
 
-                data = LEVELFIELD:0,nav_title
-                trim = 1
-                stripHtml = 1
-
-                append = TEXT
-                append{
-
-                    if{
-
-                        isFalse{
-                            data = LEVEL:1
+                        append = TEXT
+                        append{
+                            char = 32
                         }
 
                     }
 
-                    char = 32
+                    # Website title
+                    20 = TEXT
+                    20{
 
-                    append = TEXT
-                    append{
-                        value = –
+                        data = LEVELFIELD:0,nav_title
+                        trim = 1
+                        htmlSpecialChars = 1
+
+                        append = TEXT
+                        append{
+
+                            if{
+
+                                isFalse{
+                                    data = LEVEL:1
+                                }
+
+                            }
+
+                            char = 32
+
+                            append = TEXT
+                            append{
+                                value = -
+                            }
+
+                        }
+
                     }
 
-                }
+                    # Website claim
+                    30 = TEXT
+                    30{
 
-            }
+                        if{
 
-            # Website claim
-            30 = TEXT
-            30{
+                            isFalse{
+                                data = LEVEL:1
+                            }
 
-                if{
+                        }
 
-                    isFalse{
-                        data = LEVEL:1
+                        data = LEVELFIELD:0,subtitle
+                        trim = 1
+                        htmlSpecialChars = 1
+
+                        prepend = TEXT
+                        prepend{
+                            char = 32
+                        }
+
                     }
 
-                }
-
-                data = LEVELFIELD:0,subtitle
-                trim = 1
-                stripHtml = 1
-
-                prepend = TEXT
-                prepend{
-                    char = 32
                 }
 
             }

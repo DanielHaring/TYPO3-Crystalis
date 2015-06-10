@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-    <file source-language="en" datatype="plaintext" original="messages" date="2014-09-17T08:18:16Z" product-name="crystalis">
+    <file source-language="en" datatype="plaintext" original="messages" date="2015-06-10T11:19:16Z" product-name="crystalis">
         <header/>
 	<body>
             
@@ -69,14 +69,21 @@
             </trans-unit>
             
             
-            <trans-unit id="pages.palette_references" xml:space="preserve">
-                <source>References</source>
+            <trans-unit id="pages.palette_seo" xml:space="preserve">
+                <source>Search engine optimization</source>
             </trans-unit>
             <trans-unit id="pages.tx_crystalis_canonical" xml:space="preserve">
                 <source>Canonical link</source>
             </trans-unit>
             <trans-unit id="pages.tx_crystalis_canonical_formlabel" xml:space="preserve">
                 <source>Canonical link</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_crystalis_pagetitle" xml:space="preserve">
+                <source>Page title</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_crystalis_pagetitle_formlabel" xml:space="preserve">
+                <source><![CDATA[<title>-Tag]]></source>
+                <target><![CDATA[<title>-Tag]]></target>
             </trans-unit>
             
             
