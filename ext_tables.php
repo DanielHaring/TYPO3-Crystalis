@@ -33,48 +33,6 @@ $_EXTCONF = \unserialize($_EXTCONF);
 
 
 
-    // Inject TypoScript files
-if($_EXTCONF['setPageTSconfig'] || !$_EXTCONF) {
-    
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Core/Backend/Behaviour.ts">' . "\n" 
-            . '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Core/Backend/RichTextEditor.ts">');
-    
-}
-
-if($_EXTCONF['setUserTSconfig'] || !$_EXTCONF) {
-    
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
-            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Core/Backend/UserRights.ts">');
-    
-}
-
-switch($_EXTCONF['doctype']) {
-    
-    case 'xhtml_strict':
-        
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
-                $_EXTKEY, 
-                'Configuration/TypoScript/XHtmlStrict', 
-                'Frontend Rendering');
-        
-        break;
-    
-    case 'html5': // fallthrough
-    default:
-        
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
-                $_EXTKEY, 
-                'Configuration/TypoScript/Html5', 
-                'Frontend Rendering');
-        
-        break;
-    
-}
-
-
-
-
 
     // Register HTML5 video element
 if(
@@ -89,8 +47,5 @@ if(
         ], $_EXTKEY);
         
     }
-    
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Core/ContentElements/Html5Video.ts">');
     
 }

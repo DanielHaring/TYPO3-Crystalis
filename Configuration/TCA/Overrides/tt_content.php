@@ -9,7 +9,35 @@ $_EXTKEY = 'crystalis';
 
 
 
-// Add TCA columns
+    // Provice render templates
+switch($_EXTCONF['doctype']) {
+    
+    case 'xhtml_strict':
+        
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+                $_EXTKEY, 
+                'Configuration/TypoScript/XHtmlStrict', 
+                'Frontend Rendering');
+        
+        break;
+    
+    case 'html5': // fallthrough
+    default:
+        
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+                $_EXTKEY, 
+                'Configuration/TypoScript/Html5', 
+                'Frontend Rendering');
+        
+        break;
+    
+}
+
+
+
+
+
+    // Add TCA columns
 $extraContentColumns = [
     'section_frame' => [
         'exclude' => \TRUE,
@@ -63,7 +91,7 @@ $extraContentColumns = [
 
 
 
-// Additional content elements
+    // Additional content elements
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicons'] = \array_merge(
         $GLOBALS['TCA']['tt_content']['ctrl']['typeicons'], 
         [
@@ -106,7 +134,7 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes'] = \array_merge(
 
 
 
-// Alter palettes
+    // Alter palettes
 $GLOBALS['TCA']['tt_content']['palettes'] = \array_replace(
         $GLOBALS['TCA']['tt_content']['palettes'], 
         [
@@ -170,7 +198,7 @@ $GLOBALS['TCA']['tt_content']['palettes'] = \array_replace(
 
 
 
-// Field arrangement for header content element
+    // Field arrangement for header content element
 $GLOBALS['TCA']['tt_content']['types']['header']['showitem'] = '
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;headers,
@@ -182,7 +210,7 @@ $GLOBALS['TCA']['tt_content']['types']['header']['showitem'] = '
         --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended
 ';
 
-// Field arrangement for text content element
+    // Field arrangement for text content element
 $GLOBALS['TCA']['tt_content']['types']['text']['showitem'] = '
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
@@ -196,7 +224,7 @@ $GLOBALS['TCA']['tt_content']['types']['text']['showitem'] = '
         --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended
 ';
 
-// Field arrangement for textpic content element
+    // Field arrangement for textpic content element
 $GLOBALS['TCA']['tt_content']['types']['textpic']['showitem'] = '
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
@@ -215,7 +243,7 @@ $GLOBALS['TCA']['tt_content']['types']['textpic']['showitem'] = '
         --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended
 ';
 
-// Field arrangement for image content element
+    // Field arrangement for image content element
 $GLOBALS['TCA']['tt_content']['types']['image']['showitem'] = '
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
@@ -232,7 +260,7 @@ $GLOBALS['TCA']['tt_content']['types']['image']['showitem'] = '
         --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended
 ';
 
-// Field arrangement for uploads content element
+    // Field arrangement for uploads content element
 $GLOBALS['TCA']['tt_content']['types']['uploads']['showitem'] = '
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
@@ -246,7 +274,7 @@ $GLOBALS['TCA']['tt_content']['types']['uploads']['showitem'] = '
         --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended
 ';
 
-// Field arrangement for menu content element
+    // Field arrangement for menu content element
 $GLOBALS['TCA']['tt_content']['types']['menu']['showitem'] = '
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
@@ -259,7 +287,7 @@ $GLOBALS['TCA']['tt_content']['types']['menu']['showitem'] = '
         --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended
 ';
 
-// Field arrangement for shortcut content element
+    // Field arrangement for shortcut content element
 $GLOBALS['TCA']['tt_content']['types']['shortcut']['showitem'] = '
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                 header;LLL:EXT:cms/locallang_ttc.xlf:header.ALT.shortcut_formlabel,
@@ -272,7 +300,7 @@ $GLOBALS['TCA']['tt_content']['types']['shortcut']['showitem'] = '
         --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended
 ';
 
-// Field arrangement for list content element
+    // Field arrangement for list content element
 $GLOBALS['TCA']['tt_content']['types']['list']['showitem'] = '
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
@@ -293,7 +321,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['showitem'] = '
 
 
 
-// Register HTML5 Video content element
+    // Register HTML5 Video content element
 if(
         (\in_array($_EXTCONF['doctype'], ['html5']) && !$_EXTCONF['disableHtml5Video']) 
         || !$_EXTCONF) {

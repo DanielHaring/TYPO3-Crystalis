@@ -46,6 +46,35 @@ unset($additionalRootLineFields);
 
 
 
+
+    // Inject TypoScript configurations
+if($_EXTCONF['setPageTSconfig'] || !$_EXTCONF) {
+    
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Core/Backend/Behaviour.ts">' . "\n" 
+            . '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Core/Backend/RichTextEditor.ts">');
+    
+}
+
+if($_EXTCONF['setUserTSconfig'] || !$_EXTCONF) {
+    
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
+            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Core/Backend/UserRights.ts">');
+    
+}
+
+if(
+        (\in_array($_EXTCONF['doctype'], ['html5']) && !$_EXTCONF['disableHtml5Video']) 
+        || !$_EXTCONF) {
+    
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Core/ContentElements/Html5Video.ts">');
+    
+}
+
+
+
+
     // Register content rendering templates
 \settype($GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'], 'array');
 
