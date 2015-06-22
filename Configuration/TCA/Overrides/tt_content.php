@@ -9,7 +9,7 @@ $_EXTKEY = 'crystalis';
 
 
 
-    // Provice render templates
+    // Provide render templates
 switch($_EXTCONF['doctype']) {
     
     case 'xhtml_strict':
@@ -214,7 +214,7 @@ $GLOBALS['TCA']['tt_content']['types']['header']['showitem'] = '
 $GLOBALS['TCA']['tt_content']['types']['text']['showitem'] = '
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
-                bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel;;richtext:rte_transform[flag=rte_enabled|mode=ts_css],
+                bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel,
                 rte_enabled;LLL:EXT:cms/locallang_ttc.xlf:rte_enabled_formlabel,
         --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
@@ -224,11 +224,32 @@ $GLOBALS['TCA']['tt_content']['types']['text']['showitem'] = '
         --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended
 ';
 
+if(!\is_array($GLOBALS['TCA']['tt_content']['types']['text']['columnsOverrides'])) {
+    
+    $GLOBALS['TCA']['tt_content']['types']['text']['columnsOverrides'] = [];
+    
+}
+
+if(!\is_array($GLOBALS['TCA']['tt_content']['types']['text']['columnsOverrides']['bodytext'])) {
+    
+    $GLOBALS['TCA']['tt_content']['types']['text']['columnsOverrides']['bodytext'] = [];
+    
+}
+
+if(!empty($GLOBALS['TCA']['tt_content']['columns']['bodytext']['defaultExtras'])) {
+    
+    $bodytextDefaultBaseExtras = $GLOBALS['TCA']['tt_content']['columns']['bodytext']['defaultExtras'] . ':';
+    
+}
+
+$GLOBALS['TCA']['tt_content']['types']['text']['columnsOverrides']['bodytext']['defaultExtras'] = 
+        $bodytextDefaultBaseExtras . 'richtext:rte_transform[flag=rte_enabled|mode=ts_css]';
+
     // Field arrangement for textpic content element
 $GLOBALS['TCA']['tt_content']['types']['textpic']['showitem'] = '
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
-                bodytext;Text;;richtext:rte_transform[flag=rte_enabled|mode=ts_css],
+                bodytext;Text,
                 rte_enabled;LLL:EXT:cms/locallang_ttc.xlf:rte_enabled_formlabel,
         --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.images,
                 image,
@@ -242,6 +263,21 @@ $GLOBALS['TCA']['tt_content']['types']['textpic']['showitem'] = '
                 --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
         --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended
 ';
+
+if(!\is_array($GLOBALS['TCA']['tt_content']['types']['textpic']['columnsOverrides'])) {
+    
+    $GLOBALS['TCA']['tt_content']['types']['textpic']['columnsOverrides'] = [];
+    
+}
+
+if(!\is_array($GLOBALS['TCA']['tt_content']['types']['textpic']['columnsOverrides']['bodytext'])) {
+    
+    $GLOBALS['TCA']['tt_content']['types']['textpic']['columnsOverrides']['bodytext'] = [];
+    
+}
+
+$GLOBALS['TCA']['tt_content']['types']['textpic']['columnsOverrides']['bodytext']['defaultExtras'] = 
+        $bodytextDefaultBaseExtras . 'richtext:rte_transform[flag=rte_enabled|mode=ts_css]';
 
     // Field arrangement for image content element
 $GLOBALS['TCA']['tt_content']['types']['image']['showitem'] = '
