@@ -116,8 +116,8 @@
                 <target>HTML Doctype: Der Dokumenttyp welcher verwendet werden soll. Diese Einstellung beeinflusst diverse Render-Einstellungen und die zur Verfügung stehenden Inhaltselemente.</target>
             </trans-unit>
             <trans-unit id="extconf.label_EnableLanguageHandling" xml:space="preserve">
-                <source>Activate: If checked, automatic language handling will be enforced. This feature requires extension static_info_tables to work properly. In addition it is recommended to use extension realurl as well.</source>
-                <target>Aktivieren: Wenn ausgewählt, wird die automatische Sprachenverwaltung durchgeführt. Für eine korrekte Funktionsweise wird die Erweiterung static_info_tables vorausgesetzt. Zusätzlich wird empfohlen die Erweiterung realurl zu nutzen.</target>
+                <source>Activate: If checked, automatic language handling will be enforced. It's recommended to use this feature in combination with the third-party extension 'realurl'.</source>
+                <target>Aktivieren: Wenn ausgewählt, wird die automatische Sprachenverwaltung durchgeführt. Um den vollen Funktionsumfang nutzen zu können wird empfohlen, die Erweiterung 'realurl' in Kombination zu verwenden.</target>
             </trans-unit>
             <trans-unit id="extconf.label_SetPageTS" xml:space="preserve">
                 <source>Page TypoScript: Implements predefined backend page setup. This option increases backend usability.</source>

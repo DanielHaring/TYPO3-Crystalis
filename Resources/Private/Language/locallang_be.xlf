@@ -89,7 +89,7 @@
                 <source>HTML Doctype: The doctype which should be applied. This option affects render setups and available content elements.</source>
             </trans-unit>
             <trans-unit id="extconf.label_EnableLanguageHandling" xml:space="preserve">
-                <source>Activate: If checked, automatic language handling will be enforced. This feature requires extension static_info_tables to work properly. In addition it is recommended to use extension realurl as well.</source>
+                <source>Activate: If checked, automatic language handling will be enforced. It's recommended to use this feature in combination with the third-party extension 'realurl'.</source>
             </trans-unit>
             <trans-unit id="extconf.label_SetPageTS" xml:space="preserve">
                 <source>Page TypoScript: Implements predefined backend page setup. This option increases backend usability.</source>
