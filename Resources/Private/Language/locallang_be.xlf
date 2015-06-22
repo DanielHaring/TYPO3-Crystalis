@@ -52,6 +52,30 @@
             <trans-unit id="extconf.category_LanguageHandling" xml:space="preserve">
                 <source>Language handling</source>
             </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService" xml:space="preserve">
+                <source>Language Service functionality check</source>
+            </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService_AlternativeConfigurator" xml:space="preserve">
+                <source><![CDATA[<p><strong>The Language Service should work as expected.</strong></p><p>The recommended third-party extension 'realurl' is not installed, but an alternative loadable URL configurator was found. <br>The configurator should work as expected although the exaxt state cannot be determined due to external code.</p>]]></source>
+            </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService_Heading_Info" xml:space="preserve">
+                <source>Additional information</source>
+            </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService_Heading_Ok" xml:space="preserve">
+                <source>No errors were found</source>
+            </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService_Heading_Warning" xml:space="preserve">
+                <source>Warnings about your setup</source>
+            </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService_NoCache" xml:space="preserve">
+                <source><![CDATA[<p><strong>The Language Service should work as expected.</strong></p><p>The recommended third-party extension 'realurl' is installed and no errors were found.</p><p>Although the automatic URL configuration wasn't created yet. This is normal when system caches got flushed short time ago. If this state persists, it seems there's something wrong with your configurations.</p>]]></source>
+            </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService_NoConfigurator" xml:space="preserve">
+                <source><![CDATA[<p><strong>No URL configurator loaded.</strong></p><p>The recommended third-party extension 'realurl' is not installed and no alternative loadable URL configurator was found – there won't be any automatic URL handling being performed.</p>]]></source>
+            </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService_Ok" xml:space="preserve">
+                <source><![CDATA[<p><strong>The Language Service works as expected.</strong></p><p>The recommended third-party extension 'realurl' is installed and works properly. The automatic URL configuration successfully was created.</p>]]></source>
+            </trans-unit>
             <trans-unit id="extconf.label_DefaultLanguage" xml:space="preserve">
                 <source>Default Language: Select the global default frontend language of your platform.</source>
             </trans-unit>

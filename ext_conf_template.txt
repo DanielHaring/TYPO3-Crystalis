@@ -22,3 +22,6 @@ enableLanguageHandling = 1
 
   # cat=lang/basic/1; type=user[HARING\Crystalis\Utility\ExtensionManagerConfigurationUtility->buildLanguageSelector]; label=LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.label_DefaultLanguage
 defaultLanguage = en
+
+  # cat=lang/basic/2; type=user[HARING\Crystalis\Utility\ExtensionManagerConfigurationUtility->checkLanguageService]; label=LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.label_CheckLanguageService
+checkLanguageService = 0

@@ -67,6 +67,38 @@
                 <source>Language handling</source>
                 <target>Sprachenverwaltung</target>
             </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService" xml:space="preserve">
+                <source>Language Service functionality check</source>
+                <target>Funktionalität der Sprachenverwaltung</target>
+            </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService_AlternativeConfigurator" xml:space="preserve">
+                <source><![CDATA[<p><strong>The Language Service should work as expected.</strong></p><p>The recommended third-party extension 'realurl' is not installed, but an alternative loadable URL configurator was found. <br>The configurator should work as expected although the exaxt state cannot be determined due to external code.</p>]]></source>
+                <target><![CDATA[<p><strong>Die Sprachenverwaltung sollte erwartungsgemäß arbeiten.</strong></p><p>Die empfohlene Erweiterung 'realurl' ist nicht installiert, jedoch wurde ein aufrufbarer URL-Konfigurator gefunden. <br>Der Konfigurator sollte wie vorgesehen funktionieren, jedoch kann der genaue Status – aufgrund von externem Code – nicht eruiert werden.</p>]]></target>
+            </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService_Heading_Info" xml:space="preserve">
+                <source>Additional information</source>
+                <target>Zusätzliche Informationen</target>
+            </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService_Heading_Ok" xml:space="preserve">
+                <source>No errors were found</source>
+                <target>Keine Fehler gefunden</target>
+            </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService_Heading_Warning" xml:space="preserve">
+                <source>Warnings about your setup</source>
+                <target>Warnungen bezüglich Ihrer Umgebung</target>
+            </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService_NoCache" xml:space="preserve">
+                <source><![CDATA[<p><strong>The Language Service should work as expected.</strong></p><p>The recommended third-party extension 'realurl' is installed and no errors were found.</p><p>Although the automatic URL configuration wasn't created yet. This is normal when system caches got flushed short time ago. If this state persists, it seems there's something wrong with your configurations.</p>]]></source>
+                <target><![CDATA[<p><strong>Die Sprachenverwaltung sollte erwartungsgemäß arbeiten.</strong></p><p>Die empfohlene Erweiterung 'realurl' ist installiert und keinerlei Fehler wurden gefunden.</p><p>Trotzdem wurde keine automatische Konfiguration gespeichert. Dieser Umstand ist völlig normal, wenn der System-Cache erst kürzlich geleert wurde. Sollte dieser Status bestehen, scheint es ein Problem bei Ihrer Konfiguration zu geben.</p>]]></target>
+            </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService_NoConfigurator" xml:space="preserve">
+                <source><![CDATA[<p><strong>No URL configurator loaded.</strong></p><p>The recommended third-party extension 'realurl' is not installed and no alternative loadable URL configurator was found – there won't be any automatic URL handling being performed.</p>]]></source>
+                <target><![CDATA[<p><strong>Kein URL-Konfigurator geladen.</strong></p><p>Die empfohlene Erweiterung 'realurl' ist nicht installiert und kein aufrufbarer URL-Konfigurator wurde gefunden. Es wird daher keine automatische Verwaltung von URLs durchgeführt.</p>]]></target>
+            </trans-unit>
+            <trans-unit id="extconf.label_CheckLanguageService_Ok" xml:space="preserve">
+                <source><![CDATA[<p><strong>The Language Service works as expected.</strong></p><p>The recommended third-party extension 'realurl' is installed and works properly. The automatic URL configuration successfully was created.</p>]]></source>
+                <target><![CDATA[<p><strong>Die Sprachenverwaltung arbeitet erwartungsgemäß</strong></p><p>Die empfohlene Erweiterung 'realurl' ist installiert und arbeitet ordnungsgemäß. Die automatische URL-Konfiguration wurde erfolgreich erstellt.</p>]]></target>
+            </trans-unit>
             <trans-unit id="extconf.label_DefaultLanguage" xml:space="preserve">
                 <source>Default Language: Select the global default frontend language of your platform.</source>
                 <target>Standardsprache: Die globale Standardsprache der kompletten Webplattform im Frontend.</target>
