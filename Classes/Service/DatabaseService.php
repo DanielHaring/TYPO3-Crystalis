@@ -242,7 +242,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
                     'page.uid, page.l18n_cfg AS useDefaultLanguage, page.url_scheme as protocol', 
                     'pages page', 
                     'page.deleted=0 AND page.hidden=0 ' 
-                            . 'AND page.uid IN (' . \implode(',', \array_unique(ArrayUtility::column($domains, 'rootPage'))) . ')', 
+                            . 'AND page.uid IN (' . \implode(',', \array_unique(\array_column($domains, 'rootPage'))) . ')', 
                     '', 
                     'page.sorting ASC', 
                     '', 
@@ -252,11 +252,11 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
                     'overlay.pid, overlay.sys_language_uid', 
                     'pages_language_overlay overlay', 
                     'overlay.deleted=0 AND overlay.hidden=0 ' 
-                            . 'AND overlay.pid IN (' . \implode(',', \array_unique(ArrayUtility::column($domains, 'rootPage'))) . ')');
+                            . 'AND overlay.pid IN (' . \implode(',', \array_unique(\array_column($domains, 'rootPage'))) . ')');
             
             return \array_map(function($domain) use ($pages, $languages) {
                 
-                $domain['languages'] = \implode(',', ArrayUtility::column(\array_filter($languages, function($language) use ($domain) {
+                $domain['languages'] = \implode(',', \array_column(\array_filter($languages, function($language) use ($domain) {
                     
                     return $language['pid'] === $domain['rootPage'];
                     

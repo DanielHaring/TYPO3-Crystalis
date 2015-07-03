@@ -226,10 +226,10 @@ class RealurlConfigurator implements ConfiguratorInterface {
             'valueMap' => \array_combine(
                     \array_map(
                             'strtolower', 
-                            ArrayUtility::column(
+                            \array_column(
                                     $this->DatabaseService->getSystemLanguages(), 
                                     'isoCode')), 
-                    ArrayUtility::column(
+                    \array_column(
                             $this->DatabaseService->getSystemLanguages(), 
                             'uid'))
         ];
@@ -271,8 +271,8 @@ class RealurlConfigurator implements ConfiguratorInterface {
                 'GETvar' => 'L',
                 'noMatch' => 'bypass',
                 'valueMap' => \array_combine(
-                        ArrayUtility::column($domainConf['languages'], 'isoCode'), 
-                        ArrayUtility::column($domainConf['languages'], 'uid'))
+                        \array_column($domainConf['languages'], 'isoCode'), 
+                        \array_column($domainConf['languages'], 'uid'))
             ];
             
         } elseif(isset($this->configuration[$host]['preVars'][$index])) {
@@ -388,11 +388,11 @@ class RealurlConfigurator implements ConfiguratorInterface {
             })));
             
                 // Remove duplicates
-            $headDomains = \array_combine(ArrayUtility::column($eligibleDomains, 'key'), $eligibleDomains);
+            $headDomains = \array_combine(\array_column($eligibleDomains, 'key'), $eligibleDomains);
             unset($eligibleDomains);
             
                 // Rebuild array structure of origin
-            $this->headDomains = \array_combine(ArrayUtility::column($headDomains, 'host'), $headDomains);
+            $this->headDomains = \array_combine(\array_column($headDomains, 'host'), $headDomains);
             unset($headDomains);
             
         }

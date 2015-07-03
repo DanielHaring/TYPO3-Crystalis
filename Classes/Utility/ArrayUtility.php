@@ -50,6 +50,7 @@ class ArrayUtility {
      * Return the values from a single column in the input array.
      * Polyfill of \array_column for PHP prior v5.5.
      * 
+     * @deprecated since version 7.3.0, will be removed in Crystalis 7.4. Use \array_column() instead.
      * @since 6.2.0
      * @param array $array A multi-dimensional array (record set) from which to pull a column of values.
      * @param mixed $columnKey The column of values to return. This value may be the integer key of the column 

@@ -289,7 +289,7 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
         $TCA = include \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName(
                 'EXT:core/Configuration/TCA/sys_language.php');
         
-        $this->languages = ArrayUtility::column(
+        $this->languages = \array_column(
                 $TCA['columns']['language_isocode']['config']['items'], 
                 0, 
                 1);

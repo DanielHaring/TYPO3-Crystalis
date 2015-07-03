@@ -77,7 +77,7 @@ class ExtensionManagerConfigurationUtility {
         
         $options = \array_map(
                 [$GLOBALS['LANG'], 'sL'], 
-                ArrayUtility::column(
+                \array_column(
                         $GLOBALS['TCA']['sys_language']['columns']['language_isocode']['config']['items'], 
                         0, 
                         1));
