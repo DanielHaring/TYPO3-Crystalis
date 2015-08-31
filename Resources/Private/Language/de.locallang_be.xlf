@@ -111,6 +111,10 @@
                 <source>Disable HTML5 video: If set the HTML5 video element won't be available, even if HTML5 doctype was selected.</source>
                 <target>HTML5 Video deaktivieren: Wenn gesetzt, steht das HTML5 Video Element nicht zur Verfügung, selbst wenn als Dokumenttyp HTML5 ausgewählt wurde.</target>
             </trans-unit>
+            <trans-unit id="extconf.label_DisableSeo" xml:space="preserve">
+                <source><![CDATA[Disable Search Engine Optimization: If set, pages won't be extended to provide canonical URLs and custom <title>-tags.]]></source>
+                <target><![CDATA[Suchmaschinenoptimierung deaktivieren: Wenn aktiviert, werden Seiten nicht um die Funktionalität von kanonischen URLs und benutzerdefinierten <title>-tags ergänzt.]]></target>
+            </trans-unit>
             <trans-unit id="extconf.label_Doctype" xml:space="preserve">
                 <source>HTML Doctype: The doctype which should be applied. This option affects render setups and available content elements.</source>
                 <target>HTML Doctype: Der Dokumenttyp welcher verwendet werden soll. Diese Einstellung beeinflusst diverse Render-Einstellungen und die zur Verfügung stehenden Inhaltselemente.</target>

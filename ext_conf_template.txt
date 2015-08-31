@@ -17,6 +17,9 @@ doctype = html5
   # cat=ferender/page/2; type=boolean; label=LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.label_DisableHtml5Video
 disableHtml5Video = 0
 
+  # cat=ferender/page/3; type=boolean; label=LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.label_DisableSeo
+disableSeo = 0
+
   # cat=lang/basic/1; type=boolean; label=LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.label_EnableLanguageHandling
 enableLanguageHandling = 1
 

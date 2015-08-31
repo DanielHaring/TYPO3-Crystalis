@@ -52,154 +52,96 @@ page{
 
     headerData{
 
-        # Canonical tag
-        10 = TEXT
-        10{
+        # Page Title
+        20 = COA
+        20{
 
-            field = tx_crystalis_canonical
-            required = 1
+            # Current page
+            10 = TEXT
+            10{
 
-            stdWrap{
+                if{
 
-                setContentToCurrent = 1
-
-                typolink{
-
-                    parameter{
-                        current = 1
+                    isTrue{
+                        data = LEVEL:1
                     }
 
-                    returnLast = url
-                    forceAbsoluteUrl = 1
+                }
 
+                field = title
+                trim = 1
+                htmlSpecialChars = 1
+                wrap = |:
+
+                override{
+                    field = subtitle
+                }
+
+                append = TEXT
+                append{
+                    char = 32
                 }
 
             }
 
-            innerWrap = <link rel="canonical" href="|">
-            innerWrap{
+            # Website title
+            20 = TEXT
+            20{
 
-                override = <link rel="canonical" href="|" />
-                override{
+                data = LEVELFIELD:0,nav_title
+                trim = 1
+                htmlSpecialChars = 1
+
+                append = TEXT
+                append{
 
                     if{
 
-                        isTrue{
-                            data = TSFE:xhtmlDoctype
+                        isFalse{
+                            data = LEVEL:1
                         }
 
+                    }
+
+                    char = 32
+
+                    append = TEXT
+                    append{
+                        value = -
                     }
 
                 }
 
             }
 
-            append = TEXT
-            append{
-                char = 10
-            }
+            # Website claim
+            30 = TEXT
+            30{
 
-        }
+                if{
 
-        # Page title
-        20 = TEXT
-        20{
-
-            field = tx_crystalis_pagetitle
-            trim = 1
-            htmlSpecialChars = 1
-
-            ifEmpty{
-
-                cObject = COA
-                cObject{
-
-                    # Current page
-                    10 = TEXT
-                    10{
-
-                        if{
-
-                            isTrue{
-                                data = LEVEL:1
-                            }
-
-                        }
-
-                        field = title
-                        trim = 1
-                        htmlSpecialChars = 1
-                        wrap = |:
-
-                        override{
-                            field = subtitle
-                        }
-
-                        append = TEXT
-                        append{
-                            char = 32
-                        }
-
-                    }
-
-                    # Website title
-                    20 = TEXT
-                    20{
-
-                        data = LEVELFIELD:0,nav_title
-                        trim = 1
-                        htmlSpecialChars = 1
-
-                        append = TEXT
-                        append{
-
-                            if{
-
-                                isFalse{
-                                    data = LEVEL:1
-                                }
-
-                            }
-
-                            char = 32
-
-                            append = TEXT
-                            append{
-                                value = -
-                            }
-
-                        }
-
-                    }
-
-                    # Website claim
-                    30 = TEXT
-                    30{
-
-                        if{
-
-                            isFalse{
-                                data = LEVEL:1
-                            }
-
-                        }
-
-                        data = LEVELFIELD:0,subtitle
-                        trim = 1
-                        htmlSpecialChars = 1
-
-                        prepend = TEXT
-                        prepend{
-                            char = 32
-                        }
-
+                    isFalse{
+                        data = LEVEL:1
                     }
 
                 }
 
+                data = LEVELFIELD:0,subtitle
+                trim = 1
+                htmlSpecialChars = 1
+
+                prepend = TEXT
+                prepend{
+                    char = 32
+                }
+
             }
 
-            wrap = <title>|</title>
+            stdWrap{
+
+                wrap = <title>|</title>
+
+            }
 
         }
 
