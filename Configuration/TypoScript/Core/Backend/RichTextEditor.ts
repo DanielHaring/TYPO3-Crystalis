@@ -7,6 +7,7 @@ RTE{
         useCSS = 0
         contentCSS = EXT:crystalis/Resources/Public/Styles/rte.min.css
         hideButtons := addToList(blockstyle,toggleborders)
+        showButtons := addToList(small)
 
         buttons{
 
