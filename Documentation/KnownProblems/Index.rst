@@ -22,7 +22,7 @@ as expected. Actually this doesn't have anything to do with the Language Service
 between RealUrl and the TYPO3 CMS Core in handling domains. While TYPO3 CMS doesn't care about the port and 
 therefore needs a domain-only record, RealUrl needs to know about the port for proper URL generation. To 
 satisfy both of them, you have to create two domain records – one containing the port 
-(e.g. 'www.example.org:8888') and the other containing the pure domain only (e.g. 'www.example.org').
+(e.g. 'www.example.org:8888') and the other one containing the pure domain only (e.g. 'www.example.org').
 
 If those two domain records are set, please ensure the option *"Always prepend this domain in links"* is 
 unchecked for both of them. Otherwise there may occur conflicts when links are generated.

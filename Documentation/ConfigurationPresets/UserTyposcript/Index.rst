@@ -28,4 +28,4 @@ Extension Manager – thus requiring you to have administrator rights.
 To deactivate User TypoScript, head to Extension Manager module and select Crystalis. In General tab uncheck 
 *"User TypoScript"* in *"Preset configurations"* section and save your changes.
 
-After this, the backend user configuration won't be touched by Crystalis anymore.
+After this, the backend user configuration won't being touched by Crystalis anymore.

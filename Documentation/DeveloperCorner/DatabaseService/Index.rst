@@ -47,7 +47,7 @@ a query was sent and the *TYPO3_DB* class is not present. You can get this conne
 
     \HARING\Crystalis\Service\DatabaseService::getDatabaseConnection();
 
-The returning object behaves exactly the same way as *TYPO3_DB* does, thus allowing you to make familiar queries:
+The returning object behaves exactly the same as *TYPO3_DB* does, thus allowing you to make familiar queries:
 
 .. code-block:: php
 
@@ -55,8 +55,8 @@ The returning object behaves exactly the same way as *TYPO3_DB* does, thus allow
         ->exec_SELECTquery('field', 'table', 'where');
 
 A new database connection will be established using the Crystalis General Utility class. If you do not need all the 
-specific functions of the Database Service, you can obtain a database connection by directly calling the respective 
-method:
+specific functions provided by the Database Service, you can obtain a database connection by directly calling the 
+respective method:
 
 .. code-block:: php
 

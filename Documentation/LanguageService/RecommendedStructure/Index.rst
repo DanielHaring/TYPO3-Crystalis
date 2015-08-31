@@ -11,7 +11,7 @@
 Recommended page structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-There's more than one way to skin a cat, and if you just need a handful of languages your page structure is not that 
+There's more than one way to skin a cat, and if you just need a handful of languages, your page structure is not that 
 important. This topic gains more in importance the more complex your language involments become. For example, if 
 you're panning a site which should supply different versions for various countries and languages (e.g. a german page 
 which privodes german language and a swiss one which is localized in german, french and italian), your site should 

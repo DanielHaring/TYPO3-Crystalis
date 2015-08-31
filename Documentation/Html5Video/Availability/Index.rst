@@ -22,7 +22,7 @@ content for example) you have to reactivate the Media Content Element inside you
 
 :typoscript:`mod.wizards.newContentElement.wizardItems.special.show := addToList(media)`
 
-After this, you are able to make use of both – the HTML5 Video Content Element as well as the Media Element.
+After this, you are able to make use of the HTML5 Video Content Element and the Media Element as well.
 
 **Note:** If you're adding your configuration using a custom extension, please ensure it will be loaded after 
 Crystalis by making it dependend on Crystalis in *ext_emconf.php*. Otherwise your settings won't have any effect 

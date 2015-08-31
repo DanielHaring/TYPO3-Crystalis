@@ -15,6 +15,7 @@ To tell TYPO3 CMS to load an external backend layout, the layout has to be regis
 Edit the page with the lowest level where you want to include your layout – in most cases this would be the home page:
 
 .. figure:: ../../Images/BackendLayouts/RegisterPageConfig.jpg
+   :align: left
    :alt: Register a backend layout
 
 Switch to *Resources* tab **(1)** and edit *Page TSConfig* **(2)** as follows:
@@ -49,7 +50,7 @@ tx_crystalis
 
          **.description:** Sets the description of the backend layout. Localization strings are supported here too.
 
-         **.icon:** Specify an icon which should be displayed. Icon must be a valid "resource" data type.
+         **.icon:** Specifies an icon which should be displayed. Icon must be a valid "resource" data type.
 
          **Example:** ::
 

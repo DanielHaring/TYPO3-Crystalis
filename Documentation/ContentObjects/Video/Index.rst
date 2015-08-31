@@ -84,7 +84,7 @@ Defined as PHP class *Html5VideoContentObject* in *typo3conf/ext/crystalis/Class
    Description
          Configuration of video sources and player options.
 
-         If FlexForm is filled with values this array will be ignored.
+         If FlexForm is filled with values, this array will be ignored.
 
 
 .. container:: table-row

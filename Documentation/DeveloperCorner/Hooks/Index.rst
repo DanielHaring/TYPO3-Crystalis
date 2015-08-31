@@ -26,8 +26,8 @@ Registering a hook
 ~~~~~~~~~~~~~~~~~~
 
 To register a Rewrite Configurator the class name inside TYPO3_CONF_VARS should be *LanguageService* and the 
-function name is *registerRewriteConfigurator*. The implementation doesn't expect a specific function name so 
-you have to specify it by yourself.
+function name is *registerRewriteConfigurator*. The implementation doesn't prescribes a specific function name 
+so you have to specify it by yourself.
 
 **Example:** ::
 
@@ -76,7 +76,7 @@ When the hook is called, two parameters will be passed:
 
 .. ###### END~OF~TABLE ######
 
-Therefore your implementation should look like the following: ::
+As a result your implementation should look like the following: ::
 
     <?php
 
@@ -98,7 +98,7 @@ Therefore your implementation should look like the following: ::
 Expected return value
 ~~~~~~~~~~~~~~~~~~~~~
 
-The value returned by your function must be of type array and basically should look like the Registry parameter.
+The value returned by your function must be of type array and basically should look like the *Registry* parameter.
 This means you should provide the extension key to which the configurator belongs to as array key and the fully 
 qualified class name which is responsible for configuration as value.
 
@@ -108,8 +108,8 @@ Of course, you are allowed to pass multiple pairs (key => value) at once.
 
     return array('cooluri' => 'VENDOR\\ExtKey\\Configuration\\UrlRewriting\\CoolUriConfigurator');
 
-**Important Notice:** The classes responsible for configuring URL rewriting must implement the Interface 
-\\HARING\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface. Otherwise your configurator will be ignored.
+**Important Notice:** The classes responsible for configuring URL rewriting are obligated to implement the Interface 
+\\HARING\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface. If they don't, they simply will be ignored.
 
 
 .. _dev-hooks-language-register-example:
@@ -150,7 +150,7 @@ A complete impelementation of an additional URL handler may look like this:
 
         public function configure() {
 
-            // put your code here
+            // do stuff
 
         }
 

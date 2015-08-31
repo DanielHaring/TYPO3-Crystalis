@@ -15,7 +15,7 @@ Crystalis
 .. only:: html
 
 	:Classification:
-		crystalis
+		Crystalis
 
 	:Version:
 		|release|
