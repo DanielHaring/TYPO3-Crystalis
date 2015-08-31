@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array (
         'description' => 'A flexible headstone for professional next generation TYPO3 CMS websites. ' 
                             . 'Crystalis provides content rendering, pre-configured setups, fully automatic language handling and many more. ',
 	'category' => 'fe',
-	'version' => '7.3.0-dev',
+	'version' => '7.4.0-dev',
 	'state' => 'stable',
 	'uploadfolder' => 0,
 	'createDirs' => '',
@@ -27,9 +27,9 @@ $EM_CONF[$_EXTKEY] = array (
 	array (
 		'depends' => 
 		array (
-			'extbase' => '7.3.0-7.3.99',
-			'fluid' => '7.3.0-7.3.99',
-			'typo3' => '7.3.0-7.3.99',
+			'extbase' => '7.3.0-7.4.99',
+			'fluid' => '7.3.0-7.4.99',
+			'typo3' => '7.3.0-7.4.99',
 		),
 		'conflicts' => 
 		array (
@@ -37,6 +37,7 @@ $EM_CONF[$_EXTKEY] = array (
 		'suggests' => 
 		array (
                         'realurl' => '1.13.3-0.0.0',
+                        'felogin' => '7.3.0-7.4.0'
 		),
 	),
 );
