@@ -35,6 +35,7 @@ namespace HARING\Crystalis\View\BackendLayout;
 /**
  * Injects backend layouts using external files.
  * 
+ * @deprecated since version 7.4.0, will be removed in Crystalis 7.5. Use mod.web_layout.BackendLayouts instead.
  * @since 1.6.0
  * @author Daniel Haring <development@haring.co.at>
  * @package Crystalis
@@ -49,6 +50,7 @@ class FileDataProvider implements \TYPO3\CMS\Backend\View\BackendLayout\DataProv
     /**
      * Specifies valid icon formats.
      * 
+     * @deprecated since version 7.4.0, will be removed in Crystalis 7.5. Use mod.web_layout.BackendLayouts instead.
      * @since 1.6.0
      * @var array
      * @access protected
@@ -62,6 +64,7 @@ class FileDataProvider implements \TYPO3\CMS\Backend\View\BackendLayout\DataProv
     /**
      * Constructor.
      * 
+     * @deprecated since version 7.4.0, will be removed in Crystalis 7.5. Use mod.web_layout.BackendLayouts instead.
      * @since 1.6.0
      * @access public
      */
@@ -80,6 +83,7 @@ class FileDataProvider implements \TYPO3\CMS\Backend\View\BackendLayout\DataProv
     /**
      * Extends the given backend layout collection.
      * 
+     * @deprecated since version 7.4.0, will be removed in Crystalis 7.5. Use mod.web_layout.BackendLayouts instead.
      * @since 1.6.0
      * @param \TYPO3\CMS\Backend\View\BackendLayout\DataProviderContext $dataProviderContext The context where this data privider was called
      * @param \TYPO3\CMS\Backend\View\BackendLayout\BackendLayoutCollection $backendLayoutCollection The collection where to add additional layouts
@@ -111,6 +115,7 @@ class FileDataProvider implements \TYPO3\CMS\Backend\View\BackendLayout\DataProv
     /**
      * Gets a backend layout by (regular) identifier.
      * 
+     * @deprecated since version 7.4.0, will be removed in Crystalis 7.5. Use mod.web_layout.BackendLayouts instead.
      * @since 1.6.0
      * @param string $identifier The (regular) identifier of the backend layout to fetch
      * @param integer $pageId The uid of the page requesting the specified backend layout
@@ -135,6 +140,7 @@ class FileDataProvider implements \TYPO3\CMS\Backend\View\BackendLayout\DataProv
     /**
      * Builds a backend layout object from configuration file.
      * 
+     * @deprecated since version 7.4.0, will be removed in Crystalis 7.5. Use mod.web_layout.BackendLayouts instead.
      * @since 1.6.0
      * @param string $identifier The identifier within configuration array
      * @param string $file The path to the configuration file
