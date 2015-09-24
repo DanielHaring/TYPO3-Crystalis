@@ -60,7 +60,6 @@ Crystalis
         ConfigurationPresets/Index
         Html5Video/Index
         LanguageService/Index
-        ExternalBackendLayouts/Index
         ContentObjects/Index
         KnownProblems/Index
         DeveloperCorner/Index
