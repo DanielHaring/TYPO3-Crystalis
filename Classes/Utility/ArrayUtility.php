@@ -47,47 +47,6 @@ class ArrayUtility {
     
     
     /**
-     * Return the values from a single column in the input array.
-     * Polyfill of \array_column for PHP prior v5.5.
-     * 
-     * @deprecated since version 7.3.0, will be removed in Crystalis 7.4. Use \array_column() instead.
-     * @since 6.2.0
-     * @param array $array A multi-dimensional array (record set) from which to pull a column of values.
-     * @param mixed $columnKey The column of values to return. This value may be the integer key of the column 
-     *                         you wish to retrieve, or it may be the string key name for an associative array. 
-     *                         It may also be NULL to return complete arrays (useful together with indexKey 
-     *                         to reindex the array).
-     * @param mixed $indexKey The column to use as the index/keys for the returned array. This value may be the 
-     *                        integer key of the column, or it may be the string key name.
-     * @return array An array of values representing a single column from the input array.
-     * @access public
-     * @static
-     */
-    public static function column(array $array, $columnKey, $indexKey = \NULL) {
-        
-        if(\function_exists('array_column')) {
-            
-            return \array_column($array, $columnKey, $indexKey);
-            
-        }
-        
-        $columns = [];
-        
-        foreach($array as $key => $value) {
-            
-            $columns[$indexKey ? $value[$indexKey] : $key] = $value[$columnKey];
-            
-        }
-        
-        return $columns;
-        
-    }
-    
-    
-    
-    
-    
-    /**
      * Checks wheter an array is associative or not.
      * 
      * @since 7.2.0
