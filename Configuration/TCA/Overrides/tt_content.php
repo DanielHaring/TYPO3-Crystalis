@@ -9,34 +9,6 @@ $_EXTKEY = 'crystalis';
 
 
 
-    // Provide render templates
-switch($_EXTCONF['doctype']) {
-    
-    case 'xhtml_strict':
-        
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
-                $_EXTKEY, 
-                'Configuration/TypoScript/XHtmlStrict', 
-                'Frontend Rendering');
-        
-        break;
-    
-    case 'html5': // fallthrough
-    default:
-        
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
-                $_EXTKEY, 
-                'Configuration/TypoScript/Html5', 
-                'Frontend Rendering');
-        
-        break;
-    
-}
-
-
-
-
-
     // Add TCA columns
 $extraContentColumns = [
     'section_frame' => [
