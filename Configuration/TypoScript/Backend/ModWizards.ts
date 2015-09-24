@@ -9,8 +9,10 @@ mod{
             wizardItems{
 
                 formStorage < .forms
+                specialStorage < .special
 
                 forms >
+                special >
 
                 common{
 
@@ -78,10 +80,11 @@ mod{
 
                 }
 
+                special < .specialStorage
                 special{
 
                     header = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special
-                    show = uploads,menu,html,div,shortcut
+                    show := addToList(uploads,menu,html,div,shortcut)
 
                     elements{
 
@@ -163,6 +166,7 @@ mod{
                 }
 
                 formStorage >
+                specialStorage >
 
             }
 
