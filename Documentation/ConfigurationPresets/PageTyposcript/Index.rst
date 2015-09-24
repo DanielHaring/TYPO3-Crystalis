@@ -11,25 +11,28 @@
 Page TypoScript
 ^^^^^^^^^^^^^^^
 
-The page configuration is automatically injected by default and supports you with an optimized Rich Text Editor 
-configuration, purged backend forms and some preset values you may won't have to remember any more.
+The pre-defined Page TypoScript provides configurations for the *New Content Element Wizard*, optimizes the 
+Rich Text Editor and adjusts backend forms to increase usability.
 
-Do not worry about Crystalis changing the default style of your content elements. The preset values do not affect 
-layouts, stylings or any kind of content – they preselect options which mainly are of technical nature. For 
-example the default Extbase Frontend User Domain Model is allocated to frontend users. If this option is not set 
-properly you may experience issues when trying to access frontent users using Extbase.
+Please be aware, that page configurations aren't loaded by default any more. To make use of them, you have to 
+assign them to the page(s) of your choice.
 
 
-.. _preset-page-ts-deactivate:
+.. _preset-page-ts-embed:
 
-Prevent injection of Page TypoScript
-""""""""""""""""""""""""""""""""""""
+Embedding Page TypoScript
+"""""""""""""""""""""""""
 
-If you still aren't comfortable with that or just want to write your own configurations from scratch, you simply 
-can disable injection of Page TypoScript inside the TYPO3 Extension Manager – thus requiring you to have 
-administrator rights.
+From now on, page configurations have to be assigned to pages manually. This allows you to limit those 
+configurations to a subset of pages (and all of their sub-pages), leaving any other page untouched.
 
-To deactivate Page TypoScript, head to Extension Manager and select Crystalis. In General tab uncheck 
-*"Page TypoScript"* in *"Preset configurations"* section and save your changes.
+To achieve this, edit the page(s) of your choice:
 
-From now on, Crystalis will desist from loading Page TypoScript automatically.
+.. figure:: ../../Images/PageTSConfig/IncludePageTSConfig.jpg
+   :align: left
+   :alt: Embed Page TSConfig to a page
+
+Switch to *Resources* tab **(1)** and add *Base Configuration (crystalis)* to *Selected Items* within 
+*Include Page TSConfig (from extensions)* **(2)**.
+
+After saving your changes the Page TypoScript will be loaded for this particular page and all of its sub-pages.

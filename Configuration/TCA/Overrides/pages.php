@@ -37,6 +37,16 @@ switch($_EXTCONF['doctype']) {
 
 
 
+    // Provide page TSconfig
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+        $_EXTKEY, 
+        'Configuration/TypoScript/Controller/PageTS/Main.ts', 
+        'Base Configuration');
+
+
+
+
+
     // Provide SEO functionality
 if(!$_EXTCONF['disableSeo'] || !$_EXTCONF) {
     

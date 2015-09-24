@@ -5,9 +5,6 @@
   # customsubcategory=presetconfig=LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.subcategory_PresetConfigurations
   # customsubcategory=page=LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.subcategory_Page
 
-  # cat=general/presetconfig/1; type=boolean; label=LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.label_SetPageTS
-setPageTSconfig = 1
-
   # cat=general/presetconfig/2; type=boolean; label=LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.label_SetUserTS
 setUserTSconfig = 1
 
