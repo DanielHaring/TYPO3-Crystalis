@@ -40,7 +40,7 @@
                                     </config>
                                 </foreign_selector_fieldTcaOverride>
                                 <appearance type="array">
-                                    <createNewRelationLinkTitle>LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference</createNewRelationLinkTitle>
+                                    <createNewRelationLinkTitle>LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference</createNewRelationLinkTitle>
                                     <useSortable>1</useSortable>
                                     <showPossibleLocalizationRecords>1</showPossibleLocalizationRecords>
                                     <showRemovedLocalizationRecords>1</showRemovedLocalizationRecords>
@@ -263,7 +263,7 @@
                 <el>
                     <width>
                         <TCEforms>
-                            <label>LLL:EXT:cms/locallang_ttc.xml:imagewidth</label>
+                            <label>LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imagewidth</label>
                             <config>
                                 <type>input</type>
                                 <size>4</size>
@@ -279,7 +279,7 @@
                     </width>
                     <height>
                         <TCEforms>
-                            <label>LLL:EXT:cms/locallang_ttc.xml:imageheight</label>
+                            <label>LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageheight</label>
                             <config>
                                 <type>input</type>
                                 <size>4</size>
