@@ -16,7 +16,7 @@ switch($_EXTCONF['doctype']) {
         
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
                 $_EXTKEY, 
-                'Configuration/TypoScript/XHtmlStrict', 
+                'Configuration/TypoScript/Controller/XHtmlStrict', 
                 'Frontend Rendering');
         
         break;
@@ -26,7 +26,7 @@ switch($_EXTCONF['doctype']) {
         
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
                 $_EXTKEY, 
-                'Configuration/TypoScript/Html5', 
+                'Configuration/TypoScript/Controller/Html5', 
                 'Frontend Rendering');
         
         break;

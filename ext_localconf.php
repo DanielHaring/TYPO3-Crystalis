@@ -51,16 +51,16 @@ unset($additionalRootLineFields);
 if($_EXTCONF['setPageTSconfig'] || !$_EXTCONF) {
     
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Core/Backend/ModWizards.ts">' . \chr(10) 
-            . '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Core/Backend/Behaviour.ts">' . \chr(10) 
-            . '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Core/Backend/RichTextEditor.ts">');
+            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Backend/ModWizards.ts">' . \chr(10) 
+            . '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Backend/Behaviour.ts">' . \chr(10) 
+            . '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Backend/RichTextEditor.ts">');
     
 }
 
 if($_EXTCONF['setUserTSconfig'] || !$_EXTCONF) {
     
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
-            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Core/Backend/UserRights.ts">');
+            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Backend/UserRights.ts">');
     
 }
 
@@ -69,14 +69,14 @@ if(
         || !$_EXTCONF) {
     
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Core/ContentElements/Html5Video.ts">');
+            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/ContentElements/Html5Video.ts">');
     
 }
 
 if(!$_EXTCONF['disableSeo'] || !$_EXTCONF) {
     
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(
-            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Core/Page/Seo.ts">');
+            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Page/Seo.ts">');
     
 }
 
@@ -91,7 +91,7 @@ switch($_EXTCONF['doctype']) {
     case 'xhtml_strict':
         
         $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'][] 
-                = 'crystalis/Configuration/TypoScript/XHtmlStrict/';
+                = 'crystalis/Configuration/TypoScript/Controller/XHtmlStrict/';
         
         break;
     
@@ -99,7 +99,7 @@ switch($_EXTCONF['doctype']) {
     default:
         
         $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'][] 
-                = 'crystalis/Configuration/TypoScript/Html5/';
+                = 'crystalis/Configuration/TypoScript/Controller/Html5/';
         
         break;
     
