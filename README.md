@@ -91,34 +91,34 @@ This method requires git to be installed.
 
 To install Crystalis via command line on Unix like systems, please follow these steps:
 
-1. Change to the extension directory of your TYPO3 CMS installation:
+Change to the extension directory of your TYPO3 CMS installation:
 ```bash
 cd typo3conf/ext
 ```
 
-2. Clone the desired branch of Crystalis (here: *Crystalis-6.2*):
+Clone the desired branch of Crystalis (here: *Crystalis-6.2*):
 ```bash
 git clone -b Crystalis-6.2 https://github.com/HARING/TYPO3-Crystalis.git
 ```
 
-3. (Optional) Remove git related files to avoid tracking:
+(Optional) Remove git related files to avoid tracking:
 ```bash
 rm -R TYPO3-Crystalis/.git/
 ```
 
-4. Rename the folder of Crystalis:
+Rename the folder of Crystalis:
 ```bash
 mv TYPO3-Crystalis/ crystalis/
 ```
 
-5. Add the group of your webserver (here: *_www*) to grant reading access:
+Add the group of your webserver (here: *_www*) to grant reading access:
 ```bash
 chown -R :_www crystalis/
 ```
 
-6. (Optional) Also grant write access to allow updates via Extension Manager:
+(Optional) Also grant write access to allow updates via Extension Manager:
 ```bash
 chmod -R g+w crystalis/
 ```
 
-7. Follow steps 4–6 of *Installing via ZIP-file*
+Follow steps 4–6 of *Installing via ZIP-file*
