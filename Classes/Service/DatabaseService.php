@@ -29,7 +29,6 @@ namespace HARING\Crystalis\Service;
  */
 
 use \HARING\Crystalis\Utility\GeneralUtility;
-use \HARING\Crystalis\Utility\ArrayUtility;
 
 
 

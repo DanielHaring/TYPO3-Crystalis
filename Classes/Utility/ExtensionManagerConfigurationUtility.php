@@ -73,19 +73,13 @@ class ExtensionManagerConfigurationUtility {
      */
     public function buildLanguageSelector(array $params) {
         
-        $this->fieldName = $params['fieldName'];
-        
-        $options = \array_map(
-                [$GLOBALS['LANG'], 'sL'], 
-                \array_column(
-                        $GLOBALS['TCA']['sys_language']['columns']['language_isocode']['config']['items'], 
-                        0, 
-                        1));
-        
-        \asort($options);
-        
         return $this->renderSelect(
-                $options, 
+                \array_column(
+                        \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+                                \TYPO3\CMS\Core\Service\IsoCodeService::class)
+                            ->renderIsoCodeSelectDropdown(['items' => []])['items'], 
+                        0, 
+                        1), 
                 $params['fieldValue']);
         
     }
@@ -145,8 +139,7 @@ class ExtensionManagerConfigurationUtility {
      * Renders a generic select box.
      * 
      * @since 7.2.0
-     * @param array $options An array holding available values. If an assoziative array will be passed, 
-     *                       the keys will be used as value and the values will be displayed as label.
+     * @param array $options An array holding available values.
      * @param mixed $selected (Optional) The key of the item which should marked as 'selected'
      * @param integer $maxItems (Optional) Number of selectable items
      * @return string HTML output of the rendered select box

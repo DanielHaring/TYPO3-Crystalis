@@ -286,11 +286,10 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
             'zu' => ''
         ];
         
-        $TCA = include \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName(
-                'EXT:core/Configuration/TCA/sys_language.php');
-        
         $this->languages = \array_column(
-                $TCA['columns']['language_isocode']['config']['items'], 
+                \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+                        \HARING\Crystalis\Service\IsoCodeService::class)
+                    ->renderIsoCodeSelectDropdown(['items' => []])['items'], 
                 0, 
                 1);
         
