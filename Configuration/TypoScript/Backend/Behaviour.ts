@@ -25,7 +25,7 @@ TCEFORM{
 
         CType{
 
-            removeItems := addToList(swfobject, qtobject, multimedia, bullets, table, html, div, mailform)
+            removeItems := addToList(swfobject, qtobject, multimedia, bullets, table, html, div)
 
         }
 
