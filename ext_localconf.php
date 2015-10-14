@@ -112,18 +112,6 @@ if(\TYPO3_MODE === 'FE') {
 
 
 
-    // Implement the backend layout file data provider
-if(\TYPO3_MODE === 'BE') {
-    
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['BackendLayoutDataProvider']['file'] 
-            = 'HARING\\Crystalis\\View\\BackendLayout\\FileDataProvider';
-    
-}
-
-
-
-
-
     // Automatic language handling
 if(!!$_EXTCONF['enableLanguageHandling'] || !$_EXTCONF) {
     
