@@ -28,8 +28,6 @@ namespace HARING\Crystalis\Service;
  * **************************************************************
  */
 
-use \HARING\Crystalis\Utility\ArrayUtility;
-
 
 
 
@@ -56,6 +54,15 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
      * @access private
      */
     private $databaseService;
+    
+    /**
+     * Iso Code Service Instance.
+     * 
+     * @since 7.5.0
+     * @var \HARING\Crystalis\Service\IsoCodeService
+     * @access protected
+     */
+    protected $isoCodeService;
     
     /**
      * Holds available languages.
@@ -97,207 +104,21 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
     public function __construct() {
         
         $this->databaseService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                'HARING\\Crystalis\\Service\\DatabaseService');
+                \HARING\Crystalis\Service\DatabaseService::class);
         
-        $localeMapping = [
-            'ab' => '',
-            'aa' => '',
-            'af' => '',
-            'ak' => '',
-            'sq' => 'sq',
-            'am' => '',
-            'ar' => 'ar_SA',
-            'an' => '',
-            'hy' => '',
-            'as' => '',
-            'av' => '',
-            'ae' => '',
-            'ay' => '',
-            'az' => '',
-            'bm' => '',
-            'ba' => '',
-            'eu' => 'eu_ES',
-            'be' => '',
-            'bn' => '',
-            'bh' => '',
-            'bi' => '',
-            'bs' => 'bs_BA',
-            'br' => '',
-            'bg' => 'bg_BG',
-            'my' => 'my_MM',
-            'ca' => 'ca_ES',
-            'ch' => '',
-            'ce' => '',
-            'ny' => '',
-            'zh' => 'zh_CN',
-            'cv' => '',
-            'kw' => '',
-            'co' => '',
-            'cr' => '',
-            'hr' => 'hr_HR',
-            'cs' => 'cs_CZ',
-            'da' => 'da_DK',
-            'dv' => '',
-            'nl' => 'nl_NL',
-            'dz' => '',
-            'en' => 'en_GB',
-            'eo' => '',
-            'et' => 'et_EE',
-            'ee' => '',
-            'fo' => 'fo_FO',
-            'fj' => '',
-            'fi' => 'fi_FI',
-            'fr' => 'fr_FR',
-            'ff' => '',
-            'gl' => 'gl_ES',
-            'ka' => 'ka',
-            'de' => 'de_DE',
-            'el' => 'el_GR',
-            'gn' => '',
-            'gu' => '',
-            'ht' => '',
-            'ha' => '',
-            'he' => 'he_IL',
-            'hz' => '',
-            'hi' => 'hi_IN',
-            'ho' => '',
-            'hu' => 'hu_HU',
-            'ia' => '',
-            'id' => '',
-            'ie' => '',
-            'ga' => '',
-            'ig' => '',
-            'ik' => '',
-            'io' => '',
-            'is' => 'is_IS',
-            'it' => 'it_IT',
-            'iu' => '',
-            'ja' => 'ja_JP',
-            'jv' => '',
-            'kl' => 'kl_DK',
-            'kn' => '',
-            'kr' => '',
-            'ks' => '',
-            'kk' => '',
-            'km' => 'km',
-            'ki' => '',
-            'rw' => '',
-            'ky' => '',
-            'kv' => '',
-            'kg' => '',
-            'ko' => 'ko_KR',
-            'ku' => '',
-            'kj' => '',
-            'la' => '',
-            'lb' => '',
-            'lg' => '',
-            'li' => '',
-            'ln' => '',
-            'lo' => '',
-            'lt' => 'lt_LT',
-            'lu' => '',
-            'lv' => 'lv_LV',
-            'gv' => '',
-            'mk' => '',
-            'mg' => '',
-            'ms' => '',
-            'ml' => '',
-            'mt' => 'mt_MT',
-            'mi' => '',
-            'mr' => '',
-            'mh' => '',
-            'mn' => '',
-            'na' => '',
-            'nv' => '',
-            'nd' => '',
-            'ne' => '',
-            'ng' => '',
-            'nb' => '',
-            'nn' => '',
-            'no' => 'no_NO',
-            'ii' => '',
-            'nr' => '',
-            'oc' => '',
-            'oj' => '',
-            'cu' => '',
-            'om' => '',
-            'or' => '',
-            'os' => '',
-            'pa' => '',
-            'pi' => '',
-            'fa' => 'fa_IR',
-            'pl' => 'pl_PL',
-            'ps' => '',
-            'pt' => 'pt_PT',
-            'qu' => '',
-            'rm' => '',
-            'rn' => '',
-            'ro' => 'ro_RO',
-            'ru' => 'ru_RU',
-            'sa' => '',
-            'sc' => '',
-            'sd' => '',
-            'se' => '',
-            'sm' => '',
-            'sg' => '',
-            'sr' => 'sr_YU',
-            'gd' => '',
-            'sn' => '',
-            'si' => '',
-            'sk' => 'sk_SK',
-            'sl' => 'sl_SL',
-            'so' => '',
-            'st' => '',
-            'es' => 'es_ES',
-            'su' => '',
-            'sw' => '',
-            'ss' => '',
-            'sv' => 'sv_SE',
-            'ta' => '',
-            'te' => '',
-            'tg' => '',
-            'th' => 'th_TH',
-            'ti' => '',
-            'bo' => '',
-            'tk' => '',
-            'tl' => 'fil',
-            'tn' => '',
-            'to' => '',
-            'tr' => 'tr_TR',
-            'ts' => '',
-            'tt' => '',
-            'tw' => '',
-            'ty' => '',
-            'ug' => '',
-            'uk' => 'uk_UA',
-            'ur' => '',
-            'uz' => '',
-            've' => '',
-            'vi' => 'vi_VN',
-            'vo' => '',
-            'wa' => '',
-            'cy' => '',
-            'wo' => '',
-            'fy' => '',
-            'xh' => '',
-            'yi' => '',
-            'yo' => '',
-            'za' => '',
-            'zu' => ''
-        ];
+        $this->isoCodeService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+                \HARING\Crystalis\Service\IsoCodeService::class);
         
         $this->languages = \array_column(
-                \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                        \HARING\Crystalis\Service\IsoCodeService::class)
-                    ->renderIsoCodeSelectDropdown(['items' => []])['items'], 
+                $this->isoCodeService->renderIsoCodeSelectDropdown(['items' => []])['items'], 
                 0, 
                 1);
         
-        \array_walk($this->languages, function(&$label, $isoCode) use($localeMapping) {
+        \array_walk($this->languages, function(&$label, $isoCode) {
             
             $label = [
                 'isoCode' => $isoCode,
-                'locale' => $localeMapping[$isoCode],
+                'locale' => (string)$this->isoCodeService->getLocale($isoCode),
                 'name' => $label
             ];
             
@@ -441,7 +262,7 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
             
             $userObj = $ObjectManager->get($classRef);
             
-            if(!\is_a($userObj, 'HARING\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface')) {
+            if(!\is_a($userObj, \HARING\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface::class)) {
                 
                 throw new \RuntimeException('Class \'' . \get_class($userObj) . 
                         '\' must implement \'HARING\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface\'.');
