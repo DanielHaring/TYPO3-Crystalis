@@ -26,7 +26,7 @@ Registering a hook
 ~~~~~~~~~~~~~~~~~~
 
 To register a Rewrite Configurator the class name inside TYPO3_CONF_VARS should be *LanguageService* and the 
-function name is *registerRewriteConfigurator*. The implementation doesn't prescribes a specific function name 
+function name is *registerRewriteConfigurator*. The implementation doesn't prescribe a specific function name 
 so you have to specify it by yourself.
 
 **Example:** ::
@@ -106,7 +106,7 @@ Of course, you are allowed to pass multiple pairs (key => value) at once.
 
 **Example:** ::
 
-    return array('cooluri' => 'VENDOR\\ExtKey\\Configuration\\UrlRewriting\\CoolUriConfigurator');
+    return array('cooluri' => \VENDOR\ExtKey\Configuration\UrlRewriting\CoolUriConfigurator::class);
 
 **Important Notice:** The classes responsible for configuring URL rewriting are obligated to implement the Interface 
 \\HARING\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface. If they don't, they simply will be ignored.
@@ -134,7 +134,7 @@ A complete impelementation of an additional URL handler may look like this:
 
         public function registerRewriteService(array $Registry, $LanguageService) {
 
-            return ['cooluri' => 'VENDOR\\ExtKey\\Configuration\\UrlRewriting\\CoolUriConfigurator'];
+            return ['cooluri' => \VENDOR\ExtKey\Configuration\UrlRewriting\CoolUriConfigurator:class];
 
         }
 
@@ -150,7 +150,7 @@ A complete impelementation of an additional URL handler may look like this:
 
         public function configure() {
 
-            // do stuff
+            // do some stuff
 
         }
 

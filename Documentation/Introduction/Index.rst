@@ -38,7 +38,7 @@ ballasted with functionality you are not interested in.
 System requirements
 ^^^^^^^^^^^^^^^^^^^
 
-At present, the most recent version of crystalis available at *TER* requires **TYPO3 CMS 7.3**. If working with an 
+At present, the most recent version of crystalis available at *TER* requires **TYPO3 CMS 7.5**. If working with an 
 older version of TYPO3 CMS, you can find appropriate versions of Crystalis for all currently maintained versions 
 at :ref:`GitHub <credits-github>` in the form of separate branches.
 

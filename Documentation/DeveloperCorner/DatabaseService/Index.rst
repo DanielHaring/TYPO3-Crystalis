@@ -31,7 +31,7 @@ will ensure the Database Service will exist only once, what may increase process
 .. code-block:: php
 
     $DatabaseService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-        'HARING\\Crystalis\\Service\\DatabaseService');
+        \HARING\Crystalis\Service\DatabaseService::class);
 
 
 .. _dev-database-service-accessing:
