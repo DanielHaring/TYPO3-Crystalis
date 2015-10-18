@@ -11,10 +11,27 @@ RTE{
 
         buttons{
 
+            textstyle{
+
+                tags{
+
+                    span{
+                        allowedClasses := addToList(tel)
+                    }
+
+                }
+
+            }
+
             link{
 
                 targetSelector.disabled = 1
                 popupSelector.disabled = 1
+                properties.class.allowedClasses = 
+                page.properties.class.default = 
+                url.properties.class.default = 
+                file.properties.class.default = 
+                mail.properties.class.default = 
 
             }
 
@@ -41,6 +58,7 @@ RTE{
 
             overrideMode = css_transform
             allowedClasses := addToList(tel)
+            allowedClasses := removeFromList(external-link, external-link-new-window, internal-link, internal-link-new-window, download, mail)
 
             exitHTMLparser_db = 1
             exitHTMLparser_db{
@@ -62,34 +80,18 @@ RTE{
 
         }
 
-        classes{
-
-            Character := addToList(tel)
-
-        }
-
     }
 
 
+    classes := removeFromList(external-link, external-link-new-window, internal-link, internal-link-new-window, download, mail)
     classes{
 
         tel{
 
             name = LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:rte.charClassTel
+            value = word-spacing: -0.1em;
 
         }
-
-    }
-
-
-    classesAnchor{
-
-        mail.type >
-        download.type >
-        internalLink.type >
-        internalLinkInNewWindow.type >
-        externalLink.type >
-        externalLinkInNewWindow.type >
 
     }
 
