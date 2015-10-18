@@ -105,7 +105,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
                     
                     return $site;
                     
-                }, $this->retrieveDomainInformations());
+                }, (array)$this->retrieveDomainInformations());
         
         if(!$noBuffer) {
             
