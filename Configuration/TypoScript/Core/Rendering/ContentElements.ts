@@ -69,23 +69,7 @@ tt_content{
 
                     fieldRequired = spaceBefore
                     field = spaceBefore
-
-                    innerWrap = <br style="line-height: |px;">
-                    innerWrap{
-
-                        override = <br style="line-height: |px;" />
-                        override{
-
-                            if{
-                                isInList{
-                                    data = TSFE:config|config|doctype
-                                }
-                                value = xhtml,xhtml_strict
-                            }
-
-                        }
-
-                    }
+                    innerWrap = <p style="line-height: |px;" aria-hidden="true">&nbsp;</p>
 
                 }
 
