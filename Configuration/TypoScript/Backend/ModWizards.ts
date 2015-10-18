@@ -10,9 +10,11 @@ mod{
 
                 formStorage < .forms
                 specialStorage < .special
+                pluginsStorage < .plugins
 
                 forms >
                 special >
+                plugins >
 
                 common{
 
@@ -22,7 +24,7 @@ mod{
                     elements{
 
                         header{
-                            icon = EXT:frontend/Resources/Public/Icons/ContentElementWizard/regular_header.gif
+                            iconIdentifier = content-header
                             title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_headerOnly_title
                             description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_headerOnly_description
                             tt_content_defValues{
@@ -31,7 +33,7 @@ mod{
                         }
 
                         text{
-                            icon = EXT:frontend/Resources/Public/Icons/ContentElementWizard/regular_text.gif
+                            iconIdentifier = content-text
                             title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_regularText_title
                             description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_regularText_description
                             tt_content_defValues{
@@ -40,7 +42,7 @@ mod{
                         }
 
                         textpic{
-                            icon = EXT:frontend/Resources/Public/Icons/ContentElementWizard/text_image_right.gif
+                            iconIdentifier = content-textpic
                             title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textImage_title
                             description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textImage_description
                             tt_content_defValues{
@@ -50,7 +52,7 @@ mod{
                         }
 
                         image{
-                            icon = EXT:frontend/Resources/Public/Icons/ContentElementWizard/images_only.gif
+                            iconIdentifier = content-image
                             title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_imagesOnly_title
                             description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_imagesOnly_description
                             tt_content_defValues{
@@ -59,7 +61,7 @@ mod{
                         }
 
                         bullets{
-                            icon = EXT:frontend/Resources/Public/Icons/ContentElementWizard/bullet_list.gif
+                            iconIdentifier = content-bullets
                             title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_bulletList_title
                             description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_bulletList_description
                             tt_content_defValues{
@@ -68,7 +70,7 @@ mod{
                         }
 
                         table{
-                            icon = EXT:frontend/Resources/Public/Icons/ContentElementWizard/table.gif
+                            iconIdentifier = content-table
                             title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_table_title
                             description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_table_description
                             tt_content_defValues{
@@ -89,7 +91,7 @@ mod{
                     elements{
 
                         uploads{
-                            icon = EXT:frontend/Resources/Public/Icons/ContentElementWizard/filelinks.gif
+                            iconIdentifier = content-special-uploads
                             title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_filelinks_title
                             description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_filelinks_description
                             tt_content_defValues{
@@ -98,7 +100,7 @@ mod{
                         }
 
                         menu{
-                            icon = EXT:frontend/Resources/Public/Icons/ContentElementWizard/sitemap2.gif
+                            iconIdentifier = content-special-menu
                             title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_menus_title
                             description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_menus_description
                             tt_content_defValues{
@@ -108,7 +110,7 @@ mod{
                         }
 
                         html{
-                            icon = EXT:frontend/Resources/Public/Icons/ContentElementWizard/html.gif
+                            iconIdentifier = content-special-html
                             title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_plainHTML_title
                             description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_plainHTML_description
                             tt_content_defValues{
@@ -117,7 +119,7 @@ mod{
                         }
 
                         div{
-                            icon = EXT:frontend/Resources/Public/Icons/ContentElementWizard/div.gif
+                            iconIdentifier = content-special-div
                             title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_divider_title
                             description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_divider_description
                             tt_content_defValues{
@@ -126,7 +128,7 @@ mod{
                         }
 
                         shortcut{
-                            icon = EXT:frontend/Resources/Public/Icons/ContentElementWizard/shortcut.gif
+                            iconIdentifier = content-special-shortcut
                             title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_shortcut_title
                             description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_shortcut_description
                             tt_content_defValues{
@@ -145,6 +147,7 @@ mod{
 
                 }
 
+                plugins < .pluginStorage
                 plugins{
 
                     header = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:plugins
@@ -153,7 +156,7 @@ mod{
                     elements{
 
                         general{
-                            icon = EXT:frontend/Resources/Public/Icons/ContentElementWizard/user_defined.gif
+                            iconIdentifier = content-plugin
                             title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:plugins_general_title
                             description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:plugins_general_description
                             tt_content_defValues{
@@ -167,6 +170,7 @@ mod{
 
                 formStorage >
                 specialStorage >
+                pluginsStorage >
 
             }
 

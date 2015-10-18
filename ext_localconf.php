@@ -47,6 +47,22 @@ unset($additionalRootLineFields);
 
 
 
+    // Register Icons
+/* @var $IconRegistry \TYPO3\CMS\Core\Imaging\IconRegistry */
+$IconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+        \TYPO3\CMS\Core\Imaging\IconRegistry::class);
+
+$IconRegistry->registerIcon(
+        'content-plugin-video', 
+        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class, 
+        [
+            'source' => 'EXT:crystalis/Resources/Public/Icons/content-video.svg'
+        ]);
+
+
+
+
+
     // Inject TypoScript configurations
 if($_EXTCONF['setUserTSconfig'] || !$_EXTCONF) {
     
@@ -117,7 +133,7 @@ if(!!$_EXTCONF['enableLanguageHandling'] || !$_EXTCONF) {
     
     /* @var $LanguageService \HARING\Crystalis\Service\LanguageService */
     $LanguageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-            'HARING\\Crystalis\\Service\\LanguageService');
+    \HARING\Crystalis\Service\LanguageService::class);
     
     if($typoscript = $LanguageService->getTypoScriptSetup()) {
         
