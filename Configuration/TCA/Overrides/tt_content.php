@@ -65,14 +65,6 @@ $extraContentColumns = [
 
 
     // Additional content elements
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicons'] = \array_merge(
-        $GLOBALS['TCA']['tt_content']['ctrl']['typeicons'], 
-        [
-            'textpic' => 'tt_content_textpic.gif',
-            'image' => 'tt_content_image.gif',
-            'text' => 'tt_content.gif'
-        ]);
-
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes'] = \array_merge(
         $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes'], 
         [
