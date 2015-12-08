@@ -175,7 +175,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
      */
     static public function getDatabaseConnection() {
         
-        if(!\is_a($GLOBALS['TYPO3_DB'], 'TYPO3\\CMS\\Core\\Database\\DatabaseConnection')) {
+        if(!\is_a($GLOBALS['TYPO3_DB'], \TYPO3\CMS\Core\Database\DatabaseConnection::class)) {
             
             $GLOBALS['TYPO3_DB'] = GeneralUtility::obtainDatabaseConnection();
             
@@ -296,7 +296,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
                 'uid'));
         
         $availableLanguages = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                'HARING\\Crystalis\\Service\\LanguageService')
+                \HARING\Crystalis\Service\LanguageService::class)
                 ->getLanguages();
         
         return \array_map(function($language) use($availableLanguages) {

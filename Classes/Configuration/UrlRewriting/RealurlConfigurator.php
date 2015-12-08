@@ -183,10 +183,10 @@ class RealurlConfigurator implements ConfiguratorInterface {
          */
         return $this->CacheManager->hasCache(self::CACHE_IDENTIFIER) 
                 ? $this->CacheManager->getCache(self::CACHE_IDENTIFIER) 
-                : \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheFactory')->create(
+                : \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Cache\CacheFactory::class)->create(
                         self::CACHE_IDENTIFIER, 
-                        'TYPO3\\CMS\\Core\\Cache\\Frontend\\VariableFrontend', 
-                        'TYPO3\\CMS\\Core\\Cache\\Backend\\SimpleFileBackend');
+                        \TYPO3\CMS\Core\Cache\Frontend\VariableFrontend::class, 
+                        \TYPO3\CMS\Core\Cache\Backend\SimpleFileBackend::class);
         
     }
     

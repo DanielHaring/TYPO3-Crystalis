@@ -201,7 +201,7 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
                 
                 /* @var $LanguageService \TYPO3\CMS\Lang\LanguageService */
                 $LanguageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                        'TYPO3\\CMS\\Lang\\LanguageService');
+                        \TYPO3\CMS\Lang\LanguageService::class);
                 
                 $LanguageService->init($defaultLanguage['isoCode']);
                 
@@ -233,11 +233,11 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
      */
     public function prepareUrlRewriting() {
         
-        $Registry = ['realurl' => 'HARING\\Crystalis\\Configuration\\UrlRewriting\\RealurlConfigurator'];
+        $Registry = ['realurl' => \HARING\Crystalis\Configuration\UrlRewriting\RealurlConfigurator::class];
         
         /* @var $ObjectManager \TYPO3\CMS\Extbase\Object\ObjectManager */
         $ObjectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                'TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+                \TYPO3\CMS\Extbase\Object\ObjectManager::class);
         
             // Hook for registering addtitional extensions to be prepared.
         if(\is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['crystalis']['LanguageService']['registerRewriteConfigurator'])) {

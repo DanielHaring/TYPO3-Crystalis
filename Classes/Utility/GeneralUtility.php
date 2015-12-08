@@ -57,7 +57,7 @@ class GeneralUtility {
      */
     public static function obtainDatabaseConnection() {
         
-        $fqcn = 'TYPO3\\CMS\\Core\\Database\\DatabaseConnection';
+        $fqcn = \TYPO3\CMS\Core\Database\DatabaseConnection::class;
         
         if(\is_a($GLOBALS['TYPO3_DB'], $fqcn)) {
             

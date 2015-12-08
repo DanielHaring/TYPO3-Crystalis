@@ -117,7 +117,7 @@ class ExtensionManagerConfigurationUtility {
         
         /* @var $CacheManager \TYPO3\CMS\Core\Cache\CacheManager */
         $CacheManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                'TYPO3\\CMS\\Core\\Cache\\CacheManager');
+                \TYPO3\CMS\Core\Cache\CacheManager::class);
         
         return $CacheManager->hasCache('crystalis') 
                 ? $this->renderPanel(
@@ -268,7 +268,7 @@ class ExtensionManagerConfigurationUtility {
         foreach((array)$configurators as $extKey => $fqcn) {
             
             if(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded($extKey) 
-                    && \is_a($fqcn, 'HARING\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface', \TRUE)) {
+                    && \is_a($fqcn, \HARING\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface::class, \TRUE)) {
                 
                 $externalConfigurator = \TRUE;
                 break;

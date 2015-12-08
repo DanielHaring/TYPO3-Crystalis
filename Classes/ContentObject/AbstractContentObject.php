@@ -135,7 +135,7 @@ abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\A
                 
                 $fileReferences = \is_a(
                         $resource = $this->fileFactory->retrieveFileOrFolderObject($identifier), 
-                        'TYPO3\\CMS\\Core\\Resource\\File') 
+                        \TYPO3\CMS\Core\Resource\File::class) 
                             ? [$resource]
                             : \NULL;
                 
@@ -183,10 +183,10 @@ abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\A
      */
     final protected function getFileRepository() {
         
-        if(!\is_a($this->FileRepository, 'TYPO3\\CMS\\Core\\Resource\\FileRepository')) {
+        if(!\is_a($this->FileRepository, \TYPO3\CMS\Core\Resource\FileRepository::class)) {
             
             $this->FileRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                    'TYPO3\\CMS\\Core\\Resource\\FileRepository');
+                    \TYPO3\CMS\Core\Resource\FileRepository::class);
             
         }
         

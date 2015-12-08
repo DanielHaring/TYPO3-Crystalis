@@ -113,7 +113,7 @@ class Html5VideoContentObject extends \HARING\Crystalis\ContentObject\AbstractCo
         
             // Render template
         $view = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                'TYPO3\\CMS\\Fluid\\View\\StandaloneView', 
+                \TYPO3\CMS\Fluid\View\StandaloneView::class, 
                 $this->cObj);
         
         $view->setTemplatePathAndFileName(
