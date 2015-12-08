@@ -38,10 +38,7 @@ if(!$_EXTCONF['disableSeo'] || !$_EXTCONF) {
                         'title' => 'LLL:EXT:crystalis/Resources/Private/Language/locallang_ttc.xlf:pages.tx_crystalis_canonical_formlabel',
                         'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_link.gif',
                         'module' => [
-                            'name' => 'wizard_element_browser',
-                            'urlParameters' => [
-                                'mode' => 'wizard'
-                            ]
+                            'name' => 'wizard_link'
                         ],
                         'params' => [
                             'blindLinkOptions' => 'file, mail, folder'
