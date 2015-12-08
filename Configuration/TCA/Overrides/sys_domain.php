@@ -13,6 +13,7 @@ if(!!$_EXTCONF['enableLanguageHandling'] || !$_EXTCONF) {
             'displayCond' => 'EXT:realurl:LOADED:true',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['', '']
                 ],

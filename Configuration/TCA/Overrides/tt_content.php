@@ -16,6 +16,7 @@ $extraContentColumns = [
         'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:section_frame',
         'config' => [
             'type' => 'select',
+            'renderType' => 'selectSingle',
             'items' => [
                 [
                     'LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:tt_content.sectionFrame0',
