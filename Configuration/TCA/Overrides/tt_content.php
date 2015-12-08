@@ -88,17 +88,17 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes'] = \array_merge(
             [
                 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.I.1',
                 'text',
-                'i/tt_content.gif'
+                'content-text'
             ],
             [
                 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.I.2',
                 'textpic',
-                'i/tt_content_textpic.gif'
+                'content-textpic'
             ],
             [
                 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.I.3',
                 'image',
-                'i/tt_content_image.gif'
+                'content-image'
             ]
         ]);
 
