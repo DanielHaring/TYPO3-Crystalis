@@ -27,9 +27,9 @@ $EM_CONF[$_EXTKEY] = array (
 	array (
 		'depends' => 
 		array (
-			'extbase' => '7.5.0-7.5.99',
-			'fluid' => '7.5.0-7.5.99',
-			'typo3' => '7.5.0-7.5.99',
+			'extbase' => '7.6.0-7.6.99',
+			'fluid' => '7.6.0-7.6.99',
+			'typo3' => '7.6.0-7.6.99',
 		),
 		'conflicts' => 
 		array (
@@ -37,7 +37,7 @@ $EM_CONF[$_EXTKEY] = array (
 		'suggests' => 
 		array (
                         'realurl' => '1.13.4-0.0.0',
-                        'felogin' => '7.5.0-7.5.99'
+                        'felogin' => '7.6.0-7.6.99'
 		),
 	),
 );
