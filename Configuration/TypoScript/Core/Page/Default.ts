@@ -21,11 +21,19 @@ page{
     meta{
 
         description{
-            field = description
+
+            ifEmpty{
+                field = description
+            }
+
         }
 
         keywords{
-            field = keywords
+
+            ifEmpty{
+                field = keywords
+            }
+
         }
 
         robots = index,follow
