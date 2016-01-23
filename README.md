@@ -1,7 +1,7 @@
 # Crystalis
 
 Crystalis is an extension for the [Content Management Framework TYPO3 CMS](http://typo3.org/), 
-released under the GNU GPL. Crystalis is copyright (c) 2012–2015 by Daniel Haring.
+released under the GNU GPL. Crystalis is copyright (c) 2012–2016 by Daniel Haring.
 
 This document covers installation and basic usage of Crystalis. A more in-depth documentation 
 about available features and how Crystalis works exactly can be found at:
@@ -98,27 +98,17 @@ cd typo3conf/ext
 
 Clone the desired branch of Crystalis (here: *Crystalis-6.2*):
 ```bash
-git clone -b Crystalis-6.2 https://github.com/HARING/TYPO3-Crystalis.git
+git clone -b Crystalis-6.2 https://github.com/HARING/TYPO3-Crystalis.git crystalis
 ```
 
 (Optional) Remove git related files to avoid tracking:
 ```bash
-rm -R TYPO3-Crystalis/.git/
+rm -R crystalis/.git/
 ```
 
-Rename the folder of Crystalis:
+Grant write access to you webserver:
 ```bash
-mv TYPO3-Crystalis/ crystalis/
-```
-
-Add the group of your webserver (here: *_www*) to grant reading access:
-```bash
-chown -R :_www crystalis/
-```
-
-(Optional) Also grant write access to allow updates via Extension Manager:
-```bash
-chmod -R g+w crystalis/
+chown -R :_www crystalis/ && chmod -R g+w crystalis/
 ```
 
 Follow steps 4–6 of *Installing via ZIP-file*
