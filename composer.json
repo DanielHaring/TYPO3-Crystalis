@@ -10,6 +10,9 @@
     },
     "version": "7.6.0",
     "require": {
-        "typo3/cms-core": "*"
+        "typo3/cms-core": "~7.6"
+    },
+    "replace": {
+        "typo3-ter/crystalis": "self.version"
     }
 }
