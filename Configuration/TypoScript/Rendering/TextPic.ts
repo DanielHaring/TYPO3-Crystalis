@@ -6,7 +6,7 @@ tt_content.textpic{
 
     10 = < lib.stdheader
 
-    20 = < tt_content.image.20
+    20 < tt_content.image.20
     20{
 
         stdWrap{
