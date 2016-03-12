@@ -28,6 +28,10 @@ namespace HARING\Crystalis\ContentObject;
  * **************************************************************
  */
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\View\StandaloneView;
+
 
 
 
@@ -40,7 +44,7 @@ namespace HARING\Crystalis\ContentObject;
  * @package Crystalis
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class Html5VideoContentObject extends \HARING\Crystalis\ContentObject\AbstractContentObject {
+class Html5VideoContentObject extends AbstractContentObject {
     
     
     
@@ -112,16 +116,16 @@ class Html5VideoContentObject extends \HARING\Crystalis\ContentObject\AbstractCo
         list($flash, $flashVars) = $this->extractFlashProperties($conf);
         
             // Render template
-        $view = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                \TYPO3\CMS\Fluid\View\StandaloneView::class, 
+        $view = GeneralUtility::makeInstance(
+                StandaloneView::class,
                 $this->cObj);
         
         $view->setTemplatePathAndFileName(
-                \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('crystalis') 
+                ExtensionManagementUtility::extPath('crystalis')
                 . 'Resources/Private/Templates/ContentObject/Html5Video.html');
         
         $view->setPartialRootPath(
-                \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('crystalis') 
+                ExtensionManagementUtility::extPath('crystalis')
                 . 'Resources/Private/Partials/');
         
         $view->assignMultiple([
@@ -215,7 +219,7 @@ class Html5VideoContentObject extends \HARING\Crystalis\ContentObject\AbstractCo
             
             $flashVars[] = 'file=' . \rawurlencode($flash->getPublicUrl());
             
-            $flash = $this->fileFactory->retrieveFileOrFolderObject(
+            $flash = $this->getResourceFactory()->retrieveFileOrFolderObject(
                     $conf['mimeConf.']['flash.']['player']);
             
         }
