@@ -28,6 +28,13 @@ namespace HARING\Crystalis\Service;
  * **************************************************************
  */
 
+use HARING\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface;
+use HARING\Crystalis\Configuration\UrlRewriting\RealurlConfigurator;
+use TYPO3\CMS\Core\SingletonInterface;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
+
 
 
 
@@ -40,7 +47,7 @@ namespace HARING\Crystalis\Service;
  * @package Crystalis
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
+class LanguageService implements SingletonInterface {
     
     
     
@@ -103,11 +110,11 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
      */
     public function __construct() {
         
-        $this->databaseService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                \HARING\Crystalis\Service\DatabaseService::class);
+        $this->databaseService = GeneralUtility::makeInstance(
+                DatabaseService::class);
         
-        $this->isoCodeService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                \HARING\Crystalis\Service\IsoCodeService::class);
+        $this->isoCodeService = GeneralUtility::makeInstance(
+                IsoCodeService::class);
         
         $this->languages = \array_column(
                 $this->isoCodeService->renderIsoCodeSelectDropdown(['items' => []])['items'], 
@@ -200,7 +207,7 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
             if(\is_array($defaultLanguage)) {
                 
                 /* @var $LanguageService \TYPO3\CMS\Lang\LanguageService */
-                $LanguageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+                $LanguageService = GeneralUtility::makeInstance(
                         \TYPO3\CMS\Lang\LanguageService::class);
                 
                 $LanguageService->init($defaultLanguage['isoCode']);
@@ -233,18 +240,18 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
      */
     public function prepareUrlRewriting() {
         
-        $Registry = ['realurl' => \HARING\Crystalis\Configuration\UrlRewriting\RealurlConfigurator::class];
+        $Registry = ['realurl' => RealurlConfigurator::class];
         
         /* @var $ObjectManager \TYPO3\CMS\Extbase\Object\ObjectManager */
-        $ObjectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                \TYPO3\CMS\Extbase\Object\ObjectManager::class);
+        $ObjectManager = GeneralUtility::makeInstance(
+                ObjectManager::class);
         
             // Hook for registering addtitional extensions to be prepared.
         if(\is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['crystalis']['LanguageService']['registerRewriteConfigurator'])) {
             
             foreach($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['crystalis']['LanguageService']['registerRewriteConfigurator'] as $fn) {
                 
-                if($additionalConfigurators = \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($fn, $Registry, $this)) {
+                if($additionalConfigurators = GeneralUtility::callUserFunction($fn, $Registry, $this)) {
                     
                     $Registry = \array_merge($Registry, \array_filter((array)$additionalConfigurators, 'is_string'));
                     
@@ -256,13 +263,13 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
         
         foreach($Registry as $extKey => $classRef) {
             
-            if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded($extKey)) {
+            if(!ExtensionManagementUtility::isLoaded($extKey)) {
                 continue;
             }
             
             $userObj = $ObjectManager->get($classRef);
             
-            if(!\is_a($userObj, \HARING\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface::class)) {
+            if(!\is_a($userObj, ConfiguratorInterface::class)) {
                 
                 throw new \RuntimeException('Class \'' . \get_class($userObj) . 
                         '\' must implement \'HARING\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface\'.');

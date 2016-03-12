@@ -133,7 +133,7 @@ if(!!$_EXTCONF['enableLanguageHandling'] || !$_EXTCONF) {
     
     /* @var $LanguageService \HARING\Crystalis\Service\LanguageService */
     $LanguageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-    \HARING\Crystalis\Service\LanguageService::class);
+        \HARING\Crystalis\Service\LanguageService::class);
     
     if($typoscript = $LanguageService->getTypoScriptSetup()) {
         

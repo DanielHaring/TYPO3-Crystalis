@@ -28,6 +28,9 @@ namespace HARING\Crystalis\Hooks\PageLayoutView;
  * **************************************************************
  */
 
+use TYPO3\CMS\Backend\View\PageLayoutView;
+use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
+
 
 
 
@@ -40,7 +43,7 @@ namespace HARING\Crystalis\Hooks\PageLayoutView;
  * @package Crystalis
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class TextPreviewRenderer implements \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface {
+class TextPreviewRenderer implements PageLayoutViewDrawItemHookInterface {
 
 
 
@@ -50,15 +53,15 @@ class TextPreviewRenderer implements \TYPO3\CMS\Backend\View\PageLayoutViewDrawI
      * Generates preview for the 'text' content element.
      * 
      * @since 7.2.0
-     * @param \TYPO3\CMS\Backend\View\PageLayoutView $parentObject Calling context
-     * @param booean $drawItem Determines if the item should be drawed using default functionality
+     * @param PageLayoutView $parentObject Calling context
+     * @param boolean $drawItem Determines if the item should be drawed using default functionality
      * @param string $headerContent Pre processed header content
      * @param string $itemContent Pre processed item content
      * @param array $row Data array of current content element
      * @access public
      */
     public function preProcess(
-            \TYPO3\CMS\Backend\View\PageLayoutView &$parentObject,
+            PageLayoutView &$parentObject,
             &$drawItem, 
             &$headerContent, 
             &$itemContent, 

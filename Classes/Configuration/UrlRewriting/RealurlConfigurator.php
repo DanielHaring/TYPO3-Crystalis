@@ -28,6 +28,12 @@ namespace HARING\Crystalis\Configuration\UrlRewriting;
  * **************************************************************
  */
 
+use TYPO3\CMS\Core\Cache\Backend\SimpleFileBackend;
+use TYPO3\CMS\Core\Cache\CacheFactory;
+use TYPO3\CMS\Core\Cache\Frontend\VariableFrontend;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\MathUtility;
+
 
 
 
@@ -173,18 +179,13 @@ class RealurlConfigurator implements ConfiguratorInterface {
      * @access protected
      */
     protected function Cache() {
-        
-        /**
-         * @todo CacheFactory constructor requires 2 arguments but is of type singleton. 
-         *       As a result trying to retrieve instance with ObjectManager leads to an error, even when using dependency injection.
-         *       Determine if there is still a way to retrieve Instance via ObjectManager.
-         */
+
         return $this->CacheManager->hasCache(self::CACHE_IDENTIFIER) 
                 ? $this->CacheManager->getCache(self::CACHE_IDENTIFIER) 
-                : \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Cache\CacheFactory::class)->create(
+                : GeneralUtility::makeInstance(CacheFactory::class)->create(
                         self::CACHE_IDENTIFIER, 
-                        \TYPO3\CMS\Core\Cache\Frontend\VariableFrontend::class, 
-                        \TYPO3\CMS\Core\Cache\Backend\SimpleFileBackend::class);
+                        VariableFrontend::class,
+                        SimpleFileBackend::class);
         
     }
     
@@ -206,7 +207,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
             // Ensure base configuration is set
         if(empty($RealUrlConf)) {
             
-            $RealUrlConf['localhost'] = include(\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName(
+            $RealUrlConf['localhost'] = include(GeneralUtility::getFileAbsFileName(
                     'EXT:crystalis/Configuration/PHP/RealUrl/FallbackTemplate.php'));
             
         }
@@ -294,7 +295,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
      */
     protected function registerDomainCodec(array $domainConf) {
         
-        if(!\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($domainConf['initialLanguage'])) {
+        if(!MathUtility::canBeInterpretedAsInteger($domainConf['initialLanguage'])) {
             
             return /* void */;
             
@@ -381,7 +382,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
                 
             }, \array_filter($this->DatabaseService->getDomainAssignments(), function($domain) {
                 
-                return \TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($domain['initialLanguage']);
+                return MathUtility::canBeInterpretedAsInteger($domain['initialLanguage']);
                 
             })));
             

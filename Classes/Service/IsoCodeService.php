@@ -28,6 +28,8 @@ namespace HARING\Crystalis\Service;
  * **************************************************************
  */
 
+use TYPO3\CMS\Lang\LanguageService;
+
 
 
 
@@ -51,6 +53,7 @@ class IsoCodeService extends \TYPO3\CMS\Core\Service\IsoCodeService {
      * 
      * @since 7.5.0
      * @param array $conf (optional) Pre-configured language configuration
+     * @return array The configuration of the rendered selector
      * @access public
      */
     public function renderIsoCodeSelectDropdown(array $conf = array()) {
@@ -63,7 +66,7 @@ class IsoCodeService extends \TYPO3\CMS\Core\Service\IsoCodeService {
             
             $languages[$isoCode] = 'LLL:EXT:core/Resources/Private/Language/db.xlf:sys_language.language_isocode.' . $isoCode;
             
-            if($LanguageService instanceof \TYPO3\CMS\Lang\LanguageService) {
+            if($LanguageService instanceof LanguageService) {
                 
                 $languages[$isoCode] = $LanguageService->sL($languages[$isoCode]);
                 
@@ -297,6 +300,7 @@ class IsoCodeService extends \TYPO3\CMS\Core\Service\IsoCodeService {
      * Returns a locale for a specific ISO code.
      * 
      * @since 7.5.0
+     * @param string $isoCode The ISO code for which to return its locale for
      * @return string|boolean The locale as string of FALSE on error
      * @access public
      */

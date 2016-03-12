@@ -28,7 +28,10 @@ namespace HARING\Crystalis\Service;
  * **************************************************************
  */
 
-use \HARING\Crystalis\Utility\GeneralUtility;
+use HARING\Crystalis\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Database\DatabaseConnection;
+use TYPO3\CMS\Core\SingletonInterface;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 
 
@@ -42,7 +45,7 @@ use \HARING\Crystalis\Utility\GeneralUtility;
  * @package Crystalis
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
+class DatabaseService implements SingletonInterface {
     
     
     
@@ -169,13 +172,13 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
      * an additional one.
      * 
      * @since 6.2.0
-     * @return \TYPO3\CMS\Core\Database\DatabaseConnection The current database connection
+     * @return DatabaseConnection The current database connection
      * @static
      * @access public
      */
     static public function getDatabaseConnection() {
         
-        if(!\is_a($GLOBALS['TYPO3_DB'], \TYPO3\CMS\Core\Database\DatabaseConnection::class)) {
+        if(!\is_a($GLOBALS['TYPO3_DB'], DatabaseConnection::class)) {
             
             $GLOBALS['TYPO3_DB'] = GeneralUtility::obtainDatabaseConnection();
             
@@ -199,7 +202,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
      */
     protected function retrieveDomainInformations() {
         
-        if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('dbal')) {
+        if(!ExtensionManagementUtility::isLoaded('dbal')) {
             
                 // The fast, preferred way (MySQL only)
             return self::getDatabaseConnection()->exec_SELECTgetRows(
@@ -282,7 +285,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
      * @return array All necessary informations about current system languages
      * @access protected
      */
-    protected function retrieveSystemLanguageInformations($defaultLanguage = \FALSE) {
+    protected function retrieveSystemLanguageInformations($defaultLanguage = '') {
         
         $languages = \array_merge([0 => ['uid' => 0, 'isoCode' => (string)$defaultLanguage]], 
                 self::getDatabaseConnection()->exec_SELECTgetRows(
@@ -296,7 +299,7 @@ class DatabaseService implements \TYPO3\CMS\Core\SingletonInterface {
                 'uid'));
         
         $availableLanguages = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                \HARING\Crystalis\Service\LanguageService::class)
+                LanguageService::class)
                 ->getLanguages();
         
         return \array_map(function($language) use($availableLanguages) {
