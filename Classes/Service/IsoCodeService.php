@@ -28,7 +28,7 @@ namespace HARING\Crystalis\Service;
  * **************************************************************
  */
 
-use TYPO3\CMS\Lang\LanguageService;
+use TYPO3\CMS\Lang;
 
 
 
@@ -66,7 +66,7 @@ class IsoCodeService extends \TYPO3\CMS\Core\Service\IsoCodeService {
             
             $languages[$isoCode] = 'LLL:EXT:core/Resources/Private/Language/db.xlf:sys_language.language_isocode.' . $isoCode;
             
-            if($LanguageService instanceof LanguageService) {
+            if($LanguageService instanceof Lang\LanguageService) {
                 
                 $languages[$isoCode] = $LanguageService->sL($languages[$isoCode]);
                 
