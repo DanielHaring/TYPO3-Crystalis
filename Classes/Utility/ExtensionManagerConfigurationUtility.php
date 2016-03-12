@@ -28,8 +28,13 @@ namespace HARING\Crystalis\Utility;
  * **************************************************************
  */
 
-use \TYPO3\CMS\Core\Messaging\FlashMessage;
-use \HARING\Crystalis\Utility\ArrayUtility;
+use HARING\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface;
+use TYPO3\CMS\Core\Cache\CacheManager;
+use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Core\Service\IsoCodeService;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Lang\LanguageService;
 
 
 
@@ -75,8 +80,8 @@ class ExtensionManagerConfigurationUtility {
         
         return $this->renderSelect(
                 \array_column(
-                        \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                                \TYPO3\CMS\Core\Service\IsoCodeService::class)
+                        GeneralUtility::makeInstance(
+                                IsoCodeService::class)
                             ->renderIsoCodeSelectDropdown(['items' => []])['items'], 
                         0, 
                         1), 
@@ -101,9 +106,9 @@ class ExtensionManagerConfigurationUtility {
         
         $this->fieldName = $params['fieldName'];
         
-        if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('realurl')) {
+        if(!ExtensionManagementUtility::isLoaded('realurl')) {
             
-            return self::externalLanguageConfiguratorLoadable() 
+            return $this->externalLanguageConfiguratorLoadable()
                     ? $this->renderPanel(
                             'LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.label_CheckLanguageService_AlternativeConfigurator', 
                             FlashMessage::INFO, 
@@ -116,8 +121,8 @@ class ExtensionManagerConfigurationUtility {
         }
         
         /* @var $CacheManager \TYPO3\CMS\Core\Cache\CacheManager */
-        $CacheManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                \TYPO3\CMS\Core\Cache\CacheManager::class);
+        $CacheManager = GeneralUtility::makeInstance(
+                CacheManager::class);
         
         return $CacheManager->hasCache('crystalis') 
                 ? $this->renderPanel(
@@ -223,14 +228,14 @@ class ExtensionManagerConfigurationUtility {
         }
         
         $panel = [
-            '<div class="panel-body">' . $GLOBALS['LANG']->sL((string)$message) . (!$avoidInput 
+            '<div class="panel-body">' . $this->getLanguageService()->sL((string)$message) . (!$avoidInput
                 ? '<input type="hidden" name="' . $this->fieldName . '" value="' . $inputValue . '">' 
                 : '') . '</div>'
         ];
         
         if(\strcmp($heading, '')) {
             
-            \array_unshift($panel, '<div class="panel-heading">' . $GLOBALS['LANG']->sL((string)$heading) . '</div>');
+            \array_unshift($panel, '<div class="panel-heading">' . $this->getLanguageService()->sL((string)$heading) . '</div>');
             
         }
         
@@ -238,37 +243,52 @@ class ExtensionManagerConfigurationUtility {
                 . \implode('', $panel) . '</div>';
         
     }
+
+
+
+
+
+    /**
+     * Returns the TYPO3 Language Service.
+     *
+     * @return LanguageService The Language Service
+     */
+    public function getLanguageService() {
+
+        return $GLOBALS['LANG'];
+
+    }
     
     
     
     
     
     /**
-     * Checks wheter an external Language Service configurator could be loaded.
+     * Checks whether an external Language Service configurator could be loaded.
      * 
      * @since 7.3.0
      * @return boolean TRUE if an external configurator could be loaded, FALSE otherwise
      * @access public
-     * @static
      */
-    static public function externalLanguageConfiguratorLoadable() {
+    public function externalLanguageConfiguratorLoadable() {
         
         $externalConfigurator = \FALSE;
+        $configurators = [];
         
         foreach((array)$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['crystalis']['LanguageService']['registerRewriteConfigurator'] as $fn) {
             
-            if($additionalConfigurators = \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($fn, $configurators ?: [], $this)) {
+            if($additionalConfigurators = GeneralUtility::callUserFunction($fn, $configurators, $this)) {
                 
-                $configurators = \array_merge($configurators ?: [], \array_filter((array)$additionalConfigurators, 'is_string'));
+                $configurators = \array_merge($configurators, \array_filter((array)$additionalConfigurators, 'is_string'));
                 
             }
             
         }
         
-        foreach((array)$configurators as $extKey => $fqcn) {
+        foreach($configurators as $extKey => $fqcn) {
             
-            if(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded($extKey) 
-                    && \is_a($fqcn, \HARING\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface::class, \TRUE)) {
+            if(ExtensionManagementUtility::isLoaded($extKey)
+                    && \is_a($fqcn, ConfiguratorInterface::class, \TRUE)) {
                 
                 $externalConfigurator = \TRUE;
                 break;
