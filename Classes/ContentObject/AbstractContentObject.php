@@ -28,6 +28,14 @@ namespace HARING\Crystalis\ContentObject;
  * **************************************************************
  */
 
+use TYPO3\CMS\Core\Resource\Exception\FileDoesNotExistException;
+use TYPO3\CMS\Core\Resource\Exception\FolderDoesNotExistException;
+use TYPO3\CMS\Core\Resource\File;
+use TYPO3\CMS\Core\Resource\FileRepository;
+use TYPO3\CMS\Core\Resource\ResourceFactory;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\MathUtility;
+
 
 
 
@@ -41,19 +49,27 @@ namespace HARING\Crystalis\ContentObject;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\AbstractContentObject {
-    
-    
-    
-    
-    
+
+
+
+
+
+    /**
+     * The TYPO3 Resource Factory.
+     *
+     * @since 7.6.1
+     * @var ResourceFactory
+     */
+    private $resourceFactory;
+
     /**
      * The TYPO3 File Repository
      * 
      * @since 6.2.0
-     * @var \TYPO3\Core\CMS\Resource\FileRepository
+     * @var \TYPO3\CMS\Core\Resource\FileRepository
      * @access private
      */
-    private $FileRepository;
+    private $fileRepository;
     
     
     
@@ -69,15 +85,15 @@ abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\A
      *                        If omitted, the FlexForm property will be overwritten.
      * @access protected
      */
-    protected function substituteFlexForm(array &$conf, $property, $storage = FALSE) {
+    protected function substituteFlexForm(array &$conf, $property, $storage = \NULL) {
         
         $flexParams = \is_array($conf[$property . '.']) 
                 ? $this->cObj->stdWrap((string) $conf[$property], $conf[$property . '.']) 
-                : (string) $conf[$property];
+                : (string)$conf[$property];
         
         if($flexParams[0] === '<') {
             
-            $flexParams = \TYPO3\CMS\Core\Utility\GeneralUtility::xml2array($flexParams, 'T3');
+            $flexParams = GeneralUtility::xml2array($flexParams, 'T3');
             
             foreach($flexParams['data'] as $sheetData) {
                 
@@ -122,10 +138,12 @@ abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\A
         }
         
         $identifier = \is_array($conf[$field . '.']) 
-                ? $this->cObj->stdWrap((string) $conf[$field], $conf[$field . '.']) 
-                : (string) $conf[$field];
+                ? $this->cObj->stdWrap((string)$conf[$field], $conf[$field . '.'])
+                : (string)$conf[$field];
+
+        $fileReferences = [];
         
-        if(\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($identifier)) {
+        if(MathUtility::canBeInterpretedAsInteger($identifier)) {
             
             $fileReferences = $this->retrieveFileReferences($field);
             
@@ -134,17 +152,17 @@ abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\A
             try{
                 
                 $fileReferences = \is_a(
-                        $resource = $this->fileFactory->retrieveFileOrFolderObject($identifier), 
-                        \TYPO3\CMS\Core\Resource\File::class) 
+                        $resource = $this->resourceFactory->retrieveFileOrFolderObject($identifier),
+                        File::class)
                             ? [$resource]
                             : \NULL;
                 
-            } catch (\TYPO3\CMS\Core\Resource\Exception\FolderDoesNotExistException $folderNotFoundException) {
-            } catch (\TYPO3\CMS\Core\Resource\Exception\FileDoesNotExistException $fileNotFoundException) {}
+            } catch (FolderDoesNotExistException $folderNotFoundException) {
+            } catch (FileDoesNotExistException $fileNotFoundException) {}
             
         }
         
-        return (array) $fileReferences;
+        return (array)$fileReferences;
         
     }
     
@@ -162,9 +180,9 @@ abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\A
      */
     protected function retrieveFileReferences($field) {
         
-        return (array) $this->getFileRepository()->findByRelation(
+        return (array)$this->getFileRepository()->findByRelation(
                 $this->cObj->getCurrentTable(), 
-                (string) $field, 
+                (string)$field,
                 $this->cObj->data['uid']);
         
     }
@@ -182,16 +200,40 @@ abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\A
      * @final
      */
     final protected function getFileRepository() {
-        
-        if(!\is_a($this->FileRepository, \TYPO3\CMS\Core\Resource\FileRepository::class)) {
-            
-            $this->FileRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                    \TYPO3\CMS\Core\Resource\FileRepository::class);
-            
+
+        if(!$this->fileRepository instanceof FileRepository) {
+
+            $this->fileRepository = GeneralUtility::makeInstance(
+                FileRepository::class);
+
         }
         
-        return $this->FileRepository;
+        return $this->fileRepository;
         
+    }
+
+
+
+
+
+    /**
+     * Returns the TYPO3 Resource Factory.
+     *
+     * @since 7.6.1
+     * @return ResourceFactory The Resource Factory
+     * @final
+     */
+    final protected function getResourceFactory() {
+
+        if(!$this->resourceFactory instanceof ResourceFactory) {
+
+            $this->resourceFactory = GeneralUtility::makeInstance(
+                ResourceFactory::class);
+
+        }
+
+        return $this->resourceFactory;
+
     }
     
     
