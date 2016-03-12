@@ -28,8 +28,6 @@ namespace HARING\Crystalis\Configuration\UrlRewriting;
  * **************************************************************
  */
 
-use \HARING\Crystalis\Utility\ArrayUtility;
-
 
 
 
@@ -447,6 +445,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
      * 
      * @since 6.2.0
      * @param array $config The RealUrl configuration array of which to determine index for
+     * @return string|integer The index to use
      * @access protected
      */
     protected function determineLangPreVarsIndex(array $config) {
