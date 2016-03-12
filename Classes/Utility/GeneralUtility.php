@@ -28,7 +28,7 @@ namespace HARING\Crystalis\Utility;
  * **************************************************************
  */
 
-use TYPO3\CMS\Dbal\Database\DatabaseConnection;
+use TYPO3\CMS\Core\Database\DatabaseConnection;
 
 
 
