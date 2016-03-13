@@ -5,10 +5,10 @@
 
 ---
 conf.py:
-  copyright: 2015
+  copyright: 2016
   project: Crystalis
   version: 6.2
-  release: 6.2.1
+  release: 6.2.3
   intersphinx_mapping:
     t3tsref:
     - http://docs.typo3.org/typo3cms/TyposcriptReference/

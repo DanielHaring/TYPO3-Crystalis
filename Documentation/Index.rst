@@ -30,7 +30,7 @@ Crystalis
 		typo3,documentation,extension,crystalis,base,flexible,html5
 
 	:Copyright:
-		2015
+		2016
 
 	:Author:
 		Daniel Haring
