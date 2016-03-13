@@ -1,3 +1,4 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <video width="{attributes.width}" height="{attributes.height}"{f:if(condition: attributes.preload, then: ' preload="auto"')}{f:if(condition: attributes.autoplay, then: ' autoplay')}{f:if(condition: attributes.loop, then: ' loop')}{f:if(condition: attributes.controls, then: ' controls')}{f:if(condition: poster, then: ' poster="{poster.publicUrl}"')}>
     <f:for each="{sources}" as="file" key="mimeType">
         <source src="{file}" type="{mimeType}">
