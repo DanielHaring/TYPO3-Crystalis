@@ -63,6 +63,5 @@ Crystalis
         ContentObjects/Index
         KnownProblems/Index
         DeveloperCorner/Index
-        ToDo/Index
         Credits/Index
         Targets
