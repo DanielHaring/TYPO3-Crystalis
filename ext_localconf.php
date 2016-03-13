@@ -120,7 +120,7 @@ switch($_EXTCONF['doctype']) {
 if(\TYPO3_MODE === 'FE') {
     
     $GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']['VIDEO'] 
-            = \HARING\Crystalis\ContentObject\Html5VideoContentObject::class;
+            = \DanielHaring\Crystalis\ContentObject\Html5VideoContentObject::class;
     
 }
 
@@ -131,9 +131,9 @@ if(\TYPO3_MODE === 'FE') {
     // Automatic language handling
 if(!!$_EXTCONF['enableLanguageHandling'] || !$_EXTCONF) {
     
-    /* @var $LanguageService \HARING\Crystalis\Service\LanguageService */
+    /* @var $LanguageService \DanielHaring\Crystalis\Service\LanguageService */
     $LanguageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-        \HARING\Crystalis\Service\LanguageService::class);
+        \DanielHaring\Crystalis\Service\LanguageService::class);
     
     if($typoscript = $LanguageService->getTypoScriptSetup()) {
         
@@ -157,10 +157,10 @@ if(!!$_EXTCONF['enableLanguageHandling'] || !$_EXTCONF) {
 
     // Hooks
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['text'] = 
-        \HARING\Crystalis\Hooks\PageLayoutView\TextPreviewRenderer::class;
+        \DanielHaring\Crystalis\Hooks\PageLayoutView\TextPreviewRenderer::class;
 
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['image'] = 
-        \HARING\Crystalis\Hooks\PageLayoutView\ImagePreviewRenderer::class;
+        \DanielHaring\Crystalis\Hooks\PageLayoutView\ImagePreviewRenderer::class;
 
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['textpic'] = 
-        \HARING\Crystalis\Hooks\PageLayoutView\TextpicPreviewRenderer::class;
+        \DanielHaring\Crystalis\Hooks\PageLayoutView\TextpicPreviewRenderer::class;

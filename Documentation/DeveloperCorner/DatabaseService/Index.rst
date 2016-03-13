@@ -31,7 +31,7 @@ will ensure the Database Service will exist only once, what may increase process
 .. code-block:: php
 
     $DatabaseService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-        \HARING\Crystalis\Service\DatabaseService::class);
+        \DanielHaring\Crystalis\Service\DatabaseService::class);
 
 
 .. _dev-database-service-accessing:
@@ -45,13 +45,13 @@ a query was sent and the *TYPO3_DB* class is not present. You can get this conne
 
 .. code-block:: php
 
-    \HARING\Crystalis\Service\DatabaseService::getDatabaseConnection();
+    \DanielHaring\Crystalis\Service\DatabaseService::getDatabaseConnection();
 
 The returning object behaves exactly the same as *TYPO3_DB* does, thus allowing you to make familiar queries:
 
 .. code-block:: php
 
-    $result = \HARING\Crystalis\Service\DatabaseService::getDatabaseConnection()
+    $result = \DanielHaring\Crystalis\Service\DatabaseService::getDatabaseConnection()
         ->exec_SELECTquery('field', 'table', 'where');
 
 A new database connection will be established using the Crystalis General Utility class. If you do not need all the 
@@ -60,7 +60,7 @@ respective method:
 
 .. code-block:: php
 
-    $DB = \HARING\Crystalis\Utility\GeneralUtility::obtainDatabaseConnection();
+    $DB = \DanielHaring\Crystalis\Utility\GeneralUtility::obtainDatabaseConnection();
     $DB->exec_SELECTquery('field', 'table', 'where');
 
 No matter which way you choose of accessing the database, a new connection only will be established if it is really 

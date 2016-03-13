@@ -1,6 +1,6 @@
 <?php
 
-namespace HARING\Crystalis\Service;
+namespace DanielHaring\Crystalis\Service;
 
 /*
  * **************************************************************
@@ -28,7 +28,7 @@ namespace HARING\Crystalis\Service;
  * **************************************************************
  */
 
-use HARING\Crystalis\Utility\GeneralUtility;
+use DanielHaring\Crystalis\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Database\DatabaseConnection;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;

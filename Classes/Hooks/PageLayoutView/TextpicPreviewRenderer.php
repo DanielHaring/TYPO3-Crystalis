@@ -1,6 +1,6 @@
 <?php
 
-namespace HARING\Crystalis\Hooks\PageLayoutView;
+namespace DanielHaring\Crystalis\Hooks\PageLayoutView;
 
 /*
  * **************************************************************

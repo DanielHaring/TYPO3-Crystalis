@@ -1,6 +1,6 @@
 <?php
 
-namespace HARING\Crystalis\Utility;
+namespace DanielHaring\Crystalis\Utility;
 
 /*
  * **************************************************************
@@ -28,7 +28,7 @@ namespace HARING\Crystalis\Utility;
  * **************************************************************
  */
 
-use HARING\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface;
+use DanielHaring\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Service\IsoCodeService;

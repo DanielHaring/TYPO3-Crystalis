@@ -1,6 +1,6 @@
 <?php
 
-namespace HARING\Crystalis\Service;
+namespace DanielHaring\Crystalis\Service;
 
 /*
  * **************************************************************

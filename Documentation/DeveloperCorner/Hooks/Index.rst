@@ -58,7 +58,7 @@ When the hook is called, two parameters will be passed:
          By default the array would look like this: ::
 
              array(
-                 'realurl' => 'HARING\\Crystalis\\Configuration\\UrlRewriting\\RealurlConfigurator'
+                 'realurl' => 'DanielHaring\\Crystalis\\Configuration\\UrlRewriting\\RealurlConfigurator'
              );
 
 
@@ -68,7 +68,7 @@ When the hook is called, two parameters will be passed:
          LanguageService
 
    Data type
-         \\HARING\\Crystalis\\Service\\LanguageService
+         \\DanielHaring\\Crystalis\\Service\\LanguageService
 
    Description
          The singleton instance of the Language Service.
@@ -109,7 +109,7 @@ Of course, you are allowed to pass multiple pairs (key => value) at once.
     return array('cooluri' => \VENDOR\ExtKey\Configuration\UrlRewriting\CoolUriConfigurator::class);
 
 **Important Notice:** The classes responsible for configuring URL rewriting are obligated to implement the Interface 
-\\HARING\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface. If they don't, they simply will be ignored.
+\\DanielHaring\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface. If they don't, they simply will be ignored.
 
 
 .. _dev-hooks-language-register-example:
@@ -146,7 +146,7 @@ A complete impelementation of an additional URL handler may look like this:
 
     namespace VENDOR\ExtKey\Configuration\UrlRewriting;
 
-    class CoolUriConfigurator implements \HARING\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface {
+    class CoolUriConfigurator implements \DanielHaring\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface {
 
         public function configure() {
 

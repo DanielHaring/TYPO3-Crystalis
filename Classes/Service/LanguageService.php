@@ -1,6 +1,6 @@
 <?php
 
-namespace HARING\Crystalis\Service;
+namespace DanielHaring\Crystalis\Service;
 
 /*
  * **************************************************************
@@ -28,8 +28,8 @@ namespace HARING\Crystalis\Service;
  * **************************************************************
  */
 
-use HARING\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface;
-use HARING\Crystalis\Configuration\UrlRewriting\RealurlConfigurator;
+use DanielHaring\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface;
+use DanielHaring\Crystalis\Configuration\UrlRewriting\RealurlConfigurator;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -57,7 +57,7 @@ class LanguageService implements SingletonInterface {
      * DatabaseService Instance.
      * 
      * @since 6.2.0
-     * @var \HARING\Crystalis\Service\DatabaseService
+     * @var \DanielHaring\Crystalis\Service\DatabaseService
      * @access private
      */
     private $databaseService;
@@ -66,7 +66,7 @@ class LanguageService implements SingletonInterface {
      * Iso Code Service Instance.
      * 
      * @since 7.5.0
-     * @var \HARING\Crystalis\Service\IsoCodeService
+     * @var \DanielHaring\Crystalis\Service\IsoCodeService
      * @access protected
      */
     protected $isoCodeService;
@@ -272,7 +272,7 @@ class LanguageService implements SingletonInterface {
             if(!\is_a($userObj, ConfiguratorInterface::class)) {
                 
                 throw new \RuntimeException('Class \'' . \get_class($userObj) . 
-                        '\' must implement \'HARING\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface\'.');
+                        '\' must implement \'DanielHaring\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface\'.');
                 
             }
             
