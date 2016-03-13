@@ -74,7 +74,7 @@ most recent release of every branch/version.
 To install Crystalis via ZIP-file please do the following:
 
 1. Download the release branch of you choice (e.g. Crystalis-6.2)
-2. Unpack the ZIP-file into the following directory of you TYPO3 CMS installation: *typo3conf/ext*
+2. Unpack the ZIP-file into the following directory of your TYPO3 CMS installation: *typo3conf/ext*
 3. Rename the extracted folder to *crystalis* and ensure your webserver has at least reading access 
    to it
 4. Log into the Backend of your TYPO3 CMS installation
@@ -106,7 +106,7 @@ git clone -b Crystalis-6.2 https://github.com/DanielHaring/TYPO3-Crystalis.git c
 rm -R crystalis/.git/
 ```
 
-Grant write access to you webserver:
+Grant write access to your web server:
 ```bash
 chown -R :_www crystalis/ && chmod -R g+w crystalis/
 ```
