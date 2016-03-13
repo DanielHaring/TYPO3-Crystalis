@@ -20,5 +20,5 @@ disableHtml5Video = 0
   # cat=lang/basic/1; type=boolean; label=LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.label_EnableLanguageHandling
 enableLanguageHandling = 1
 
-  # cat=lang/basic/1; type=user[HARING\Crystalis\Service\LanguageService->getFormFieldForExtconf]; label=LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.label_DefaultLanguage
+  # cat=lang/basic/1; type=user[DanielHaring\Crystalis\Service\LanguageService->getFormFieldForExtconf]; label=LLL:EXT:crystalis/Resources/Private/Language/locallang_be.xlf:extconf.label_DefaultLanguage
 defaultLanguage = 30

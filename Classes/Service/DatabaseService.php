@@ -1,6 +1,6 @@
 <?php
 
-namespace HARING\Crystalis\Service;
+namespace DanielHaring\Crystalis\Service;
 
 /*
  * **************************************************************
@@ -28,8 +28,8 @@ namespace HARING\Crystalis\Service;
  * **************************************************************
  */
 
-use \HARING\Crystalis\Utility\GeneralUtility;
-use \HARING\Crystalis\Utility\ArrayUtility;
+use DanielHaring\Crystalis\Utility\GeneralUtility;
+use DanielHaring\Crystalis\Utility\ArrayUtility;
 
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace HARING\Crystalis\Hooks;
+namespace DanielHaring\Crystalis\Hooks;
 
 /*
  * **************************************************************
@@ -113,7 +113,7 @@ class ContentObjectRendererHook implements \TYPO3\CMS\Frontend\ContentObject\Con
             
         }
         
-        $fqcn = 'HARING\\Crystalis\\ContentObject\\' 
+        $fqcn = 'DanielHaring\\Crystalis\\ContentObject\\'
                 . $this->contentObjectClassMapping[$name] 
                 . 'ContentObject';
         

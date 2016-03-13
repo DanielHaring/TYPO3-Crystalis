@@ -1,6 +1,6 @@
 <?php
 
-namespace HARING\Crystalis\Configuration\UrlRewriting;
+namespace DanielHaring\Crystalis\Configuration\UrlRewriting;
 
 /*
  * **************************************************************

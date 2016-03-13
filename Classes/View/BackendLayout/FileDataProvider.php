@@ -1,6 +1,6 @@
 <?php
 
-namespace HARING\Crystalis\View\BackendLayout;
+namespace DanielHaring\Crystalis\View\BackendLayout;
 
 /*
  * **************************************************************

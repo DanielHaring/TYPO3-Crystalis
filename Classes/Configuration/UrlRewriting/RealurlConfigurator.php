@@ -1,6 +1,6 @@
 <?php
 
-namespace HARING\Crystalis\Configuration\UrlRewriting;
+namespace DanielHaring\Crystalis\Configuration\UrlRewriting;
 
 /*
  * **************************************************************
@@ -28,7 +28,7 @@ namespace HARING\Crystalis\Configuration\UrlRewriting;
  * **************************************************************
  */
 
-use \HARING\Crystalis\Utility\ArrayUtility;
+use DanielHaring\Crystalis\Utility\ArrayUtility;
 
 
 
@@ -89,7 +89,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
      * DatabaseService Instance.
      * 
      * @since 6.2.0
-     * @var \HARING\Crystalis\Service\DatabaseService
+     * @var \DanielHaring\Crystalis\Service\DatabaseService
      * @inject
      * @access protected
      */

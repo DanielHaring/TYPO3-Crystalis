@@ -1,6 +1,6 @@
 <?php
 
-namespace HARING\Crystalis\ContentObject;
+namespace DanielHaring\Crystalis\ContentObject;
 
 /*
  * **************************************************************
@@ -40,7 +40,7 @@ namespace HARING\Crystalis\ContentObject;
  * @package Crystalis
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class Html5VideoContentObject extends \HARING\Crystalis\ContentObject\AbstractContentObject {
+class Html5VideoContentObject extends \DanielHaring\Crystalis\ContentObject\AbstractContentObject {
     
     
     

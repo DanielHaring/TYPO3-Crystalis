@@ -1,6 +1,6 @@
 <?php
 
-namespace HARING\Crystalis\Service;
+namespace DanielHaring\Crystalis\Service;
 
 /*
  * **************************************************************
@@ -50,7 +50,7 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
      * DatabaseService Instance.
      * 
      * @since 6.2.0
-     * @var \HARING\Crystalis\Service\DatabaseService
+     * @var \DanielHaring\Crystalis\Service\DatabaseService
      * @access private
      */
     private $DatabaseService;
@@ -171,7 +171,7 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
      */
     public function prepareUrlRewriting() {
         
-        $Registry = ['realurl' => 'HARING\\Crystalis\\Configuration\\UrlRewriting\\RealurlConfigurator'];
+        $Registry = ['realurl' => 'DanielHaring\\Crystalis\\Configuration\\UrlRewriting\\RealurlConfigurator'];
         $ObjectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
         
             // Hook for registering addtitional extensions to be prepared.
@@ -197,10 +197,10 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
             
             $userObj = $ObjectManager->get($classRef);
             
-            if(!\is_a($userObj, 'HARING\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface')) {
+            if(!\is_a($userObj, 'DanielHaring\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface')) {
                 
                 throw new \RuntimeException('Class \'' . \get_class($userObj) . 
-                        '\' must implement \'HARING\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface\'.');
+                        '\' must implement \'DanielHaring\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface\'.');
                 
             }
             
@@ -270,12 +270,12 @@ class LanguageService implements \TYPO3\CMS\Core\SingletonInterface {
      * Returns active DatabaseService instance or creates a new one.
      * 
      * @since 6.2.0
-     * @return \HARING\Crystalis\Service\DatabaseService Active DatabaseService
+     * @return \DanielHaring\Crystalis\Service\DatabaseService Active DatabaseService
      * @access protected
      */
     protected function getDatabaseService() {
         
-        $fqcn = 'HARING\Crystalis\Service\DatabaseService';
+        $fqcn = 'DanielHaring\Crystalis\Service\DatabaseService';
         
         if(!\is_a($this->DatabaseService, $fqcn)) {
             

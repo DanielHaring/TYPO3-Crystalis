@@ -78,7 +78,7 @@ if(\TYPO3_MODE === 'BE') {
     if(\version_compare(\TYPO3_version, '6.2.0', 'ge')) {
         
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['BackendLayoutDataProvider']['file'] 
-                = 'HARING\\Crystalis\\View\\BackendLayout\\FileDataProvider';
+                = 'DanielHaring\\Crystalis\\View\\BackendLayout\\FileDataProvider';
         
     }
     
@@ -92,7 +92,7 @@ if(\TYPO3_MODE === 'BE') {
 if(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('static_info_tables') 
         && (!!$_EXTCONF['enableLanguageHandling'] || !$_EXTCONF)) {
     
-    $LanguageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('HARING\\Crystalis\\Service\\LanguageService');
+    $LanguageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('DanielHaring\\Crystalis\\Service\\LanguageService');
     
     if($typoscript = $LanguageService->getTypoScriptSetup()) {
         
@@ -116,4 +116,4 @@ if(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('static_info_tab
 
     // Register Hooks
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_content.php']['cObjTypeAndClassDefault'][] = 
-        'HARING\\Crystalis\\Hooks\\ContentObjectRendererHook';
+        'DanielHaring\\Crystalis\\Hooks\\ContentObjectRendererHook';
