@@ -29,8 +29,8 @@ published by the Free Software Foundation; either version 3 of the License, or (
 Crystalis at GitHub
 ^^^^^^^^^^^^^^^^^^^
 
-The current development master and all existing branches can be inspected and forked on GitHub:
-https://github.com/HARING/TYPO3-Crystalis
+The current development master and all existing branches can be checked out and forked on GitHub:
+https://github.com/DanielHaring/TYPO3-Crystalis
 
 
 .. _credits-web:
@@ -39,7 +39,7 @@ Official website
 ^^^^^^^^^^^^^^^^
 
 The official project page reads as follows:
-http://haring.co.at/projekte/crystalis/
+http://haring.co.at/crystalis/
 
 Please note that this website is available in german only.
 
@@ -54,4 +54,4 @@ Feel free to open a new `issue on GitHub`_ or write me at:
 
 development at haring dot co dot at.
 
-.. _issue on GitHub: https://github.com/HARING/TYPO3-Crystalis/issues
+.. _issue on GitHub: https://github.com/DanielHaring/TYPO3-Crystalis/issues

@@ -98,7 +98,7 @@ cd typo3conf/ext
 
 Clone the desired branch of Crystalis (here: *Crystalis-6.2*):
 ```bash
-git clone -b Crystalis-6.2 https://github.com/HARING/TYPO3-Crystalis.git crystalis
+git clone -b Crystalis-6.2 https://github.com/DanielHaring/TYPO3-Crystalis.git crystalis
 ```
 
 (Optional) Remove git related files to avoid tracking:
