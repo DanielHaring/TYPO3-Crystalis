@@ -65,7 +65,7 @@ class DatabaseService implements SingletonInterface {
     
     
     /**
-     * Fetches "domain => language" assignments from database or returns buffered result if a respecitve entry was found.
+     * Fetches "domain => language" assignments from database or returns buffered result if a respective entry was found.
      * API method.
      * 
      * @since 6.2.0
@@ -108,7 +108,7 @@ class DatabaseService implements SingletonInterface {
                     
                     return $site;
                     
-                }, (array)$this->retrieveDomainInformations());
+                }, (array)$this->retrieveDomainInformation());
         
         if(!$noBuffer) {
             
@@ -148,7 +148,7 @@ class DatabaseService implements SingletonInterface {
                 ['defaultLanguage' => 'en'],
                 (array)@\unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['crystalis']));
         
-        $result = $this->retrieveSystemLanguageInformations($extConf['defaultLanguage']);
+        $result = $this->retrieveSystemLanguageInformation($extConf['defaultLanguage']);
         
         if(!$noBuffer) {
             
@@ -277,7 +277,7 @@ class DatabaseService implements SingletonInterface {
     
     
     /**
-     * Gatheres all necessary informations about system languages. Supports DBAL.
+     * Gathers all necessary information about system languages. Supports DBAL.
      * Internal helper function.
      * 
      * @since 6.2.0
@@ -285,7 +285,7 @@ class DatabaseService implements SingletonInterface {
      * @return array All necessary informations about current system languages
      * @access protected
      */
-    protected function retrieveSystemLanguageInformations($defaultLanguage = '') {
+    protected function retrieveSystemLanguageInformation($defaultLanguage = '') {
         
         $languages = \array_merge([0 => ['uid' => 0, 'isoCode' => (string)$defaultLanguage]], 
                 self::getDatabaseConnection()->exec_SELECTgetRows(
@@ -318,7 +318,7 @@ class DatabaseService implements SingletonInterface {
     
     
     /**
-     * Bufferes a specific query result.
+     * Buffers a specific query result.
      * 
      * @since 6.2.0
      * @param mixed $result The query result to buffer
@@ -356,7 +356,7 @@ class DatabaseService implements SingletonInterface {
     
     
     /**
-     * Checks wheter a specific result was buffered.
+     * Checks whether a specific result was buffered.
      * 
      * @since 6.2.0
      * @param string $identifier Internal buffer identifier of the result to check.

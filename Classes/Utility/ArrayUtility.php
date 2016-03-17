@@ -47,7 +47,7 @@ class ArrayUtility {
     
     
     /**
-     * Checks wheter an array is associative or not.
+     * Checks whether an array is associative or not.
      * 
      * @since 7.2.0
      * @param array $array The array to check

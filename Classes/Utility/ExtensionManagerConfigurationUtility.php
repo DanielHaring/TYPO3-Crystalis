@@ -72,7 +72,7 @@ class ExtensionManagerConfigurationUtility {
      * To be called within ext_conf_template.txt.
      * 
      * @since 7.2.0
-     * @param array $params Parameteres of the respective extension configuration field
+     * @param array $params Parameters of the respective extension configuration field
      * @return string HTML output of the rendered select box
      * @access public
      */
@@ -94,7 +94,7 @@ class ExtensionManagerConfigurationUtility {
     
     
     /**
-     * Checks wheter the Language Service is configured properly and works as expected.
+     * Checks whether the Language Service is configured properly and works as expected.
      * To be called within ext_conf_template.txt.
      * 
      * @since 7.3.0
