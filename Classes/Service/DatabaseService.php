@@ -168,7 +168,7 @@ class DatabaseService implements SingletonInterface {
      * Returns active database connection or establishes a new one if none is active.
      * If a new database connection was established it will be saved to $GLOBALS['TYPO3_DB']. This behaviour 
      * may look kind of unclean but is quite intended. Because realurl also needs a database connection and 
-     * askes for TYPO3_DB to be set, the established connection can be reused and therefore there won't be 
+     * asks for TYPO3_DB to be set, the established connection can be reused and therefore there won't be
      * an additional one.
      * 
      * @since 6.2.0
@@ -177,14 +177,8 @@ class DatabaseService implements SingletonInterface {
      * @access public
      */
     static public function getDatabaseConnection() {
-        
-        if(!\is_a($GLOBALS['TYPO3_DB'], DatabaseConnection::class)) {
-            
-            $GLOBALS['TYPO3_DB'] = GeneralUtility::obtainDatabaseConnection();
-            
-        }
-        
-        return $GLOBALS['TYPO3_DB'];
+
+        return GeneralUtility::obtainDatabaseConnection();
         
     }
     
@@ -193,14 +187,14 @@ class DatabaseService implements SingletonInterface {
     
     
     /**
-     * Gatheres all informations for building domain assignments. Supports DBAL.
+     * Gathers all information for building domain assignments. Supports DBAL.
      * Internal helper function.
      * 
      * @since 6.2.0
      * @return array All informations required for reading out domain assignments
      * @access protected
      */
-    protected function retrieveDomainInformations() {
+    protected function retrieveDomainInformation() {
         
         if(!ExtensionManagementUtility::isLoaded('dbal')) {
             
