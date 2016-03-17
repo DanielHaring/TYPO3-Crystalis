@@ -34,7 +34,6 @@ use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Service\IsoCodeService;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Lang\LanguageService;
 
 
 
@@ -251,7 +250,7 @@ class ExtensionManagerConfigurationUtility {
     /**
      * Returns the TYPO3 Language Service.
      *
-     * @return LanguageService The Language Service
+     * @return \TYPO3\CMS\Lang\LanguageService The Language Service
      */
     public function getLanguageService() {
 
