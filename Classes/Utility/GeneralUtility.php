@@ -60,11 +60,11 @@ class GeneralUtility {
     public static function obtainDatabaseConnection() {
         
         $fqcn = DatabaseConnection::class;
-        
-        if(\is_a($GLOBALS['TYPO3_DB'], $fqcn)) {
-            
+
+        if($GLOBALS['TYPO3_DB'] instanceof $fqcn) {
+
             return $GLOBALS['TYPO3_DB'];
-            
+
         }
         
         /** @var $DatabaseConnection \TYPO3\CMS\Core\Database\DatabaseConnection */
