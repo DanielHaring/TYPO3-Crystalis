@@ -254,6 +254,13 @@ class ExtensionManagerConfigurationUtility {
      */
     public function getLanguageService() {
 
+        if(!$GLOBALS['LANG'] instanceof LanguageService) {
+
+            $GLOBALS['LANG'] = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(LanguageService::class);
+            $GLOBALS['LANG']->init($GLOBALS['BE_USER'] ? $GLOBALS['BE_USER']->uc['lang'] : 'en');
+
+        }
+
         return $GLOBALS['LANG'];
 
     }
