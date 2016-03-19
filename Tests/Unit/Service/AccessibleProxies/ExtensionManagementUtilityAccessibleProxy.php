@@ -1,6 +1,6 @@
 <?php
 
-namespace DanielHaring\Crystalis\Tests\Unit\Utility\Fixtures;
+namespace DanielHaring\Crystalis\Tests\Unit\Service\AccessibleProxies;
 
 /**
  * Copyright notice
@@ -26,17 +26,31 @@ namespace DanielHaring\Crystalis\Tests\Unit\Utility\Fixtures;
  * This copyright notice MUST APPEAR in all copies of the script!
  */
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 
 
 
 
 /**
- * Fixture of a generic class.
+ * Accessible Proxy.
  *
+ * @since 7.6.1
  * @author Daniel Haring <development@haring.co.at>
  * @package Crystalis
+ * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class GenericClassFixture {
+class ExtensionManagementUtilityAccessibleProxy extends ExtensionManagementUtility {
+
+
+
+
+
+    static public function getPackageManager() {
+
+        return static::$packageManager;
+
+    }
 
 
 

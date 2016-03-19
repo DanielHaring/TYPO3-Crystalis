@@ -1,6 +1,6 @@
 <?php
 
-namespace DanielHaring\Crystalis\Tests\Unit\Utility\AccessibleProxies;
+namespace DanielHaring\Crystalis\Tests\Unit\Service\AccessibleProxies;
 
 /**
  * Copyright notice
@@ -26,27 +26,29 @@ namespace DanielHaring\Crystalis\Tests\Unit\Utility\AccessibleProxies;
  * This copyright notice MUST APPEAR in all copies of the script!
  */
 
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use DanielHaring\Crystalis\Service\LanguageService;
 
 
 
 
 
 /**
- * Accessible proxy.
+ * Accessible Proxy.
  *
+ * @since 7.6.1
  * @author Daniel Haring <development@haring.co.at>
  * @package Crystalis
+ * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class ExtensionManagementUtilityAccessibleProxy extends ExtensionManagementUtility {
+class LanguageServiceAccessibleProxy extends LanguageService {
 
 
 
 
 
-    static public function getPackageManager() {
+    static public function resetRewriteConfigurators() {
 
-        return static::$packageManager;
+        static::$rewriteConfigurators = \NULL;
 
     }
 

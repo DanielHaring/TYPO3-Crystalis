@@ -1,6 +1,6 @@
 <?php
 
-namespace DanielHaring\Crystalis\Tests\Unit\Utility;
+namespace DanielHaring\Crystalis\Tests\Unit\Service\Fixtures;
 
 /**
  * Copyright notice
@@ -26,55 +26,27 @@ namespace DanielHaring\Crystalis\Tests\Unit\Utility;
  * This copyright notice MUST APPEAR in all copies of the script!
  */
 
-use DanielHaring\Crystalis\Utility\ExtensionManagerConfigurationUtility;
-use TYPO3\CMS\Core\Tests\UnitTestCase;
-use TYPO3\CMS\Lang\LanguageService;
+use DanielHaring\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface;
 
 
 
 
 
 /**
- * Test Case.
+ * Fixture for a Rewrite Configurator.
  *
  * @since 7.6.1
  * @author Daniel Haring <development@haring.co.at>
  * @package Crystalis
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class ExtensionManagerConfigurationUtilityTest extends UnitTestCase {
+class RewriteConfiguratorFixture implements ConfiguratorInterface {
 
 
 
 
 
-    /**
-     * @var \DanielHaring\Crystalis\Utility\ExtensionManagerConfigurationUtility
-     */
-    protected $subject;
-
-
-
-
-
-    protected function setUp() {
-
-        $this->subject = new ExtensionManagerConfigurationUtility();
-
-    }
-
-
-
-
-
-    /**
-     * @test
-     */
-    public function getLanguageServiceReturnsCorrectInstance() {
-
-        $this->assertInstanceOf(LanguageService::class, $this->subject->getLanguageService());
-
-    }
+    public function configure() {}
 
 
 

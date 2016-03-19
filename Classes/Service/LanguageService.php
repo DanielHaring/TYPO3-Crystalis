@@ -79,6 +79,15 @@ class LanguageService implements SingletonInterface {
      * @access protected
      */
     protected $languages;
+
+    /**
+     * Holds available Rewrite Configurators.
+     *
+     * @since 7.6.1
+     * @var array
+     * @internal
+     */
+    protected static $rewriteConfigurators;
     
     /**
      * Buffer for language PageTS configuration.
@@ -239,47 +248,38 @@ class LanguageService implements SingletonInterface {
      * @access public
      */
     public function prepareUrlRewriting() {
-        
-        $Registry = ['realurl' => RealurlConfigurator::class];
-        
-        /* @var $ObjectManager \TYPO3\CMS\Extbase\Object\ObjectManager */
-        $ObjectManager = GeneralUtility::makeInstance(
-                ObjectManager::class);
-        
-            // Hook for registering addtitional extensions to be prepared.
-        if(\is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['crystalis']['LanguageService']['registerRewriteConfigurator'])) {
-            
-            foreach($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['crystalis']['LanguageService']['registerRewriteConfigurator'] as $fn) {
-                
-                if($additionalConfigurators = GeneralUtility::callUserFunction($fn, $Registry, $this)) {
-                    
-                    $Registry = \array_merge($Registry, \array_filter((array)$additionalConfigurators, 'is_string'));
-                    
-                }
-                
-            }
-            
+
+        /* @var $objectManager \TYPO3\CMS\Extbase\Object\ObjectManager */
+        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+
+        foreach($this->getRewriteConfigurators() as $classRef) {
+
+            $objectManager->get($classRef)->configure();
+
         }
         
-        foreach($Registry as $extKey => $classRef) {
-            
-            if(!ExtensionManagementUtility::isLoaded($extKey)) {
-                continue;
-            }
-            
-            $userObj = $ObjectManager->get($classRef);
-            
-            if(!\is_a($userObj, ConfiguratorInterface::class)) {
-                
-                throw new \RuntimeException('Class \'' . \get_class($userObj) . 
-                        '\' must implement \'DanielHaring\\Crystalis\\Configuration\\UrlRewriting\\ConfiguratorInterface\'.');
-                
-            }
-            
-            $userObj->configure();
-            
+    }
+
+
+
+
+
+    /**
+     * Returns available Rewrite Configurators.
+     *
+     * @since 7.6.1
+     * @return array All available Rewrite Configurators
+     */
+    final public function getRewriteConfigurators() {
+
+        if(!\is_array(static::$rewriteConfigurators)) {
+
+            $this->loadRewriteConfigurators();
+
         }
-        
+
+        return static::$rewriteConfigurators;
+
     }
     
     
@@ -297,6 +297,63 @@ class LanguageService implements SingletonInterface {
         
         return $this->languages;
         
+    }
+
+
+
+
+
+    /**
+     * Loads available Rewrite Configurators.
+     *
+     * @since 7.6.1
+     */
+    final protected function loadRewriteConfigurators() {
+
+        $registry = ['realurl' => RealurlConfigurator::class];
+
+            // Hook for registering additional extensions to be prepared
+        if(\is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['crystalis']['LanguageService']['registerRewriteConfigurator'])) {
+
+            foreach($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['crystalis']['LanguageService']['registerRewriteConfigurator'] as $fn) {
+
+                    // Make a copy of the registry to prevent it being altered directly
+                $registrySnapshot = $registry;
+
+                if($additionalConfigurators = GeneralUtility::callUserFunction($fn, $registrySnapshot, $this)) {
+
+                    $registry = \array_merge(
+                        $registry,
+                        \array_filter((array)$additionalConfigurators, 'is_string'));
+
+                }
+
+            }
+
+        }
+
+        static::$rewriteConfigurators = [];
+
+            // Validate registered configurators
+        foreach($registry as $extKey => $classRef) {
+
+            if(!ExtensionManagementUtility::isLoaded($extKey)) {
+
+                continue;
+
+            }
+
+            if(!\in_array(ConfiguratorInterface::class, \class_implements($classRef, \TRUE))) {
+
+                throw new \RuntimeException('Class ' . $classRef
+                    . ' must implement ' . ConfiguratorInterface::class . '.');
+
+            }
+
+            static::$rewriteConfigurators[$extKey] = $classRef;
+
+        }
+
     }
     
     

@@ -28,7 +28,6 @@ namespace DanielHaring\Crystalis\Utility;
  * **************************************************************
  */
 
-use DanielHaring\Crystalis\Configuration\UrlRewriting\ConfiguratorInterface;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Service\IsoCodeService;
@@ -277,33 +276,12 @@ class ExtensionManagerConfigurationUtility {
      * @access public
      */
     public function externalLanguageConfiguratorLoadable() {
-        
-        $externalConfigurator = \FALSE;
-        $configurators = [];
-        
-        foreach((array)$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['crystalis']['LanguageService']['registerRewriteConfigurator'] as $fn) {
-            
-            if($additionalConfigurators = \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($fn, $configurators, $this)) {
-                
-                $configurators = \array_merge($configurators, \array_filter((array)$additionalConfigurators, 'is_string'));
-                
-            }
-            
-        }
-        
-        foreach($configurators as $extKey => $fqcn) {
-            
-            if(ExtensionManagementUtility::isLoaded($extKey)
-                    && \is_a($fqcn, ConfiguratorInterface::class, \TRUE)) {
-                
-                $externalConfigurator = \TRUE;
-                break;
-                
-            }
-            
-        }
-        
-        return !!$externalConfigurator;
+
+        /* @var $localLanguageService \DanielHaring\Crystalis\Service\LanguageService */
+        $localLanguageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+            \DanielHaring\Crystalis\Service\LanguageService::class);
+
+        return !!\count($localLanguageService->getRewriteConfigurators());
         
     }
     

@@ -1,6 +1,6 @@
 <?php
 
-namespace DanielHaring\Crystalis\Tests\Unit\Utility\Fixtures;
+namespace DanielHaring\Crystalis\Tests\Unit\Service\Fixtures;
 
 /**
  * Copyright notice
@@ -31,40 +31,14 @@ namespace DanielHaring\Crystalis\Tests\Unit\Utility\Fixtures;
 
 
 /**
- * Fixture for providing Rewrite Configurators.
+ * Fixture for a generic class.
  *
  * @since 7.6.1
  * @author Daniel Haring <development@haring.co.at>
  * @package Crystalis
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class LanguageServiceHooksFixture {
-
-
-
-
-
-    /**
-     * @return array
-     */
-    public function provideValidConfigurator() {
-
-        return ['foobar' => RewriteConfiguratorFixture::class];
-
-    }
-
-
-
-
-
-    /**
-     * @return array
-     */
-    public function provideInvalidConfigurator() {
-
-        return ['foobar' => GenericClassFixture::class];
-
-    }
+class GenericClassFixture {
 
 
 
