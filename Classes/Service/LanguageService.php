@@ -138,7 +138,7 @@ class LanguageService implements SingletonInterface {
     
     
     /**
-     * Returns language TypoScript setup and constructs it if neccessary.
+     * Returns language TypoScript setup and constructs it if necessary.
      * API method.
      * 
      * @since 6.2.0

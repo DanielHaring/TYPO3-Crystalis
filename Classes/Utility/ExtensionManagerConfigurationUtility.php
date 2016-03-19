@@ -33,14 +33,14 @@ use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Service\IsoCodeService;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Lang\LanguageService;
 
 
 
 
 
 /**
- * Procides extension manager configurations.
+ * Provides extension manager configurations.
  *
  * @since 7.2.0
  * @author Daniel Haring <development@haring.co.at>
@@ -79,7 +79,7 @@ class ExtensionManagerConfigurationUtility {
         
         return $this->renderSelect(
                 \array_column(
-                        GeneralUtility::makeInstance(
+                        \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
                                 IsoCodeService::class)
                             ->renderIsoCodeSelectDropdown(['items' => []])['items'], 
                         0, 
@@ -120,7 +120,7 @@ class ExtensionManagerConfigurationUtility {
         }
         
         /* @var $CacheManager \TYPO3\CMS\Core\Cache\CacheManager */
-        $CacheManager = GeneralUtility::makeInstance(
+        $CacheManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
                 CacheManager::class);
         
         return $CacheManager->hasCache('crystalis') 
@@ -276,7 +276,7 @@ class ExtensionManagerConfigurationUtility {
         
         foreach((array)$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['crystalis']['LanguageService']['registerRewriteConfigurator'] as $fn) {
             
-            if($additionalConfigurators = GeneralUtility::callUserFunction($fn, $configurators, $this)) {
+            if($additionalConfigurators = \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($fn, $configurators, $this)) {
                 
                 $configurators = \array_merge($configurators, \array_filter((array)$additionalConfigurators, 'is_string'));
                 
