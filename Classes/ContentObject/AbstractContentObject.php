@@ -152,7 +152,7 @@ abstract class AbstractContentObject extends \TYPO3\CMS\Frontend\ContentObject\A
             try{
                 
                 $fileReferences = \is_a(
-                        $resource = $this->resourceFactory->retrieveFileOrFolderObject($identifier),
+                        $resource = $this->getResourceFactory()->retrieveFileOrFolderObject($identifier),
                         File::class)
                             ? [$resource]
                             : \NULL;
