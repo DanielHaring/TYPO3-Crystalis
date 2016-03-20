@@ -30,7 +30,7 @@ namespace DanielHaring\Crystalis\Utility;
 
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
-use TYPO3\CMS\Core\Service\IsoCodeService;
+use DanielHaring\Crystalis\Service\IsoCodeService;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Lang\LanguageService;
 
@@ -75,6 +75,8 @@ class ExtensionManagerConfigurationUtility {
      * @access public
      */
     public function buildLanguageSelector(array $params) {
+
+        $this->fieldName = $params['fieldName'];
         
         return $this->renderSelect(
                 \array_column(
