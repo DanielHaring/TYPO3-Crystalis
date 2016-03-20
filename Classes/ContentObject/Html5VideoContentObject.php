@@ -218,9 +218,7 @@ class Html5VideoContentObject extends AbstractContentObject {
         if($flash->getMimeType() === 'video/x-flv') {
             
             $flashVars[] = 'file=' . \rawurlencode($flash->getPublicUrl());
-            
-            $flash = $this->getResourceFactory()->retrieveFileOrFolderObject(
-                    $conf['mimeConf.']['flash.']['player']);
+            $flash = $conf['mimeConf.']['flash.']['player'];
             
         }
         
