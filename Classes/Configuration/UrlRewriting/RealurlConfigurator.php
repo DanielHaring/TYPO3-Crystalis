@@ -98,16 +98,6 @@ class RealurlConfigurator implements ConfiguratorInterface {
     protected $databaseService;
     
     /**
-     * TYPO3 Object Manager
-     * 
-     * @since 7.6.1
-     * @var \TYPO3\CMS\Extbase\Object\ObjectManager
-     * @inject
-     * @access protected
-     */
-    protected $objectManager;
-    
-    /**
      * Head domain buffer
      * 
      * @since 6.2.0
@@ -399,16 +389,17 @@ class RealurlConfigurator implements ConfiguratorInterface {
             
             while(!@include_once(\PATH_site . \TX_REALURL_AUTOCONF_FILE)) {
                 
-                if(isset($Generator)) {
+                if(isset($generator)) {
                     break;
                 }
                 
-                $Generator = $this->objectManager->get('tx_realurl_autoconfgen');
-                $Generator->generateConfiguration();
+                /* @var $generator \tx_realurl_autoconfgen */
+                $generator = GeneralUtility::makeInstance('tx_realurl_autoconfgen');
+                $generator->generateConfiguration();
                 
             }
             
-            unset($Generator);
+            unset($generator);
             
         }
         
