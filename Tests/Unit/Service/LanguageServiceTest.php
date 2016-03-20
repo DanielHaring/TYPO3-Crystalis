@@ -27,6 +27,7 @@ namespace DanielHaring\Crystalis\Tests\Unit\Service;
  */
 
 use DanielHaring\Crystalis\Configuration\UrlRewriting\RealurlConfigurator;
+use DanielHaring\Crystalis\Service\DatabaseService;
 use DanielHaring\Crystalis\Service\LanguageService;
 use DanielHaring\Crystalis\Tests\Unit\Service\AccessibleProxies\ExtensionManagementUtilityAccessibleProxy;
 use DanielHaring\Crystalis\Tests\Unit\Service\AccessibleProxies\LanguageServiceAccessibleProxy;
@@ -145,6 +146,101 @@ class LanguageServiceTest extends UnitTestCase {
             ->will($this->returnValue([$packageKey => $package]));
 
         return $packageManager;
+
+    }
+
+
+
+
+
+    /**
+     * @test
+     */
+    public function getTypoScriptSetupGeneratesCorrectSetup() {
+
+        /* @var $databaseMock \PHPUnit_Framework_MockObject_MockObject|\DanielHaring\Crystalis\Service\DatabaseService */
+        $databaseMock = $this->getMock(DatabaseService::class, ['getSystemLanguages']);
+
+        $databaseMock->expects($this->once())
+            ->method('getSystemLanguages')
+            ->will($this->returnValue([
+                [
+                    'isoCode' => 'en',
+                    'uid' => 0,
+                    'locale' => 'en_GB'
+                ],
+                [
+                    'isoCode' => 'de',
+                    'uid' => 1,
+                    'locale' => 'de_DE'
+                ],
+                [
+                    'isoCode' => 'fr',
+                    'uid' => 2,
+                    'locale' => 'fr_FR'
+                ],
+                [
+                    'isoCode' => 'it',
+                    'uid' => 3,
+                    'locale' => 'it_IT'
+                ]
+            ]));
+
+        $this->subject->setDatabaseService($databaseMock);
+
+        $renderedString = $this->subject->getTypoScriptSetup();
+
+        $this->assertNotContains('[globalVar = GP:L=0]', $renderedString);
+        $this->assertStringStartsWith('page.config.htmlTag_langKey = en', $renderedString);
+        $this->assertContains('page.config.sys_language_uid = 0', $renderedString);
+        $this->assertContains('page.config.sys_language_isocode_default = en', $renderedString);
+        $this->assertContains('page.config.language = en', $renderedString);
+        $this->assertContains('page.config.lang = en', $renderedString);
+        $this->assertContains('page.config.locale_all = en_GB', $renderedString);
+        $this->assertContains('[globalVar = GP:L=1]', $renderedString);
+        $this->assertContains('[globalVar = GP:L=2]', $renderedString);
+        $this->assertContains('[globalVar = GP:L=3]', $renderedString);
+        $this->assertNotContains('[globalVar = GP:L=4]', $renderedString);
+        $this->assertStringEndsWith('[global]', $renderedString);
+
+    }
+
+
+
+
+
+    /**
+     * @test
+     */
+    public function getPageTSConfigGeneratesCorrectSetup() {
+
+        /* @var $databaseMock \PHPUnit_Framework_MockObject_MockObject|\DanielHaring\Crystalis\Service\DatabaseService */
+        $databaseMock = $this->getMock(DatabaseService::class, ['getSystemLanguages']);
+
+        $databaseMock->expects($this->once())
+            ->method('getSystemLanguages')
+            ->will($this->returnValue([
+                [
+                    'isoCode' => 'en',
+                    'uid' => 0,
+                    'locale' => 'en_GB',
+                    'name' => 'LLL:EXT:core/Resources/Private/Language/db.xlf:sys_language.language_isocode.en'
+                ],
+                [
+                    'isoCode' => 'de',
+                    'uid' => 1,
+                    'locale' => 'de_DE',
+                    'name' => 'LLL:EXT:core/Resources/Private/Language/db.xlf:sys_language.language_isocode.de'
+                ]
+            ]));
+
+        $this->subject->setDatabaseService($databaseMock);
+
+        $renderedString = $this->subject->getPageTSConfig();
+
+        $this->assertContains('mod.SHARED.defaultLanguageFlag = gb.gif', $renderedString);
+        $this->assertContains('mod.SHARED.defaultLanguageLabel = English', $renderedString);
+        $this->assertNotContains('mod.SHARED.defaultLanguageFlag = de.gif', $renderedString);
 
     }
 
