@@ -58,9 +58,8 @@ class LanguageService implements SingletonInterface {
      * 
      * @since 6.2.0
      * @var \DanielHaring\Crystalis\Service\DatabaseService
-     * @access private
      */
-    private $databaseService;
+    protected $databaseService;
     
     /**
      * Iso Code Service Instance.
@@ -119,9 +118,6 @@ class LanguageService implements SingletonInterface {
      */
     public function __construct() {
         
-        $this->databaseService = GeneralUtility::makeInstance(
-                DatabaseService::class);
-        
         $this->isoCodeService = GeneralUtility::makeInstance(
                 IsoCodeService::class);
         
@@ -160,7 +156,7 @@ class LanguageService implements SingletonInterface {
             
             $setup = [];
         
-            foreach($this->databaseService->getSystemLanguages() as $language) {
+            foreach($this->getDatabaseService()->getSystemLanguages() as $language) {
 
                 $ts = 'page.config.htmlTag_langKey = ' . \strtolower($language['isoCode']) . \chr(10) 
                         . 'page.config.sys_language_uid = ' . $language['uid'] . \chr(10) 
@@ -207,11 +203,13 @@ class LanguageService implements SingletonInterface {
             
             $pageTs = '';
             
-            $defaultLanguage = \reset(\array_filter($this->databaseService->getSystemLanguages(), function($language) {
-                
-                return (int)$language['uid'] === 0;
-                
-            }));
+            $defaultLanguage = \reset(\array_filter(
+                $this->getDatabaseService()->getSystemLanguages(),
+                function($language) {
+
+                    return (int)$language['uid'] === 0;
+
+                }));
             
             if(\is_array($defaultLanguage)) {
                 
@@ -297,6 +295,44 @@ class LanguageService implements SingletonInterface {
         
         return $this->languages;
         
+    }
+
+
+
+
+
+    /**
+     * Returns the Database Service
+     *
+     * @since 7.6.1
+     * @return \DanielHaring\Crystalis\Service\DatabaseService|object The Database Service
+     */
+    public function getDatabaseService() {
+
+        if(!$this->databaseService instanceof DatabaseService) {
+
+            $this->databaseService = GeneralUtility::makeInstance(DatabaseService::class);
+
+        }
+
+        return $this->databaseService;
+
+    }
+
+
+
+
+
+    /**
+     * Sets the Database Service
+     *
+     * @since 7.6.1
+     * @param \DanielHaring\Crystalis\Service\DatabaseService $databaseService The Database Service to set
+     */
+    public function setDatabaseService(DatabaseService $databaseService) {
+
+        $this->databaseService = $databaseService;
+
     }
 
 

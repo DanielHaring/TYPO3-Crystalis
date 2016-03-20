@@ -28,6 +28,7 @@ namespace DanielHaring\Crystalis\Configuration\UrlRewriting;
  * **************************************************************
  */
 
+use DanielHaring\Crystalis\Service\DatabaseService;
 use TYPO3\CMS\Core\Cache\Backend\SimpleFileBackend;
 use TYPO3\CMS\Core\Cache\CacheFactory;
 use TYPO3\CMS\Core\Cache\Frontend\VariableFrontend;
@@ -73,12 +74,12 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * TYPO3 Cache Manager.
      * 
-     * @since 6.2.0
+     * @since 7.6.1
      * @var \TYPO3\CMS\Core\Cache\CacheManager
      * @inject
      * @access protected
      */
-    protected $CacheManager;
+    protected $cacheManager;
     
     /**
      * Computed configuration.
@@ -92,22 +93,20 @@ class RealurlConfigurator implements ConfiguratorInterface {
     /**
      * DatabaseService Instance.
      * 
-     * @since 6.2.0
+     * @since 7.6.1
      * @var \DanielHaring\Crystalis\Service\DatabaseService
-     * @inject
-     * @access protected
      */
-    protected $DatabaseService;
+    protected $databaseService;
     
     /**
      * TYPO3 Object Manager
      * 
-     * @since 6.2.0
+     * @since 7.6.1
      * @var \TYPO3\CMS\Extbase\Object\ObjectManager
      * @inject
      * @access protected
      */
-    protected $ObjectManager;
+    protected $objectManager;
     
     /**
      * Head domain buffer
@@ -138,7 +137,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
                 // Traverse registered domains
             foreach($this->configuration as $host => &$conf) {
                 
-                if(!$domainConf = $this->DatabaseService->getDomainAssignments()[$host]) {
+                if(!$domainConf = $this->getDatabaseService()->getDomainAssignments()[$host]) {
                     
                     continue;
                     
@@ -166,6 +165,44 @@ class RealurlConfigurator implements ConfiguratorInterface {
         $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = $this->configuration;
 
     }
+
+
+
+
+
+    /**
+     * Returns the Database Service.
+     *
+     * @since 7.6.1
+     * @return \DanielHaring\Crystalis\Service\DatabaseService|object The Database Service
+     */
+    public function getDatabaseService() {
+
+        if($this->databaseService === \NULL) {
+
+            $this->databaseService = GeneralUtility::makeInstance(DatabaseService::class);
+
+        }
+
+        return $this->databaseService;
+
+    }
+
+
+
+
+
+    /**
+     * Sets the Database Service.
+     *
+     * @since 7.6.1
+     * @param \DanielHaring\Crystalis\Service\DatabaseService $databaseService The Database Service to set
+     */
+    public function setDatabaseService(DatabaseService $databaseService) {
+
+        $this->databaseService = $databaseService;
+
+    }
     
     
     
@@ -180,8 +217,8 @@ class RealurlConfigurator implements ConfiguratorInterface {
      */
     protected function Cache() {
 
-        return $this->CacheManager->hasCache(self::CACHE_IDENTIFIER) 
-                ? $this->CacheManager->getCache(self::CACHE_IDENTIFIER) 
+        return $this->cacheManager->hasCache(self::CACHE_IDENTIFIER)
+                ? $this->cacheManager->getCache(self::CACHE_IDENTIFIER)
                 : GeneralUtility::makeInstance(CacheFactory::class)->create(
                         self::CACHE_IDENTIFIER, 
                         VariableFrontend::class,
@@ -226,10 +263,10 @@ class RealurlConfigurator implements ConfiguratorInterface {
                     \array_map(
                             'strtolower', 
                             \array_column(
-                                    $this->DatabaseService->getSystemLanguages(), 
+                                    $this->getDatabaseService()->getSystemLanguages(),
                                     'isoCode')), 
                     \array_column(
-                            $this->DatabaseService->getSystemLanguages(), 
+                            $this->getDatabaseService()->getSystemLanguages(),
                             'uid'))
         ];
         
@@ -238,7 +275,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
                 $RealUrlConf, 
                 \array_fill_keys(
                         \array_keys(\array_diff_key(
-                                $this->DatabaseService->getDomainAssignments(), 
+                                $this->getDatabaseService()->getDomainAssignments(),
                                 $RealUrlConf)), 
                         $RealUrlConf['localhost']));
         
@@ -257,7 +294,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
      */
     protected function completePreVars($host) {
         
-        $domainConf = $this->DatabaseService->getDomainAssignments()[$host];
+        $domainConf = $this->getDatabaseService()->getDomainAssignments()[$host];
         $index = $this->determineLangPreVarsIndex($this->configuration[$host]);
         
         if(!!\count(\array_filter($domainConf['languages'], function($lang) use ($domainConf) {
@@ -345,7 +382,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
                     break;
                 }
                 
-                $Generator = $this->ObjectManager->get('tx_realurl_autoconfgen');
+                $Generator = $this->objectManager->get('tx_realurl_autoconfgen');
                 $Generator->generateConfiguration();
                 
             }
@@ -380,7 +417,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
                 
                 return $domain;
                 
-            }, \array_filter($this->DatabaseService->getDomainAssignments(), function($domain) {
+            }, \array_filter($this->getDatabaseService()->getDomainAssignments(), function($domain) {
                 
                 return MathUtility::canBeInterpretedAsInteger($domain['initialLanguage']);
                 
