@@ -67,11 +67,19 @@ class RealurlConfigurator implements ConfiguratorInterface {
      * @since 6.2.0
      */
     const CACHE_KEY = 'realurl';
-    
-    
-    
-    
-    
+
+
+
+
+
+    /**
+     * Determines if the TYPO3 Cache Manager should be used.
+     *
+     * @since 7.6.1
+     * @var boolean
+     */
+    protected $cache = \TRUE;
+
     /**
      * TYPO3 Cache Manager.
      * 
@@ -119,7 +127,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
      */
     public function configure() {
         
-        if(!$this->getCache()->has(self::CACHE_KEY)) {
+        if(!$this->isCacheEnabled() || !$this->getCache()->has(self::CACHE_KEY)) {
             
             $this->configuration = $this->computeBaseConfiguration();
             
@@ -143,7 +151,11 @@ class RealurlConfigurator implements ConfiguratorInterface {
                 
             }
             
-            $this->getCache()->set(self::CACHE_KEY, $this->configuration);
+            if($this->isCacheEnabled()) {
+
+                $this->getCache()->set(self::CACHE_KEY, $this->configuration);
+
+            }
             
         } else {
             
@@ -190,6 +202,52 @@ class RealurlConfigurator implements ConfiguratorInterface {
     public function setDatabaseService(DatabaseService $databaseService) {
 
         $this->databaseService = $databaseService;
+
+    }
+
+
+
+
+
+    /**
+     * Checks whether the Cache Manager should be used for storing configuration.
+     *
+     * @since 7.6.1
+     * @return boolean TRUE if caching should be performed, FALSE otherwise
+     */
+    public function isCacheEnabled() {
+
+        return !!$this->cache;
+
+    }
+
+
+
+
+
+    /**
+     * Enables caching.
+     *
+     * @since 7.6.1
+     */
+    public function enableCache() {
+
+        $this->cache = \TRUE;
+
+    }
+
+
+
+
+
+    /**
+     * Disables caching.
+     *
+     * @since 7.6.1
+     */
+    public function disableCache() {
+
+        $this->cache = \FALSE;
 
     }
 
