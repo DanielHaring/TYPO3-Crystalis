@@ -104,6 +104,14 @@ class RealurlConfigurator implements ConfiguratorInterface {
      * @var \DanielHaring\Crystalis\Service\DatabaseService
      */
     protected $databaseService;
+
+    /**
+     * Determines of the RealURL auto-configuration may be used.
+     *
+     * @since 7.6.1
+     * @var boolean
+     */
+    protected $realurlAutoconf;
     
     /**
      * Head domain buffer
@@ -294,6 +302,77 @@ class RealurlConfigurator implements ConfiguratorInterface {
                         SimpleFileBackend::class);
         
     }
+
+
+
+
+
+    /**
+     * Checks whether the RealURL auto-configuration may be used.
+     *
+     * @since 7.6.1
+     * @return boolean TRUE if auto-configuration may be used, FALSE otherwise
+     */
+    public function isRealurlAutoconfEnabled() {
+
+        if($this->realurlAutoconf === \NULL) {
+
+            $this->detectRealurlAutoconf();
+
+        }
+
+        return !!$this->realurlAutoconf;
+
+    }
+
+
+
+
+
+    /**
+     * Allows usage of the RealURL auto-configuration.
+     *
+     * @since 7.6.1
+     */
+    public function enableRealurlAutoconf() {
+
+        $this->realurlAutoconf = \TRUE;
+
+    }
+
+
+
+
+
+    /**
+     * Disallows usage of the RealURL auto-configuration.
+     *
+     * @since 7.6.1
+     */
+    public function disableRealurlAutoconf() {
+
+        $this->realurlAutoconf = \FALSE;
+
+    }
+
+
+
+
+
+    /**
+     * Decides if the RealURL auto-configuration may be used.
+     *
+     * @since 7.6.1
+     */
+    public function detectRealurlAutoconf() {
+
+        $RealUrlExtConf = (array)@\unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['realurl']);
+
+        !!$RealUrlExtConf['enableAutoConf']
+            ? $this->enableRealurlAutoconf()
+            : $this->disableRealurlAutoconf();
+
+    }
     
     
     
@@ -441,9 +520,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
      */
     protected function getRealurlConfiguration() {
         
-        $RealUrlExtConf = (array)@\unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['realurl']);
-        
-        if(empty($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']) && !!$RealUrlExtConf['enableAutoConf']) {
+        if(empty($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']) && $this->isRealurlAutoconfEnabled()) {
             
             while(!@include_once(\PATH_site . \TX_REALURL_AUTOCONF_FILE)) {
                 
