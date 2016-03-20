@@ -31,6 +31,7 @@ namespace DanielHaring\Crystalis\Configuration\UrlRewriting;
 use DanielHaring\Crystalis\Service\DatabaseService;
 use TYPO3\CMS\Core\Cache\Backend\SimpleFileBackend;
 use TYPO3\CMS\Core\Cache\CacheFactory;
+use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Cache\Frontend\VariableFrontend;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MathUtility;
@@ -76,8 +77,6 @@ class RealurlConfigurator implements ConfiguratorInterface {
      * 
      * @since 7.6.1
      * @var \TYPO3\CMS\Core\Cache\CacheManager
-     * @inject
-     * @access protected
      */
     protected $cacheManager;
     
@@ -130,7 +129,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
      */
     public function configure() {
         
-        if(!$this->Cache()->has(self::CACHE_KEY)) {
+        if(!$this->getCache()->has(self::CACHE_KEY)) {
             
             $this->configuration = $this->computeBaseConfiguration();
             
@@ -154,11 +153,11 @@ class RealurlConfigurator implements ConfiguratorInterface {
                 
             }
             
-            $this->Cache()->set(self::CACHE_KEY, $this->configuration);
+            $this->getCache()->set(self::CACHE_KEY, $this->configuration);
             
         } else {
             
-            $this->configuration = $this->Cache()->get(self::CACHE_KEY);
+            $this->configuration = $this->getCache()->get(self::CACHE_KEY);
             
         }
         
@@ -178,7 +177,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
      */
     public function getDatabaseService() {
 
-        if($this->databaseService === \NULL) {
+        if(!$this->databaseService instanceof DatabaseService) {
 
             $this->databaseService = GeneralUtility::makeInstance(DatabaseService::class);
 
@@ -203,6 +202,28 @@ class RealurlConfigurator implements ConfiguratorInterface {
         $this->databaseService = $databaseService;
 
     }
+
+
+
+
+
+    /**
+     * Returns the TYPO3 Cache Manager.
+     *
+     * @since 7.6.1
+     * @return \TYPO3\CMS\Core\Cache\CacheManager The Cache Manager
+     */
+    public function getCacheManager() {
+
+        if(!$this->cacheManager instanceof CacheManager) {
+
+            $this->cacheManager = GeneralUtility::makeInstance(CacheManager::class);
+
+        }
+
+        return $this->cacheManager;
+
+    }
     
     
     
@@ -215,10 +236,10 @@ class RealurlConfigurator implements ConfiguratorInterface {
      * @return \TYPO3\CMS\Core\Cache\Frontend\FrontendInterface|\TYPO3\CMS\Core\Cache\Backend\BackendInterface Local cache manager
      * @access protected
      */
-    protected function Cache() {
+    public function getCache() {
 
-        return $this->cacheManager->hasCache(self::CACHE_IDENTIFIER)
-                ? $this->cacheManager->getCache(self::CACHE_IDENTIFIER)
+        return $this->getCacheManager()->hasCache(self::CACHE_IDENTIFIER)
+                ? $this->getCacheManager()->getCache(self::CACHE_IDENTIFIER)
                 : GeneralUtility::makeInstance(CacheFactory::class)->create(
                         self::CACHE_IDENTIFIER, 
                         VariableFrontend::class,

@@ -66,7 +66,6 @@ class LanguageService implements SingletonInterface {
      * 
      * @since 7.5.0
      * @var \DanielHaring\Crystalis\Service\IsoCodeService
-     * @access protected
      */
     protected $isoCodeService;
     
@@ -75,7 +74,6 @@ class LanguageService implements SingletonInterface {
      * 
      * @since 7.2.0
      * @var array
-     * @access protected
      */
     protected $languages;
 
@@ -93,7 +91,6 @@ class LanguageService implements SingletonInterface {
      * 
      * @since 6.2.0
      * @var string
-     * @access private
      */
     private $pageTSConfig;
     
@@ -102,7 +99,6 @@ class LanguageService implements SingletonInterface {
      * 
      * @since 6.2.0
      * @var string
-     * @access private
      */
     private $typoScriptSetup;
     
@@ -247,12 +243,9 @@ class LanguageService implements SingletonInterface {
      */
     public function prepareUrlRewriting() {
 
-        /* @var $objectManager \TYPO3\CMS\Extbase\Object\ObjectManager */
-        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-
         foreach($this->getRewriteConfigurators() as $classRef) {
 
-            $objectManager->get($classRef)->configure();
+            GeneralUtility::makeInstance($classRef)->configure();
 
         }
         

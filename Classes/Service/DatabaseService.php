@@ -71,7 +71,7 @@ class DatabaseService implements SingletonInterface {
      * @since 6.2.0
      * @param boolean $noBuffer (Optional) If set to TRUE the result won't be buffered. This may be useful if you 
      *                          are certain that this specific call won't be done additional times.
-     * @return array Retrieved assignements
+     * @return array Retrieved assignments
      * @access public
      */
     public function getDomainAssignments($noBuffer = \FALSE) {
