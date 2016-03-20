@@ -70,6 +70,47 @@ class ExtensionManagerConfigurationUtilityTest extends UnitTestCase {
     /**
      * @test
      */
+    public function buildLanguageSelectorRendersCorrectOutput() {
+
+        $renderedString = $this->subject->buildLanguageSelector([
+            'fieldValue' => 'en',
+            'fieldName' => 'foo[bar][baz]']);
+
+        $this->assertStringMatchesFormat('<select name="foo[bar][baz]" size="1">%S</select>', $renderedString);
+        $this->assertContains('<option value="en" selected="selected">', $renderedString);
+        $this->assertContains(
+            'LLL:EXT:core/Resources/Private/Language/db.xlf:sys_language.language_isocode.en',
+            $renderedString);
+
+    }
+
+
+
+
+
+    /**
+     * @test
+     */
+    public function checkLanguageServiceRendersValidOutput() {
+
+        $renderedString = $this->subject->checkLanguageService([
+            'fieldName' => 'foo[bar][baz]'
+        ]);
+
+        $this->assertStringMatchesFormat(
+            '<div class="panel panel-%s"><div class="panel-heading">%s</div><div class="panel-body">%s'
+                . '<input type="hidden" name="foo[bar][baz]" value="1"></div></div>',
+            $renderedString);
+
+    }
+
+
+
+
+
+    /**
+     * @test
+     */
     public function getLanguageServiceReturnsCorrectInstance() {
 
         $this->assertInstanceOf(LanguageService::class, $this->subject->getLanguageService());
