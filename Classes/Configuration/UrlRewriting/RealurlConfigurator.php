@@ -342,16 +342,27 @@ class RealurlConfigurator implements ConfiguratorInterface {
             
             while(!@include_once(\PATH_site . \TX_REALURL_AUTOCONF_FILE)) {
                 
-                if(isset($Generator)) {
+                if(isset($generator)) {
                     break;
                 }
-                
-                $Generator = $this->ObjectManager->get('tx_realurl_autoconfgen');
-                $Generator->generateConfiguration();
+
+                if(\version_compare(ExtensionManagementUtility::getExtensionVersion('realurl'), '2.0.0', '>=')) {
+
+                    /* @var $generator \DmitryDulepov\Realurl\Configuration\AutomaticConfigurator */
+                    $generator = GeneralUtility::makeInstance(AutomaticConfigurator::class);
+                    $generator->configure();
+
+                } else {
+
+                    /* @var $generator \tx_realurl_autoconfgen */
+                    $generator = GeneralUtility::makeInstance('tx_realurl_autoconfgen');
+                    $generator->generateConfiguration();
+
+                }
                 
             }
             
-            unset($Generator);
+            unset($generator);
             
         }
         
