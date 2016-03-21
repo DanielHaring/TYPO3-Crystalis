@@ -2,8 +2,7 @@
 
 namespace DanielHaring\Crystalis\Configuration\UrlRewriting;
 
-/*
- * **************************************************************
+/**
  * Copyright notice
  *
  * (c) 2015 Daniel Haring <development@haring.co.at>
@@ -29,10 +28,12 @@ namespace DanielHaring\Crystalis\Configuration\UrlRewriting;
  */
 
 use DanielHaring\Crystalis\Service\DatabaseService;
+use DmitryDulepov\Realurl\Configuration\AutomaticConfigurator;
 use TYPO3\CMS\Core\Cache\Backend\SimpleFileBackend;
 use TYPO3\CMS\Core\Cache\CacheFactory;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Cache\Frontend\VariableFrontend;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MathUtility;
 
@@ -527,10 +528,20 @@ class RealurlConfigurator implements ConfiguratorInterface {
                 if(isset($generator)) {
                     break;
                 }
-                
-                /* @var $generator \tx_realurl_autoconfgen */
-                $generator = GeneralUtility::makeInstance('tx_realurl_autoconfgen');
-                $generator->generateConfiguration();
+
+                if(\version_compare(ExtensionManagementUtility::getExtensionVersion('realurl'), '2.0.0', '>=')) {
+
+                    /* @var $generator \DmitryDulepov\Realurl\Configuration\AutomaticConfigurator */
+                    $generator = GeneralUtility::makeInstance(AutomaticConfigurator::class);
+                    $generator->configure();
+
+                } else {
+
+                    /* @var $generator \tx_realurl_autoconfgen */
+                    $generator = GeneralUtility::makeInstance('tx_realurl_autoconfgen');
+                    $generator->generateConfiguration();
+
+                }
                 
             }
             
