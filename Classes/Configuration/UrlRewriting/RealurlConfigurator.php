@@ -5,7 +5,7 @@ namespace DanielHaring\Crystalis\Configuration\UrlRewriting;
 /**
  * Copyright notice
  *
- * (c) 2015 Daniel Haring <development@haring.co.at>
+ * (c) 2016 Daniel Haring <development@haring.co.at>
  *
  * All rights reserved
  *
@@ -24,7 +24,6 @@ namespace DanielHaring\Crystalis\Configuration\UrlRewriting;
  * GNU General Public License for more details.
  *
  * This copyright notice MUST APPEAR in all copies of the script!
- * **************************************************************
  */
 
 use DanielHaring\Crystalis\Service\DatabaseService;

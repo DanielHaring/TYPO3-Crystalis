@@ -1,10 +1,9 @@
 <?php
 
-/* 
- * **************************************************************
+/**
  * Copyright notice
  *
- * (c) 2015 Daniel Haring <development@haring.co.at>
+ * (c) 2016 Daniel Haring <development@haring.co.at>
  *
  * All rights reserved
  *
@@ -23,7 +22,6 @@
  * GNU General Public License for more details.
  *
  * This copyright notice MUST APPEAR in all copies of the script!
- * **************************************************************
  */
 
 \defined('TYPO3_MODE') or die('Access denied.');
