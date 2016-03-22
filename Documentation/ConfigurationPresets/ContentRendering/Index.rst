@@ -36,14 +36,16 @@ an *"Extension Template"*.
    :align: left
    :alt: Edit the template of your site
 
-Next ensure function *"Info/Modify"* **(1)** is selected and follow *"Edit the whole template record"* **(2)** at the bottom.
+Next ensure function *"Info/Modify"* **(1)** is selected and follow *"Edit the whole template record"* **(2)** at the
+bottom.
 
 .. figure:: ../../Images/ContentRendering/IncludeStatic.jpg
    :align: left
    :alt: Include render template
 
-Switch to *"Includes"* tab **(3)** and add item *"Frontend Rendering (crystalis)"* to *"Selected Items"* within *"Include 
-Static (from extensions)"* **(4)** section. After saving your changes, the render setup will take up employment.
+Switch to *"Includes"* tab **(3)** and add item *"Frontend Rendering (crystalis)"* to *"Selected Items"* within
+*"Include Static (from extensions)"* **(4)** section. After saving your changes, the render setup will take up
+employment.
 
 As soon as this had happened, Crystalis needs to know about the head domain of the respective page. Please see 
 :ref:`preset-rendering-domains`.
@@ -54,16 +56,16 @@ As soon as this had happened, Crystalis needs to know about the head domain of t
 Synergy with CSS Styled Content
 """""""""""""""""""""""""""""""
 
-As mentioned before, the whole content rendering logic is intended to completely replace *CSS Styled Content*. If you 
-do not make use of this system extension any more (as recommended) you can savely uninstall it to not waste valuable 
+As mentioned before, the whole content rendering logic is intended to completely replace *CSS Styled Content*. If you do
+not make use of this system extension any more (as recommended) you can safely uninstall it to not waste valuable
 resources.
 
 Anyways, if you still are contingent to this system extension, Crystalis runs fine beside *CSS Styled Content*. But keep 
 in mind that both content rendering setups are clearing previous ones at the beginning – meaning you can't effectively 
 run both content rendering setups simultaneously.
 
-To deactivate *CSS Styled Content* simply head to Extension Manager module, search for *CSS Styled Content* and click the 
-minus-button next to it. Please do *not* phisically remove this extension as this may lead to issues when trying to 
+To deactivate *CSS Styled Content* simply head to Extension Manager module, search for *CSS Styled Content* and click
+the minus-button next to it. Please do *not* physically remove this extension as this may lead to issues when trying to
 update the TYPO3 core later on.
 
 
@@ -72,13 +74,13 @@ update the TYPO3 core later on.
 Set up HTML doctype
 """""""""""""""""""
 
-In some cases Crystalis needs to react to the doctype of your website. For example it does not make sense to allow the 
-HTML5 Video element when XHTML 1.0 is used. As you may presume, the doctype also affects content rendering – as HTML5 
-provides some great ways to improve semantics of your site.
+In some cases Crystalis needs to react to the document type of your website. For example it does not make sense to allow
+the HTML5 Video element when XHTML 1.0 is used. As you may presume, the document type also affects content rendering –
+as HTML5 provides some great ways to improve semantics of your site.
 
-If not specified, Crystalis expects the doctype to be *"HTML5"*. To switch to another doctype, head to Extension Manager 
-module, select *Crystalis* and change *"HTML Doctype"* inside *"Frontend Rendering"* tab. As of now, Crystalis does support 
-HTML5 and XHTML 1.0 Strict. This list may be expanded in future releases.
+If not specified, Crystalis expects the document type to be *"HTML5"*. To switch to another type, head to Extension
+Manager module, select *Crystalis* and change *"HTML Doctype"* inside *"Frontend Rendering"* tab. As of now, Crystalis
+does support HTML5 and XHTML 1.0 Strict. This list may be expanded in future releases.
 
 
 .. _preset-rendering-domains:
