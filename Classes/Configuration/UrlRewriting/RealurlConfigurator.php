@@ -521,6 +521,9 @@ class RealurlConfigurator implements ConfiguratorInterface {
     protected function getRealurlConfiguration() {
         
         if(empty($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']) && $this->isRealurlAutoconfEnabled()) {
+
+                // Ensure the Database Connection is available for RealURL
+            \DanielHaring\Crystalis\Utility\GeneralUtility::obtainDatabaseConnection();
             
             while(!@include_once(\PATH_site . \TX_REALURL_AUTOCONF_FILE)) {
                 
