@@ -121,8 +121,10 @@ class GeneralUtility {
         }
         
         $DatabaseConnection->initialize();
+
+        $GLOBALS['TYPO3_DB'] = $DatabaseConnection;
         
-        return $DatabaseConnection;
+        return $GLOBALS['TYPO3_DB'];
         
     }
     
