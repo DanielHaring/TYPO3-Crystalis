@@ -162,3 +162,20 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php'][
 
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['textpic'] = 
         \DanielHaring\Crystalis\Hooks\PageLayoutView\TextpicPreviewRenderer::class;
+
+
+
+
+
+    // XClass
+if(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('realurl')
+    && \version_compare(
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getExtensionVersion('realurl'),
+        '2.0.0',
+        '>=')) {
+
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][\DmitryDulepov\Realurl\Configuration\ConfigurationReader::class] = [
+        'className' => \DanielHaring\Crystalis\Xclass\ConfigurationReader::class
+    ];
+
+}
