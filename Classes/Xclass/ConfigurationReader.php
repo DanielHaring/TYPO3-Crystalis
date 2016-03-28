@@ -27,13 +27,15 @@ namespace DanielHaring\Crystalis\Xclass;
  */
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\MathUtility;
+use TYPO3\CMS\Frontend\Page\PageRepository;
 
 
 
 
 
 /**
- * Description of ConfigurationReader
+ * Extended Configuration Reader.
  *
  * @since 8.0.0
  * @author Daniel Haring <development@haring.co.at>
@@ -48,6 +50,7 @@ class ConfigurationReader extends \DmitryDulepov\Realurl\Configuration\Configura
 
     /**
      * Sets the current host name.
+     * Fixes a bug where the host name wasn't resolved for foreign domains.
      */
     protected function setHostnames() {
 
@@ -55,11 +58,23 @@ class ConfigurationReader extends \DmitryDulepov\Realurl\Configuration\Configura
 
         if(isset($this->urlParameters['id'])) {
 
+            $pageIdentifier = $this->urlParameters['id'];
+
+            /* @var $pageRepository \TYPO3\CMS\Frontend\Page\PageRepository */
+            $pageRepository = GeneralUtility::makeInstance(PageRepository::class);
+
+            if(!MathUtility::canBeInterpretedAsInteger($pageIdentifier)) {
+
+                $pageIdentifier = $this->resolvePageAlias($pageIdentifier, $pageRepository);
+
+            }
+
             /* @var $rootLineUtility \TYPO3\CMS\Core\Utility\RootlineUtility */
             $rootLineUtility = GeneralUtility::makeInstance(
                 'TYPO3\\CMS\\Core\\Utility\\RootlineUtility',
-                $this->urlParameters['id'],
-                $this->urlParameters['MP'] ?: '');
+                $pageIdentifier,
+                $this->urlParameters['MP'] ?: '',
+                $pageRepository);
 
             $rootline = $rootLineUtility->get();
 
@@ -110,6 +125,30 @@ class ConfigurationReader extends \DmitryDulepov\Realurl\Configuration\Configura
     protected function getDatabaseConnection() {
 
         return $GLOBALS['TYPO3_DB'];
+
+    }
+
+
+
+
+
+    /**
+     * Resolves the page alias and returns its respective identifier.
+     *
+     * @param string $pageAlias The alias of the page to look up
+     * @param \TYPO3\CMS\Frontend\Page\PageRepository $pageRepository The Page Repository used for lookup
+     * @return integer The identifier of the page
+     */
+    protected function resolvePageAlias($pageAlias, PageRepository $pageRepository) {
+
+        return \key($this->getDatabaseConnection()->exec_SELECTgetRows(
+            'uid',
+            'pages',
+            'alias=\'' . (string)$pageAlias . '\'' . $pageRepository->enableFields('pages'),
+            '',
+            '',
+            '1',
+            'uid'));
 
     }
 
