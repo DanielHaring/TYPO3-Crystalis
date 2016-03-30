@@ -378,10 +378,10 @@ tt_content.image{
 
         stdWrap{
 
-            required = 1
-
             innerWrap = |
             innerWrap{
+
+                fieldRequired = image
 
                 override = |</div>
                 override{
