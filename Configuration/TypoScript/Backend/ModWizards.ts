@@ -8,14 +8,6 @@ mod{
 
             wizardItems{
 
-                formStorage < .forms
-                specialStorage < .special
-                pluginsStorage < .plugins
-
-                forms >
-                special >
-                plugins >
-
                 common{
 
                     header = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common
@@ -82,10 +74,10 @@ mod{
 
                 }
 
-                special < .specialStorage
                 special{
 
                     header = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special
+                    adter = common
                     show := addToList(uploads,menu,html,div,shortcut)
 
                     elements{
@@ -140,18 +132,18 @@ mod{
 
                 }
 
-                forms < .formStorage
                 forms{
 
                     header = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:forms
+                    after = special
 
                 }
 
-                plugins < .pluginStorage
                 plugins{
 
                     header = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:plugins
                     show = *
+                    after = forms
 
                     elements{
 
@@ -167,10 +159,6 @@ mod{
                     }
 
                 }
-
-                formStorage >
-                specialStorage >
-                pluginsStorage >
 
             }
 
