@@ -215,7 +215,7 @@ class LanguageService implements SingletonInterface {
                 
                 $pageTs .= 'mod.SHARED.defaultLanguageFlag = ' . (isset($defaultLanguage['locale']) 
                         ? \strtolower(\end(\explode('_', $defaultLanguage['locale']))) 
-                        : \strtolower($defaultLanguage['isoCode'])) . '.gif' 
+                        : \strtolower($defaultLanguage['isoCode']))
                     . chr(10) . 'mod.SHARED.defaultLanguageLabel = ' . $LanguageService->sL($defaultLanguage['name']);
                 
             }
