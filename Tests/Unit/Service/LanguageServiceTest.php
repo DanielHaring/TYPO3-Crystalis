@@ -238,9 +238,9 @@ class LanguageServiceTest extends UnitTestCase {
 
         $renderedString = $this->subject->getPageTSConfig();
 
-        $this->assertContains('mod.SHARED.defaultLanguageFlag = gb.gif', $renderedString);
+        $this->assertContains('mod.SHARED.defaultLanguageFlag = gb', $renderedString);
         $this->assertContains('mod.SHARED.defaultLanguageLabel = English', $renderedString);
-        $this->assertNotContains('mod.SHARED.defaultLanguageFlag = de.gif', $renderedString);
+        $this->assertNotContains('mod.SHARED.defaultLanguageFlag = de', $renderedString);
 
     }
 
