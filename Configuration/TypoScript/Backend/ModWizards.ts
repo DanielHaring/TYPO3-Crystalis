@@ -77,7 +77,7 @@ mod{
                 special{
 
                     header = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special
-                    adter = common
+                    after = common
                     show := addToList(uploads,menu,html,div,shortcut)
 
                     elements{
