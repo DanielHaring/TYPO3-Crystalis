@@ -48,7 +48,7 @@ class GeneralUtility {
     
     /**
      * Returns the TYPO3 database connection or establishes a new one if it doesn't exist.
-     * Basically a static version of \TYPO3\CMS\Core\Core->InitializeTypo3DbGlobal.
+     * Basically a static version of \TYPO3\CMS\Core\Core\Bootstrap->InitializeTypo3DbGlobal.
      * 
      * @since 6.2.0
      * @return \TYPO3\CMS\Core\Database\DatabaseConnection The TYPO3 database object
@@ -65,65 +65,75 @@ class GeneralUtility {
 
         }
         
-        /** @var $DatabaseConnection \TYPO3\CMS\Core\Database\DatabaseConnection */
-        $DatabaseConnection = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance($fqcn);
-        $DatabaseConnection->setDatabaseName(\TYPO3_db);
-        $DatabaseConnection->setDatabaseUsername(\TYPO3_db_username);
-        $DatabaseConnection->setDatabasePassword(\TYPO3_db_password);
+        /** @var $databaseConnection \TYPO3\CMS\Core\Database\DatabaseConnection */
+        $databaseConnection = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance($fqcn);
+        $databaseConnection->setDatabaseName(
+            $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['dbname'] ?? '');
+        $databaseConnection->setDatabaseUsername(
+            $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['user'] ?? '');
+        $databaseConnection->setDatabasePassword(
+            $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['password'] ?? '');
         
-        $databaseHost = \TYPO3_db_host;
+        $databaseHost = $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['host'] ?? '';
         
-        if(isset($GLOBALS['TYPO3_CONF_VARS']['DB']['port'])) {
+        if(isset($GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['port'])) {
             
-            $DatabaseConnection->setDatabasePort($GLOBALS['TYPO3_CONF_VARS']['DB']['port']);
+            $databaseConnection->setDatabasePort(
+                $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['port']);
             
         } elseif (\strpos($databaseHost, ':') > 0) {
             
             /**
-             * @todo Monitor if something is changed here in versions after TYPO3 CMS 6.2.5
+             * @todo Monitor if something is changed here in versions after TYPO3 CMS 8.1.0
              */
             list($databaseHost, $databasePort) = explode(':', $databaseHost);
-            $DatabaseConnection->setDatabasePort($databasePort);
+            $databaseConnection->setDatabasePort($databasePort);
             
         }
         
-        if(isset($GLOBALS['TYPO3_CONF_VARS']['DB']['socket'])) {
+        if(isset($GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['unix_socket'])) {
             
-            $DatabaseConnection->setDatabaseSocket($GLOBALS['TYPO3_CONF_VARS']['DB']['socket']);
-            
-        }
-        
-        $DatabaseConnection->setDatabaseHost($databaseHost);
-        
-        if(isset($GLOBALS['TYPO3_CONF_VARS']['SYS']['no_pconnect']) 
-                && !$GLOBALS['TYPO3_CONF_VARS']['SYS']['no_pconnect']) {
-            
-            $DatabaseConnection->setPersistentDatabaseConnection(\TRUE);
+            $databaseConnection->setDatabaseSocket(
+                $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['unix_socket']);
             
         }
         
-        if(!!$GLOBALS['TYPO3_CONF_VARS']['SYS']['dbClientCompress'] 
-                && ($databaseHost === 'localhost' || $databaseHost === '127.0.0.1' || $databaseHost === '::1')) {
-            
-            $DatabaseConnection->setConnectionCompression(\TRUE);
-            
-        }
-        
-        if(!empty($GLOBALS['TYPO3_CONF_VARS']['SYS']['setDBinit'])) {
-            
-            $cmd = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(
-                    \LF, 
-                    \str_replace('\' . LF . \'', \LF, $GLOBALS['TYPO3_CONF_VARS']['SYS']['setDBinit']), 
-                    \TRUE);
-            
-            $DatabaseConnection->setInitializeCommandsAfterConnect($cmd);
-            
-        }
-        
-        $DatabaseConnection->initialize();
+        $databaseConnection->setDatabaseHost($databaseHost);
 
-        $GLOBALS['TYPO3_DB'] = $DatabaseConnection;
-        
+        $databaseConnection->debugOutput = $GLOBALS['TYPO3_CONF_VARS']['SYS']['sqlDebug'];
+
+        if(isset($GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['persistentConnection'])
+            && $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['persistentConnection']) {
+
+            $databaseConnection->setPersistentDatabaseConnection(\TRUE);
+
+        }
+
+        if(isset($GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['driverOptions'])
+            && $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['driverOptions'] & \MYSQLI_CLIENT_COMPRESS
+            && !\in_array($databaseHost, ['localhost', '127.0.0.1', '::1'], \TRUE)) {
+
+            $databaseConnection->setConnectionCompression(\TRUE);
+
+        }
+
+        if(!empty($GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['initCommands'])) {
+
+            $commandsAfterConnect = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(
+                \LF,
+                \str_replace(
+                    '\' . LF . \'',
+                    \LF,
+                    $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['initCommands']),
+                \TRUE);
+
+            $databaseConnection->setInitializeCommandsAfterConnect($commandsAfterConnect);
+
+        }
+
+        $GLOBALS['TYPO3_DB'] = $databaseConnection;
+        $GLOBALS['TYPO3_DB']->initialize();
+
         return $GLOBALS['TYPO3_DB'];
         
     }
