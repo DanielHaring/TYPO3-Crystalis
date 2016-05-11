@@ -78,13 +78,6 @@ if(
     
 }
 
-if(!$_EXTCONF['disableSeo'] || !$_EXTCONF) {
-    
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(
-            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:crystalis/Configuration/TypoScript/Page/Seo.ts">');
-    
-}
-
 
 
 

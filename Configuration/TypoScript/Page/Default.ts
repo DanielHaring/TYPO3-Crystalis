@@ -13,8 +13,16 @@ page{
         inlineStyle2TempFile = 1
         spamProtectEmailAddresses = ascii
         baseURL = {$server.scheme}://{$server.host}{$server.port}{$server.path}
-        noPageTitle = 2
         tx_realurl_enable = 1
+        pageTitleFirst = 1
+
+        pageTitle{
+
+            override{
+                field = tx_crystalis_pagetitle
+            }
+
+        }
 
     }
 
@@ -56,95 +64,51 @@ page{
 
     headerData{
 
-        # Page Title
-        20 = COA
-        20{
+        # Canonical tag
+        10 = TEXT
+        10{
 
-            # Current page
-            10 = TEXT
-            10{
+            field = tx_crystalis_canonical
+            required = 1
 
-                if{
+            stdWrap{
 
-                    isTrue{
-                        data = LEVEL:1
+                setContentToCurrent = 1
+
+                typolink{
+
+                    parameter{
+                        current = 1
                     }
 
-                }
+                    returnLast = url
+                    forceAbsoluteUrl = 1
 
-                field = title
-                trim = 1
-                htmlSpecialChars = 1
-                wrap = |:
-
-                override{
-                    field = subtitle
-                }
-
-                append = TEXT
-                append{
-                    char = 32
                 }
 
             }
 
-            # Website title
-            20 = TEXT
-            20{
+            innerWrap = <link rel="canonical" href="|">
+            innerWrap{
 
-                data = LEVELFIELD:0,nav_title
-                trim = 1
-                htmlSpecialChars = 1
-
-                append = TEXT
-                append{
+                override = <link rel="canonical" href="|" />
+                override{
 
                     if{
 
-                        isFalse{
-                            data = LEVEL:1
+                        isTrue{
+                            data = TSFE:xhtmlDoctype
                         }
 
                     }
 
-                    char = 32
-
-                    append = TEXT
-                    append{
-                        value = -
-                    }
-
                 }
 
             }
 
-            # Website claim
-            30 = TEXT
-            30{
-
-                if{
-
-                    isFalse{
-                        data = LEVEL:1
-                    }
-
-                }
-
-                data = LEVELFIELD:0,subtitle
-                trim = 1
-                htmlSpecialChars = 1
-
-                prepend = TEXT
-                prepend{
-                    char = 32
-                }
-
-            }
-
-            stdWrap{
-
-                wrap = <title>|</title>
-
+            append = TEXT
+            append{
+                char = 10
             }
 
         }
