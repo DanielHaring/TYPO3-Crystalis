@@ -29,7 +29,6 @@ namespace DanielHaring\Crystalis\Configuration\UrlRewriting;
 use DanielHaring\Crystalis\Service\DatabaseService;
 use DmitryDulepov\Realurl\Configuration\AutomaticConfigurator;
 use TYPO3\CMS\Core\Cache\Backend\SimpleFileBackend;
-use TYPO3\CMS\Core\Cache\CacheFactory;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Cache\Frontend\VariableFrontend;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
@@ -275,6 +274,15 @@ class RealurlConfigurator implements ConfiguratorInterface {
 
             $this->cacheManager = GeneralUtility::makeInstance(CacheManager::class);
 
+            $this->cacheManager->setCacheConfigurations([
+                self::CACHE_IDENTIFIER => [
+                    'frontend' => VariableFrontend::class,
+                    'backend' => SimpleFileBackend::class,
+                    'options' => [],
+                    'groups' => ['all']
+                ]
+            ]);
+
         }
 
         return $this->cacheManager;
@@ -294,12 +302,7 @@ class RealurlConfigurator implements ConfiguratorInterface {
      */
     public function getCache() {
 
-        return $this->getCacheManager()->hasCache(self::CACHE_IDENTIFIER)
-                ? $this->getCacheManager()->getCache(self::CACHE_IDENTIFIER)
-                : GeneralUtility::makeInstance(CacheFactory::class)->create(
-                        self::CACHE_IDENTIFIER, 
-                        VariableFrontend::class,
-                        SimpleFileBackend::class);
+        return $this->getCacheManager()->getCache(self::CACHE_IDENTIFIER);
         
     }
 
