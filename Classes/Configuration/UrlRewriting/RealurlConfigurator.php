@@ -462,7 +462,8 @@ class RealurlConfigurator implements ConfiguratorInterface {
                         \array_column($domainConf['languages'], 'uid'))
             ];
             
-        } elseif(isset($this->configuration[$host]['preVars'][$index])) {
+        } elseif(isset($this->configuration[$host]['preVars'][$index])
+            && !@\unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['crystalis'])['preservePreVars']) {
             
             unset($this->configuration[$host]['preVars'][$index]);
             

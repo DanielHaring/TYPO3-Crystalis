@@ -94,6 +94,9 @@
             <trans-unit id="extconf.label_EnableLanguageHandling" xml:space="preserve">
                 <source>Activate: If checked, automatic language handling will be enforced. It's recommended to use this feature in combination with the third-party extension 'realurl'.</source>
             </trans-unit>
+            <trans-unit id="extconf.label_PreservePreVars" xml:space="preserve">
+                <source>Preserve RealURL Language Segment: Avoids removal of the RealURL language segment if no foreign language is present.</source>
+            </trans-unit>
             <trans-unit id="extconf.label_SetPageTS" xml:space="preserve">
                 <source>Page TypoScript: Implements predefined backend page setup. This option increases backend usability.</source>
             </trans-unit>
