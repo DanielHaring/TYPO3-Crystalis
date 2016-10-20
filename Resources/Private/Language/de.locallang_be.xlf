@@ -87,6 +87,10 @@
                 <source>Activate: If checked, automatic language handling will be enforced. This feature requires extension static_info_tables to work properly. In addition it is recommended to use extension realurl as well.</source>
                 <target>Aktivieren: Wenn ausgewählt, wird die automatische Sprachenverwaltung durchgeführt. Für eine korrekte Funktionsweise wird die Erweiterung static_info_tables vorausgesetzt. Zusätzlich wird empfohlen die Erweiterung realurl zu nutzen.</target>
             </trans-unit>
+            <trans-unit id="extconf.label_PreservePreVars" xml:space="preserve">
+                <source>Preserve RealURL Language Segment: Avoids removal of the RealURL language segment if no foreign language is present.</source>
+                <target>RealURL Sprachen-Segment schützen: Verhindert bei ausstehender alternativen Sprachen das Entfernen des RealURL Sprachen-Segments.</target>
+            </trans-unit>
             <trans-unit id="extconf.label_SetPageTS" xml:space="preserve">
                 <source>Page TypoScript: Implements predefined backend page setup. This option increases backend usability.</source>
                 <target>Seiten TypoScript Konfiguration: Bindet das vorbereitete Backend Seiten-TypoScript ein. Diese Option erhöht die Benutzerfreundlichkeit im Backend.</target>
